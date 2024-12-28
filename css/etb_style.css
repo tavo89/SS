@@ -1,0 +1,66 @@
+@charset "utf-8";
+/* CSS Document */
+
+.eciStxt h2 {
+    position: relative;
+    float: left;
+    width: 64%;
+    font-family: andes_condensed_boldbold;
+    font-size: 320%;
+    line-height: 85px;
+    color: #fff !important;
+    text-align: right;
+    margin-top: 0px;
+    text-shadow: none;
+}
+
+.barras-adi ul li img {
+    position: relative;
+    width: 80%;
+    margin: 0 auto;
+}
+.eciStxt img {
+    float: left;
+    width: 40px !important;
+    top: 15%;
+    left: -5%;
+}
+.eciStxt h2 {
+    position: relative;
+    float: left;
+    width: 64%;
+    font-family: andes_condensed_boldbold;
+    font-size: 320%;
+    line-height: 85px;
+    color: #fff !important;
+    text-align: right;
+    margin-top: 0px;
+    text-shadow: none;
+}
+.eciStxt {
+    position: relative;
+    float: left;
+    width: 100%;
+    background: #0092bc;
+    border-radius: 15px 15px 0px 0px;
+    -moz-border-radius: 15px 15px 0px 0px;
+    -webkit-border-radius: 15px 15px 0px 0px;
+    height: 80px;
+}
+.eciSpeed {
+    position: relative;
+    float: left;
+    width: 100%;
+    cursor: pointer;
+}
+.ecainter, .ecatv, .ecatele {
+    position: relative;
+    float: left;
+    width: 100%;
+}
+.barras-adi ul {
+    position: relative;
+    float: left;
+    width: 90%;
+    margin: 0px 2% 0px 8%;
+}

@@ -1,0 +1,3 @@
+INSERT IGNORE INTO productos (id_pro,detalle,frac) SELECT ref,des,fraccion FROM art_fac_ven WHERE ref NOT IN (SELECT id_pro FROM productos2);
+
+INSERT IGNORE INTO inv_inter (id_pro, nit_scs,id_inter,costo,precio_v,fraccion,iva,fecha_vencimiento) SELECT ref,nit,cod_barras,costo,precio,fraccion,iva,fecha_vencimiento FROM art_fac_ven WHERE cod_barras NOT IN (SELECT id_inter FROM inv_inter2);

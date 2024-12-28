@@ -1,0 +1,811 @@
+@charset "utf-8";
+
+table input[type="text"], select,textarea
+{
+	
+	/*background-color: #F9F9F9;
+	-webkit-border-radius: 7px 7px 7px 7px;
+	-moz-border-radius: 7px 7px 7px 7px;
+	border-radius: 7px 7px 7px 7px;
+	margin: 7px 7px 7px 7px;
+	margin-bottom: inherit;
+	margin-top:!important;
+	margin:color: #F00;
+	
+	border: inset;
+	border-width:thin;
+	border-color:#000;
+	border-bottom-color:#000;
+	padding-left:5px;
+	width:120px;
+		width:100%;
+	*/
+
+}
+
+/*h1{color:#FFF;}*/
+.disabled{ position:absolute;
+top:0px;
+left:0px;
+width:100%;
+height:10000%;
+z-index:2;
+background-color: rgba(10,30,20,0.5);;
+border-bottom-style:dashed;
+}
+.loader{position: fixed;
+top:50%;
+right:50%;
+left:50%;
+vertical-align:middle;
+}
+
+.log_tab{
+	position:absolute;
+	top:300px;
+	left:300px;
+	z-index:999;
+	background-color:#06F;
+	color:#000;
+}
+
+.qtab_layer{ position: absolute;
+float:positioned;
+top:0px;
+left:0px;
+width:100%;
+height:1000000%;
+z-index:2;
+background-color:rgba(50,50,50,0.7);
+border-bottom-style:dashed;
+}
+
+.s_table{ z-index:3; 
+position:absolute;
+top:50px;
+left:100px;
+width:700px;
+background-color:#009; color: #000; font-size:12px;
+font-size:12px;
+}
+
+.s_table tr:first-child{ background-color:#006; color:#9F6; height:30px; font-size:14px;}
+.s_table tr:hover{ background-color:#03F; cursor:pointer;}
+
+.round_table_gray{
+	-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+	width:90%;
+	margin:auto;
+	color:#000;
+	border-style:inset;
+border-width:5px;
+	/*font-size:16px;*/
+	
+background: #e4e4e4;
+background: -moz-linear-gradient(top,  #e4e4e4 0%, #c4c4c4 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#e4e4e4), color-stop(100%,#c4c4c4));
+background: -webkit-linear-gradient(top,  #e4e4e4 0%,#c4c4c4 100%);
+background: -o-linear-gradient(top,  #e4e4e4 0%,#c4c4c4 100%);
+background: -ms-linear-gradient(top,  #e4e4e4 0%,#c4c4c4 100%);
+background: linear-gradient(to bottom,  #e4e4e4 0%,#c4c4c4 100%);
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e4e4e4', endColorstr='#c4c4c4',GradientType=0 );
+
+
+}
+.tema_remision{
+	-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+	width:90%;
+	margin:auto;
+	color:#000;
+	border-style:inset;
+border-width:5px;
+	/*font-size:16px;*/
+	
+background: rgb(249,252,247); /* Old browsers */
+background: -moz-linear-gradient(top,  rgba(249,252,247,1) 0%, rgba(245,249,240,1) 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,rgba(249,252,247,1)), color-stop(100%,rgba(245,249,240,1))); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  rgba(249,252,247,1) 0%,rgba(245,249,240,1) 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  rgba(249,252,247,1) 0%,rgba(245,249,240,1) 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  rgba(249,252,247,1) 0%,rgba(245,249,240,1) 100%); /* IE10+ */
+background: linear-gradient(to bottom,  rgba(249,252,247,1) 0%,rgba(245,249,240,1) 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f9fcf7', endColorstr='#f5f9f0',GradientType=0 ); /* IE6-9 */
+
+}
+.tema_traslados{
+	-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+	width:90%;
+	margin:auto;
+	color:#000;
+	/*font-size:16px;*/
+
+background: #b5bdc8; /* Old browsers */
+background: -moz-linear-gradient(top,  #b5bdc8 0%, #828c95 36%, #28343b 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b5bdc8), color-stop(36%,#828c95), color-stop(100%,#28343b)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #b5bdc8 0%,#828c95 36%,#28343b 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b5bdc8', endColorstr='#28343b',GradientType=0 ); /* IE6-9 */
+
+
+border-style:inset;
+border-width:5px;
+
+
+
+}
+.round_table_white{
+	-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+
+	width:90%;
+	/*width:800px;*/
+	margin:auto;
+	color:#000;
+background-color:#FFF;
+border-style:inset;
+border-width:3px;
+
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#c7c6c8+0,c7c6c8+100 */
+background: #c7c6c8; /* Old browsers */
+background: -moz-linear-gradient(top,  #c7c6c8 0%, #c7c6c8 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#c7c6c8), color-stop(100%,#c7c6c8)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #c7c6c8 0%,#c7c6c8 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #c7c6c8 0%,#c7c6c8 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #c7c6c8 0%,#c7c6c8 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #c7c6c8 0%,#c7c6c8 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#c7c6c8', endColorstr='#c7c6c8',GradientType=0 ); /* IE6-9 */
+
+
+
+}
+
+.round_table_red{
+	-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+	background-color:rgba(150,220,220,0.7);
+	width:90%;
+	margin:auto;
+	border-style:inset;
+border-width:5px;
+}
+.tabla_inv{}
+
+.tabla_inv tr:hover{ background-color:#03F; cursor:pointer; color:#FFF;}
+
+.tabla_inv tr:focus ~ .seleccionado {
+	color: red;
+	background-color:#009;
+}
+
+.seleccionado{ font-weight:bold;}
+.comprobantes_ingreso{
+		-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+	width:700px;
+	color:#000;
+	background-color: #D5DBE6;
+	font-size:16px;
+}
+
+.comp_egreso_header{
+	font-size:35px;
+font-family:"Arial Black",sans-serif;
+line-height:78px;
+text-align:center;
+-webkit-text-stroke-width:0px;
+}
+.imp_pos{
+	
+	top:0px;
+	width:100%; 
+	position: relative; 
+	 
+	 font-size:16px;
+
+	font-family: "Arial";
+	font-weight:bold;
+	
+	margin:0px;
+}
+
+.CSSTableGenerator {
+	margin:0px;padding:0px;
+	width:100%;
+	box-shadow: 10px 10px 5px #888888;
+	border:1px solid #3f7f00;
+	
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+	
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+	
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+	
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}.CSSTableGenerator table{
+    border-collapse: collapse;
+        border-spacing: 0;
+	width:100%;
+	height:100%;
+	margin:0px;padding:0px;
+}.CSSTableGenerator tr:last-child td:last-child {
+	-moz-border-radius-bottomright:0px;
+	-webkit-border-bottom-right-radius:0px;
+	border-bottom-right-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:first-child {
+	-moz-border-radius-topleft:0px;
+	-webkit-border-top-left-radius:0px;
+	border-top-left-radius:0px;
+}
+.CSSTableGenerator table tr:first-child td:last-child {
+	-moz-border-radius-topright:0px;
+	-webkit-border-top-right-radius:0px;
+	border-top-right-radius:0px;
+}.CSSTableGenerator tr:last-child td:first-child{
+	-moz-border-radius-bottomleft:0px;
+	-webkit-border-bottom-left-radius:0px;
+	border-bottom-left-radius:0px;
+}.CSSTableGenerator tr:hover td{
+	
+}
+.CSSTableGenerator tr:nth-child(odd){ background-color:#d4ffaa; }
+.CSSTableGenerator tr:nth-child(even)    { background-color:#ffffff; }.CSSTableGenerator td{
+	vertical-align:middle;
+	
+	
+	border:1px solid #3f7f00;
+	border-width:0px 1px 1px 0px;
+	text-align:left;
+	padding:1px;
+	font-size:10px;
+	font-family:Arial;
+	font-weight:normal;
+	color:#000000;
+}.CSSTableGenerator tr:last-child td{
+	border-width:0px 1px 0px 0px;
+}.CSSTableGenerator tr td:last-child{
+	border-width:0px 0px 1px 0px;
+}.CSSTableGenerator tr:last-child td:last-child{
+	border-width:0px 0px 0px 0px;
+}
+.CSSTableGenerator tr:first-child td{
+		background:-o-linear-gradient(bottom, #5fbf00 5%, #3f7f00 100%);	background:-webkit-gradient( linear, left top, left bottom, color-stop(0.05, #5fbf00), color-stop(1, #3f7f00) );
+	background:-moz-linear-gradient( center top, #5fbf00 5%, #3f7f00 100% );
+	filter:progid:DXImageTransform.Microsoft.gradient(startColorstr="#5fbf00", endColorstr="#3f7f00");	background: -o-linear-gradient(top,#5fbf00,3f7f00);
+
+	background-color:#5fbf00;
+	border:0px solid #3f7f00;
+	text-align:center;
+	border-width:0px 0px 1px 1px;
+	font-size:14px;
+	font-family:Arial;
+	font-weight:bold;
+	color:#ffffff;
+}
+.imp_COM{
+top:0px;
+font-size:12px;
+border-color:#000;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+padding:1px;
+	
+	
+	
+}
+.imp_COM_Inner{
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+padding:0px;
+margin:0px;
+font-size:14px;	
+	
+}
+.imp_planilla{
+top:0px;
+font-size:13px;
+border-color:#000;
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+padding:1px;
+	
+	
+	
+}
+.imp_planilla_inner{
+-webkit-border-radius:10px;
+-moz-border-radius:10px;
+border-radius:10px;
+padding:5px;
+margin:0px;
+	
+	
+}
+.tot_fac{
+font-size:24px;
+
+};
+
+.tot_fac_bsf{
+font-size:24px;
+color:rgb(255, 64, 0);
+font-weight:bold;
+font-style:italic;
+};
+.grid-containerB {
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+
+
+
+
+
+
+
+
+/* CLASES FAC COMPRA */
+.fc_ref{width:110px;top:10px}
+
+.fc_seriales{width:160px;top:10px}
+
+.fc_codBarras{width:110px;top:10px;background-color:rgba(70, 176, 134, 0.909804);}
+
+.fc_cant{width:60px; background-color:rgb(125, 134, 255); font-size:16px;}
+
+.fc_frac{width:55px;}
+
+.fc_uni{width:60px;}
+
+.fc_des{width:100px; height:80px;}
+
+.fc_color{width:80px;top:10px;}
+
+.fc_talla{width:40px;top:10px;}
+
+.fc_presentacion{width:80px;top:10px;}
+
+.fc_fab{width:80px;top:10px;}
+
+.fc_clase{width:50px;top:10px}
+
+.fc_aplica_vehi{width:120px;top:10px}
+
+.fc_fechaVen{width:150px; top:10px;}
+
+.fc_costo{width:110px;}
+
+.fc_dcto{width:50px;}
+
+.fc_uti{width:60px;}
+
+.fc_iva{width:55px; height:40px;}
+
+.fc_pvp{width:110px;}
+
+.fc_stot{width:110px;}
+
+
+
+.background_color_grey{ background-color:#666; color:#FFF;}
+.comp_ingre_var{
+	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#d5cea6+0,c9c190+40,b7ad70+100;Brown+3D */
+background: #d5cea6; /* Old browsers */
+background: -moz-linear-gradient(top,  #d5cea6 0%, #c9c190 40%, #b7ad70 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#d5cea6), color-stop(40%,#c9c190), color-stop(100%,#b7ad70)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #d5cea6 0%,#c9c190 40%,#b7ad70 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #d5cea6 0%,#c9c190 40%,#b7ad70 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #d5cea6 0%,#c9c190 40%,#b7ad70 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #d5cea6 0%,#c9c190 40%,#b7ad70 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#d5cea6', endColorstr='#b7ad70',GradientType=0 ); /* IE6-9 */
+
+
+}
+.fac_taller{
+	-webkit-border-radius: 10px 10px;
+	-moz-border-radius: 10px 10px;
+	border-radius: 10px 10px;
+
+	width:90%;
+	/*width:800px;*/
+	margin:auto;
+	color:#000;
+background-color:#FFF;
+border-style:inset;
+border-width:3px;	
+	
+/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#b8c6df+0,6d88b7+100;Grey+Blue+3D+%231 */
+background: #b8c6df; /* Old browsers */
+background: -moz-linear-gradient(top,  #b8c6df 0%, #6d88b7 100%); /* FF3.6+ */
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#b8c6df), color-stop(100%,#6d88b7)); /* Chrome,Safari4+ */
+background: -webkit-linear-gradient(top,  #b8c6df 0%,#6d88b7 100%); /* Chrome10+,Safari5.1+ */
+background: -o-linear-gradient(top,  #b8c6df 0%,#6d88b7 100%); /* Opera 11.10+ */
+background: -ms-linear-gradient(top,  #b8c6df 0%,#6d88b7 100%); /* IE10+ */
+background: linear-gradient(to bottom,  #b8c6df 0%,#6d88b7 100%); /* W3C */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#b8c6df', endColorstr='#6d88b7',GradientType=0 ); /* IE6-9 */
+
+}
+
+.notas{
+	
+width:300px;
+-webkit-border-radius:19px;
+-moz-border-radius:19px;
+border-radius:19px;
+border:6px solid rgb(201, 38, 38);
+	
+	
+	}
+.PAGO_PESOS{
+	font-size:18px;
+	font-weight:bold;
+	background-color: #6C6;
+	
+}
+.PAGO_PESOS2{
+	font-size:18px;
+	font-weight:bold;
+	background-color: #09F;
+	
+}
+.dark_bg{background-color:#222;
+}
+
+.controlBlue{font-size:18px;
+font-weight:bold;
+color:rgb(0, 68, 255);}
+
+.logo_comps{height:100px;
+width:250px;
+}
+
+.col_id_serv{ width:30px;}
+.col_cod_serv{ width:60px;}
+.col_serv{ width:150px;}
+.col_nota_serv{ width:30px;}
+.col_iva_serv{ width:30px;}
+.col_pvp_serv{ width:60px;}
+.col_sub_tot_serv{ width:60px;}
+
+
+.important_selec{
+font-size:20px;
+color:rgb(34, 0, 255);
+-webkit-text-stroke-width:0px;
+background-color:rgb(243, 255, 10);
+background-position-x:0%;}
+.destacar_cont{
+-webkit-text-stroke-width:1px;
+-webkit-text-fill-color:rgb(247, 199, 54);
+font-size:37px;
+	
+}
+
+
+
+
+
+.product-price {
+font-size: 14px;
+    font-weight: 600;
+    color: #ffffff;
+    background-color: #1ab394;
+    padding: 6px 12px;
+    position: absolute;
+    top: -32px;
+    right: 0;
+}
+
+.box_busq{border-width:4px;
+border-color:rgb(201, 0, 0);
+}
+/** Media queries for fac venta **/
+
+	/** general **/
+
+		/** clientes **/
+		#fac_venta_table > tbody > tr:nth-child(1) > td:nth-child(1) > table{
+			width: 100% !important;
+		}
+		/** productos **/
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div > table td{
+			text-align: center !important;
+		}
+		/** buscador **/
+
+		/** totales **/
+
+		#fac_venta_table > tbody > tr:nth-child(4) > td > table{
+			width: 100% !important;
+		}
+			
+		#fac_venta_table > tbody > tr:nth-child(4) > td > table th,td{
+			padding: 3px !important;
+		}
+	
+	/** altura de la caja de productos **/
+	@media only screen and (max-height : 599px) {
+
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div{
+			height: 150px !important;
+			max-height: 150px !important;
+		}
+	}
+
+	@media only screen and (min-height : 600px) and (max-height : 659px) {
+
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div{
+			height: 150px !important;
+			max-height: 150px !important;
+			height: calc(150px + (100vh - 620px)) !important;
+			max-height: calc(150px + (100vh - 620px)) !important;
+		}
+	}
+
+	@media only screen and (min-height : 660px) and (max-height : 744px) {
+
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div{
+			height: 190px !important;
+			max-height: 190px !important;
+			height: calc(190px + (100vh - 670px)) !important;
+			max-height: calc(190px + (100vh - 670px)) !important;
+		}
+	}
+
+	@media only screen and (min-height : 745px) and (max-height : 800px) {
+
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div{
+			height: 280px !important;
+			max-height: 280px !important;
+			height: calc(280px + (100vh - 750px)) !important;
+			max-height: calc(280px + (100vh - 750px)) !important;
+		}
+	}
+	
+	@media only screen and (min-height : 801px){
+
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div{
+			height: 300px !important;
+			max-height: 300px !important;
+			height: calc(300px + (100vh - 780px)) !important;
+			max-height: calc(300px + (100vh - 780px)) !important;
+		}
+	}
+	/*
+	@media only screen and (min-height : 901px) and (max-height : 1000px) {
+
+		#fac_venta_table > tbody > tr:nth-child(2) > td > div{
+			height: 380px !important;
+			max-height: 380px !important;
+		}
+	}*/
+
+	/** ancho del formulario **/
+	
+		/* Small Devices, Tablets */
+		@media only screen and (max-width : 952px) {
+			/** Cliente **/
+						
+			#tipo_factura_td > h3{
+				font-size: 16px !important;
+				margin-top: 11px !important;
+				margin-bottom: 0px !important;
+			}
+			
+			#resolucion_td > select{
+				margin-top: 8px !important;
+				margin-bottom: 0px !important;
+			}
+			
+			#consecutivo_td span{
+				font-size: 15px !important;
+			}
+			
+			#fp_container > i{
+				font-size: 32px !important;
+			}
+			
+			#usu_venta_td > i{
+				font-size: 32px !important;
+			}
+			/** Productos **/
+			
+			#fac_venta_table > tbody > tr:nth-child(2) > td > div > table td{
+				text-align: center !important;
+			}
+			
+			#fac_venta_table > tbody > tr:nth-child(2) > td > div > table td{
+				padding: 4px !important;
+			}
+			
+			#fac_venta_table > tbody > tr:nth-child(2) textarea{
+				width: 150px !important;
+			}
+			
+			#fac_venta_table > tbody > tr:nth-child(2) input[name^="cod_bar"]{
+				width: 90px !important;
+			}
+			/** buscador **/
+			#fac_venta_table > tbody > tr:nth-child(3) *{
+				
+			}
+			/** totales **/
+			
+			#fac_venta_table > tbody > tr:nth-child(4) > td > table th,td{
+				padding: 3px !important;
+			}
+			
+			#anticipo_bono_tr *{
+				font-size: 12px !important;
+			}
+			
+			#total_pagar_tr th{
+				font-size: 28px !important;
+			}
+			
+			#pago_pesos_tr *{
+				font-size: 22px !important;
+			}
+			
+			#pago_tarjetas_pesos_tr *{
+				font-size: 16px !important;
+			}
+		}
+
+		/* Medium Devices, Desktops */
+		@media only screen and (min-width : 953px) and (max-width : 1200px) {
+			/** Cliente **/
+			
+			#tipo_factura_td > h3{
+				font-size: 16px !important;
+				margin-top: 11px !important;
+				margin-bottom: 0px !important;
+			}
+			
+			#resolucion_td > select{
+				margin-top: 8px !important;
+				margin-bottom: 0px !important;
+			}
+			
+			#consecutivo_td span{
+				font-size: 15px !important;
+			}
+			
+			#fp_container > i{
+				font-size: 32px !important;
+			}
+			
+			#usu_venta_td > i{
+				font-size: 32px !important;
+			}
+			/** Productos **/
+			
+			#fac_venta_table > tbody > tr:nth-child(2) > td > div > table td{
+				text-align: center !important;
+			}
+			
+			#fac_venta_table > tbody > tr:nth-child(2) > td > div > table td{
+				padding: 4px !important;
+			}
+			
+			#fac_venta_table > tbody > tr:nth-child(2) textarea{
+				width: 150px !important;
+			}
+			
+			#fac_venta_table > tbody > tr:nth-child(2) input[name^="cod_bar"]{
+				width: 90px !important;
+			}
+			/** buscador **/
+			#fac_venta_table > tbody > tr:nth-child(3) *{
+				
+			}
+			/** totales **/
+			
+			#fac_venta_table > tbody > tr:nth-child(4) > td > table th,td{
+				padding: 3px !important;
+			}
+			
+			#anticipo_bono_tr *{
+				font-size: 12px !important;
+			}
+			
+			#total_pagar_tr th{
+				font-size: 28px !important;
+			}
+			
+			#pago_pesos_tr *{
+				font-size: 22px !important;
+			}
+			
+			#pago_tarjetas_pesos_tr *{
+				font-size: 18px !important;
+			}
+		}
+
+		/* Large Devices, Wide Screens */
+		@media only screen and (min-width : 1201px) {
+			/** Cliente **/
+			
+			#fac_venta_table > tbody > tr:nth-child(1) *{
+				
+			}
+			/** Productos **/
+			#fac_venta_table > tbody > tr:nth-child(2) *{
+				
+			}
+			
+			/** buscador **/
+			#fac_venta_table > tbody > tr:nth-child(3) *{
+				
+			}
+			/** totales **/
+			#fac_venta_table > tbody > tr:nth-child(4) *{
+				
+			}
+			
+		}
+
+
+
+/**        fac_venta campos numericos                    **/
+
+
+
+/* Small devices (landscape phones, 576px and up)*/
+@media (max-width: 576px) { 
+.facVeNumeric{ font-size:16px !important; width:200px !important; }
+.facVeNumericTots{ font-size:32px !important; width:200px !important; font-weight: bold !important; height:30px !important;}
+
+ 
+}
+
+/* Medium devices (tablets, 768px and up)*/
+@media (max-width: 768px) {
+.facVeNumeric{ font-size:16px !important; width:200px !important; }
+.facVeNumericTots{ font-size:32px !important; width:200px !important; font-weight: bold !important; height:30px !important;}
+
+ }
+ 
+ @media (max-width: 992px) {
+
+.facVeNumeric{ font-size:16px !important; width:200px !important; }
+.facVeNumericTots{ font-size:36px !important; width:200px !important; font-weight: bold !important; height:30px !important;}
+
+ }
+
+/*Extra large devices (large desktops, 1200px and up)*/
+@media (min-width: 1200px) {
+
+.facVeNumeric{ font-size:16px !important; width:200px !important; }
+.facVeNumericTots{ font-size:36px !important; width:200px !important; font-weight: bold !important; height:30px !important;}
+
+
+ }
+
+

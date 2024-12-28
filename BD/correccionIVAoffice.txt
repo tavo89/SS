@@ -1,0 +1,68 @@
+-- DEPURACION DIEGO REP.
+UPDATE art_fac_ven INNER JOIN  fac_venta 
+ON fac_venta.num_fac_ven=art_fac_ven.num_fac_ven AND fac_venta.prefijo=art_fac_ven.prefijo 
+AND fac_venta.nit=art_fac_ven.nit AND art_fac_ven.nit=1 AND (DATE(fecha)>='2017-09-01' AND DATE(fecha)<='2017-12-31' ) AND ( anulado!='ANULADO' ) AND ( id_cli = '000 000 000' or id_cli = '222222222'  ) AND tipo_venta!='Credito'
+
+SET precio=ROUND(precio*0.710,-2), art_fac_ven.sub_tot=ROUND(art_fac_ven.sub_tot*0.710,-2), costo=ROUND(costo*0.710,-2);
+
+
+-- RESTORE BD --
+UPDATE art_fac_ven a INNER JOIN  
+(SELECT art_fac_ven2.ref,art_fac_ven2.cod_barras, art_fac_ven2.precio,art_fac_ven2.sub_tot,art_fac_ven2.nit,art_fac_ven2.prefijo,art_fac_ven2.num_fac_ven,art_fac_ven2.costo  FROM art_fac_ven2 INNER JOIN fac_venta 
+ON fac_venta.num_fac_ven=art_fac_ven2.num_fac_ven AND fac_venta.prefijo=art_fac_ven2.prefijo 
+AND fac_venta.nit=art_fac_ven2.nit AND art_fac_ven2.nit=1  
+ AND ( anulado!='ANULADO' )  
+) b
+ 
+ON a.ref=b.ref AND a.cod_barras=b.cod_barras AND a.num_fac_ven=b.num_fac_ven AND a.prefijo=b.prefijo AND a.nit=b.nit AND a.nit=1
+
+SET a.precio=b.precio, a.sub_tot=b.sub_tot, a.costo=b.costo;
+
+
+
+
+
+
+
+--
+UPDATE art_fac_ven a INNER JOIN  art_fac_ven2 b
+ON a.ref=b.ref AND a.cod_barras=b.cod_barras AND a.num_fac_ven=b.num_fac_ven AND a.prefijo=b.prefijo AND a.nit=b.nit AND a.nit=1 AND (b.serial_fac>=19945 AND b.serial_fac<=24058)
+SET a.precio=b.precio, a.sub_tot=b.sub_tot, a.costo=b.costo;
+
+
+-- RESTORE BD --
+UPDATE art_fac_ven a INNER JOIN  
+(SELECT art_fac_ven2.ref,art_fac_ven2.cod_barras, art_fac_ven2.precio,art_fac_ven2.sub_tot,art_fac_ven2.nit,art_fac_ven2.prefijo,art_fac_ven2.num_fac_ven,art_fac_ven2.costo  FROM art_fac_ven2 INNER JOIN fac_venta 
+ON fac_venta.num_fac_ven=art_fac_ven2.num_fac_ven AND fac_venta.prefijo=art_fac_ven2.prefijo 
+AND fac_venta.nit=art_fac_ven2.nit AND art_fac_ven2.nit=1 AND (DATE(fecha)>='2017-01-01' AND DATE(fecha)<='2017-12-31' )
+ AND ( anulado!='ANULADO' )  
+) b
+ 
+ON a.ref=b.ref AND a.cod_barras=b.cod_barras AND a.num_fac_ven=b.num_fac_ven AND a.prefijo=b.prefijo AND a.nit=b.nit AND a.nit=1
+
+SET a.precio=b.precio, a.sub_tot=b.sub_tot, a.costo=b.costo;
+
+
+
+
+
+-- DEPURACION IVA OFFICE --
+
+UPDATE art_fac_ven INNER JOIN  fac_venta 
+ON fac_venta.num_fac_ven=art_fac_ven.num_fac_ven AND fac_venta.prefijo=art_fac_ven.prefijo 
+AND fac_venta.nit=art_fac_ven.nit AND art_fac_ven.nit=1 AND (DATE(fecha)>='2016-01-01' AND DATE(fecha)<='2016-12-31' ) AND ( anulado!='ANULADO' ) AND ( id_cli = '000 000 000' or id_cli = '222222222'  ) AND tipo_venta!='Credito'
+
+SET precio=ROUND(precio*0.589,-2), art_fac_ven.sub_tot=ROUND(art_fac_ven.sub_tot*0.589,-2), costo=ROUND(costo*0.589,-2);
+
+-- ARMANDO VENTAS
+UPDATE art_fac_ven INNER JOIN  fac_venta 
+ON fac_venta.num_fac_ven=art_fac_ven.num_fac_ven AND fac_venta.prefijo=art_fac_ven.prefijo 
+AND fac_venta.nit=art_fac_ven.nit AND art_fac_ven.nit=1 AND (DATE(fecha)>='2016-01-01' AND DATE(fecha)<='2016-12-31' ) AND ( anulado!='ANULADO' ) AND ( id_cli = '17596603')  
+
+SET precio=ROUND(precio/5,-2), art_fac_ven.sub_tot=ROUND(art_fac_ven.sub_tot/5,-2), costo=ROUND(costo/5,-2);
+
+ 
+ 
+ 
+UPDATE  `art_fac_ven` SET  `sub_tot` =  '2235.00',precio=  '2235.00' WHERE  `art_fac_ven`.`num_fac_ven` =16780 AND  `art_fac_ven`.`ref` = '1683' AND  `art_fac_ven`.`nit` =1 AND  `art_fac_ven`.`prefijo` =  '--OF' 
+AND  `art_fac_ven`.`cod_barras` =  '7777158019' AND `art_fac_ven`.`fecha_vencimiento` =  '0000-00-00';

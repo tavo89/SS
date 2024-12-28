@@ -1,0 +1,4 @@
+-- productos eliminados que aun estan en ventas
+SELECT * FROM art_fac_ven a INNER JOIN fac_venta b ON a.num_fac_ven=b.num_fac_ven AND a.prefijo=b.prefijo AND a.nit=b.nit WHERE b.fecha>='2018-05-18' AND ref NOT IN (select id_pro from inv_inter);
+
+

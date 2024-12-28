@@ -1,0 +1,28 @@
+
+
+
+
+
+DROP INDEX placa ON vehiculo;
+update `vehiculo` set placa=replace(placa,'-','') WHERE 1;
+update `vehiculo` set placa=replace(placa,' ','') WHERE 1;
+
+update `fac_remi` set placa=replace(placa,'-','') WHERE 1;
+update `fac_remi` set placa=replace(placa,' ','') WHERE 1;
+
+update `fac_venta` set placa=replace(placa,'-','') WHERE 1;
+update `fac_venta` set placa=replace(placa,' ','') WHERE 1;
+
+
+DELETE FROM vehiculo
+ WHERE id_vehiculo NOT IN (SELECT * 
+                    FROM (SELECT MAX(n.id_vehiculo)
+                            FROM vehiculo n
+                        GROUP BY n.placa) x);
+						
+ALTER TABLE  `vehiculo` ADD UNIQUE (`placa`);
+ALTER TABLE  `vehiculo` CHANGE  `placa`  `placa` VARCHAR( 10 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT  'Placa';
+ALTER TABLE  `vehiculo` CHANGE  `id_propietario`  `id_propietario` VARCHAR( 30 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL COMMENT  'C.C Propietario';
+
+UPDATE vehiculo a INNER JOIN (SELECT placa,MAX(km) km FROM fac_remi WHERE placa!='' AND km<1000000 GROUP BY placa) b ON a.placa=b.placa
+SET a.km=b.km;

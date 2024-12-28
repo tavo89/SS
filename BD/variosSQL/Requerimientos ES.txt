@@ -1,0 +1,14 @@
+COMP INGRESO 1 x All
+
+-escoger fac. mas antiguas
+-asignar abono a estas fac.
+-saber saldo de c/u fac. afectadas
+
+SOLUTION:
+
+tabla: mult_pago_cartera
+PK -> num_comp,id_cli
+saldo
+num_fac
+pre
+cod_su

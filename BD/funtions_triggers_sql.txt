@@ -1,0 +1,220 @@
+
+delimiter //
+CREATE FUNCTION STRIP_NON_DIGIT(input VARCHAR(255))
+   RETURNS VARCHAR(255)
+BEGIN
+   DECLARE output   VARCHAR(255) DEFAULT '';
+   DECLARE iterator INT          DEFAULT 1;
+   WHILE iterator < (LENGTH(input) + 1) DO
+      IF SUBSTRING(input, iterator, 1) IN (',', '0', '1', '2', '3', '4', '5', '6', '7', '8', '9' ) THEN
+         SET output = CONCAT(output, SUBSTRING(input, iterator, 1));
+      END IF;
+      SET iterator = iterator + 1;
+   END WHILE;   
+   RETURN output;
+END//
+delimiter ;
+
+
+
+
+
+
+
+delimiter //
+
+CREATE FUNCTION levenshtein_ratio( s1 VARCHAR(255), s2 VARCHAR(255) ) 
+  RETURNS INT 
+  DETERMINISTIC 
+  BEGIN 
+    DECLARE s1_len, s2_len, max_len INT; 
+    SET s1_len = LENGTH(s1), s2_len = LENGTH(s2); 
+    IF s1_len > s2_len THEN  
+      SET max_len = s1_len;  
+    ELSE  
+      SET max_len = s2_len;  
+    END IF; 
+    RETURN ROUND((1 - LEVENSHTEIN(s1, s2) / max_len) * 100); 
+  END//
+
+delimiter ;
+
+delimiter //
+
+CREATE FUNCTION levenshtein( s1 VARCHAR(255), s2 VARCHAR(255) ) 
+  RETURNS INT 
+  DETERMINISTIC 
+  BEGIN 
+    DECLARE s1_len, s2_len, i, j, c, c_temp, cost INT; 
+    DECLARE s1_char CHAR; 
+    -- max strlen=255 
+    DECLARE cv0, cv1 VARBINARY(256); 
+    SET s1_len = CHAR_LENGTH(s1), s2_len = CHAR_LENGTH(s2), cv1 = 0x00, j = 1, i = 1, c = 0; 
+    IF s1 = s2 THEN 
+      RETURN 0; 
+    ELSEIF s1_len = 0 THEN 
+      RETURN s2_len; 
+    ELSEIF s2_len = 0 THEN 
+      RETURN s1_len; 
+    ELSE 
+      WHILE j <= s2_len DO 
+        SET cv1 = CONCAT(cv1, UNHEX(HEX(j))), j = j + 1; 
+      END WHILE; 
+      WHILE i <= s1_len DO 
+        SET s1_char = SUBSTRING(s1, i, 1), c = i, cv0 = UNHEX(HEX(i)), j = 1; 
+        WHILE j <= s2_len DO 
+          SET c = c + 1; 
+          IF s1_char = SUBSTRING(s2, j, 1) THEN  
+            SET cost = 0; ELSE SET cost = 1; 
+          END IF; 
+          SET c_temp = CONV(HEX(SUBSTRING(cv1, j, 1)), 16, 10) + cost; 
+          IF c > c_temp THEN SET c = c_temp; END IF; 
+            SET c_temp = CONV(HEX(SUBSTRING(cv1, j+1, 1)), 16, 10) + 1; 
+            IF c > c_temp THEN  
+              SET c = c_temp;  
+            END IF; 
+            SET cv0 = CONCAT(cv0, UNHEX(HEX(c))), j = j + 1; 
+        END WHILE; 
+        SET cv1 = cv0, i = i + 1; 
+      END WHILE; 
+    END IF; 
+    RETURN c; 
+  END// 
+
+delimiter ;
+
+
+
+
+DROP TRIGGER IF EXISTS `update_exist`;
+delimiter //
+CREATE TRIGGER `update_exist` BEFORE UPDATE ON `inv_inter`
+ FOR EACH ROW BEGIN
+DECLARE tipo_util VARCHAR(50);
+SELECT val INTO tipo_util FROM x_config WHERE id_config=1;
+
+
+IF OLD.fraccion !=0 THEN
+WHILE NEW.unidades_frac >= OLD.fraccion DO
+
+IF NEW.unidades_frac>=OLD.fraccion THEN
+SET NEW.unidades_frac=NEW.unidades_frac - OLD.fraccion, NEW.exist=NEW.exist+1;
+END IF;
+
+END WHILE;
+
+
+
+WHILE NEW.unidades_frac < 0 DO
+
+IF NEW.unidades_frac < 0 THEN
+SET NEW.unidades_frac=NEW.unidades_frac+OLD.fraccion, NEW.exist=NEW.exist-1;
+END IF;
+
+END WHILE;
+
+END IF;
+
+END//
+
+delimiter ;
+
+
+
+
+--
+-- Disparadores `ajuste_cajas`
+--
+DROP TRIGGER IF EXISTS `diff_caja`;
+DELIMITER //
+CREATE TRIGGER `diff_caja` BEFORE UPDATE ON `ajuste_cajas`
+ FOR EACH ROW IF NEW.valor_entrega=0 THEN
+SET NEW.valor_diferencia=NEW.valor_base-OLD.valor_entrega;
+
+ELSE
+SET NEW.valor_diferencia=NEW.valor_base-NEW.valor_entrega;
+END IF
+//
+DELIMITER ;
+
+
+DROP TRIGGER IF EXISTS `set_corte_saldo`;
+DELIMITER //
+CREATE TRIGGER `set_corte_saldo` AFTER INSERT ON `cuentas_dinero`
+ FOR EACH ROW INSERT INTO cuentas_mvtos(id_cuenta,tipo_mov,concepto_mov,clase_mov,monto,fecha_mov) VALUES(NEW.id_cuenta,'SALDO INICIO/CORTE','Saldo Inicial de Cuenta','Saldo Corte',NEW.saldo_cta,NEW.fechaI_extractos)
+//
+DELIMITER ;
+
+
+
+DROP TRIGGER IF EXISTS `AUTO_BAN_CARTERA`;
+CREATE DEFINER=`root`@`127.0.0.1` TRIGGER `AUTO_BAN_CARTERA` BEFORE INSERT ON `fac_venta` FOR EACH ROW UPDATE usuarios a INNER JOIN (SELECT num_fac_ven,prefijo,nom_cli,id_cli,fecha,tot,DATEDIFF(CURRENT_DATE(),DATE(fecha) ) AS mora,DATEDIFF(DATE(fecha_pago),DATE(fecha) ) AS mora2 FROM fac_venta WHERE  anulado!='ANULADO' AND tipo_venta='Credito' AND estado!='PAGADO' AND DATEDIFF(CURRENT_DATE(),DATE(fecha) )>40 AND fecha_pago='0000-00-00 00:00:00' GROUP BY id_cli) b ON a.id_usu=b.id_cli SET a.auth_credito=0;
+
+
+
+DROP PROCEDURE IF EXISTS FillCalendar;
+DROP TABLE IF EXISTS calendar;
+CREATE TABLE IF NOT EXISTS calendar(calendar_date DATE NOT NULL PRIMARY KEY);
+
+DELIMITER $$
+    CREATE PROCEDURE FillCalendar(start_date DATE, end_date DATE)
+    BEGIN
+    DECLARE crt_date DATE;
+    SET crt_date = start_date;
+    WHILE crt_date <= end_date DO
+        INSERT IGNORE INTO calendar VALUES(crt_date);
+        SET crt_date = ADDDATE(crt_date, INTERVAL 1 DAY);
+    END WHILE;
+    END$$
+DELIMITER ;
+
+CALL FillCalendar('2017-01-31', '2020-12-31');
+
+INSERT IGNORE INTO `seriales_arqueos`(fechaI,fechaF) SELECT calendar_date as f1, calendar_date as f2 FROM  `calendar` ORDER BY  `calendar`.`calendar_date` ASC;
+
+
+
+DROP TRIGGER IF EXISTS `update_exp`;
+DELIMITER //
+CREATE TRIGGER `update_exp` BEFORE UPDATE ON `exp_anticipo`
+ FOR EACH ROW BEGIN
+
+IF NEW.tot<0 THEN
+SET NEW.tot=0;
+
+
+
+END IF;
+END
+//
+DELIMITER ;
+
+
+
+
+
+
+
+
+
+
+DROP TRIGGER IF EXISTS `removedots`;
+delimiter |
+CREATE TRIGGER `removedots` BEFORE INSERT ON usuarios
+FOR EACH ROW BEGIN
+   SET NEW.id_usu = REPLACE(REPLACE(NEW.id_usu ,',00',''),'.','');
+   SET NEW.id_usu = REPLACE(REPLACE(NEW.id_usu ,',00',''),',','');
+END
+| 
+delimiter ;
+
+
+DROP TRIGGER IF EXISTS `removedotsupdate`;
+delimiter |
+CREATE TRIGGER `removedotsupdate`BEFORE UPDATE ON usuarios
+FOR EACH ROW BEGIN
+   SET NEW.id_usu = REPLACE(REPLACE(NEW.id_usu,',00',''),'.','');
+   SET NEW.id_usu = REPLACE(REPLACE(NEW.id_usu,',00',''),',','');
+END
+| 
+delimiter ;

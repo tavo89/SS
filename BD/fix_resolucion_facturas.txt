@@ -1,0 +1,18 @@
+
+
+-- Cambia Resol.
+
+UPDATE fac_venta SET 
+fecha_resol='2023-05-31', 
+rango_resol='(369 - 10000)', 
+resolucion='18764049765310' 
+WHERE num_fac_ven>=369 AND prefijo = 'JDFE' AND resolucion='18764040079238';
+
+
+
+-- Cambia Fecha.
+
+UPDATE fac_venta SET 
+fecha=concat('2023-06-20 ', time(fecha)),
+fecha_resol='2023-05-31'
+WHERE num_fac_ven>=369 AND prefijo = 'JDFE' AND resolucion='18764049765310';

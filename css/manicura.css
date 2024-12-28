@@ -1,0 +1,291 @@
+/** Estilos generales para el layout **/
+
+::-webkit-scrollbar {
+    width: 6px;
+}
+ 
+/* Track */
+::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+    -webkit-border-radius: 10px;
+    border-radius: 2px;
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    -webkit-border-radius: 10px;
+    border-radius: 2px;
+    
+    background: #d40055; /* For browsers that do not support gradients */
+    background: -webkit-linear-gradient(to bottom,#ff2a7f, #333); /* For Safari 5.1 to 6.0 */
+    background: -o-linear-gradient(to bottom,#ff2a7f, #333); /* For Opera 11.1 to 12.0 */
+    background: -moz-linear-gradient(to bottom,#ff2a7f, #333); /* For Firefox 3.6 to 15 */
+    background: linear-gradient(to bottom,#666, #333); /* Standard syntax */
+    
+    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+	background: rgba(0,0,0,0.4); 
+}
+
+.toastr-show-on-left{
+    left: 50px;
+    top: 50px;
+}
+
+.uk-tab a{
+    background: #DDD;
+}
+
+.contenedor-manicura{
+    height: 100%;
+    min-height: 300px;
+    border-radius: 0px 0px 5px 5px;
+    background: #FFF;
+    overflow: auto;
+    padding: 15px;
+    text-align: center;
+}
+
+.input-container{
+    width: 200px;
+    display: inline-block;
+}
+
+.input-container label{
+    display: block;
+}
+
+.input-container input,.input-container textarea{
+    width: 100%;
+}
+
+.input-container textarea{
+    resize: none;
+    max-height: 150px;
+}
+
+.checkbox-container{
+    display: inline-block;
+    padding: 2px 10px;
+}
+
+.checkbox-container label{
+    display: block;
+}
+
+.remove-cita{
+    display: inline-block;
+}
+
+/** Estilos especificos para ajustar la posicion de elementos y responsive behaviour **/
+
+/** Estilos separados por bloques de inputs **/
+
+/** inicio del primer tab **/
+    /** bloque 1 **/
+
+        #block_datos_cliente{
+            border-bottom: 1px #000 solid;
+            padding: 30px;
+        }
+        
+        #block_datos_cliente p{
+            font-size: 18px;
+        }
+        
+        #nombres,#direccion,#ciudad_cli{
+            text-transform: uppercase;
+        }
+
+    /** bloque 2 **/
+
+        #block_estado_primera_visita{
+            border-bottom: 1px #000 solid;
+            padding: 10px 5px 20px 5px;
+            margin-top: 15px;
+        }
+            
+            #block_estado_primera_visita span{
+                display: block;
+                font-size: 15px;
+                margin-bottom: 10px;
+            }
+            
+            #block_estado_primera_visita input{
+                text-transform: uppercase;
+            }
+        
+            #block_estado_primera_visita > span:nth-child(1){
+                /*color: #1fc8db;*/
+                font-size: 18px;
+                margin-bottom: 10px;
+            }
+
+            #block_estado_primera_visita > div:nth-child(2),#block_estado_primera_visita > div:nth-child(3){
+                border: 0.2px solid #ccc;
+                border-radius: 5px;
+                padding: 30px;
+                padding-top: 5px;
+            }
+            
+            #block_estado_primera_visita > div:nth-child(2){
+                margin-bottom: 3px;
+            }
+
+            #block_estado_primera_visita > div:nth-child(3){
+                margin-bottom: 10px;
+            }
+            
+
+    /** bloque 3 **/
+
+        #block_tratamiento{
+            border-bottom: 1px #000 solid;
+            padding: 30px;
+        }
+        
+            #block_tratamiento > div{
+                min-width: 400px;
+                width: 60%;
+                max-width: 800px;
+            }
+            
+            #block_tratamiento textarea{
+                height: 100px;
+            }
+
+    /** bloque 4 **/
+
+        #block_cuidados{
+            padding: 30px;
+        }
+        
+            #block_cuidados > div{
+                display: inline-block;
+                min-width: 250px;
+                width: 45%;
+                max-width: 600px;
+            }
+            
+            #block_cuidados textarea{
+                height: 100px;
+            }
+        
+
+    /** fin del primer tab **/
+
+/** inicio del tercer tab **/
+    #citas-container{
+        width: 800px;
+        border: 3px #222 solid;
+        margin: auto;
+        padding: 10px;
+        overflow: auto; 
+        min-height: 200px;
+    }
+    
+    #add_cita_btn{
+        padding: 2px 6px;
+        position: absolute;
+            right: 92px;
+            top: 145px;
+    }
+    
+        /** Elementos generados dinamicamente en la lista de citas **/
+            div[class^="citas_row_"]{
+
+            }
+            
+                .citas-input-container{
+                    display: inline-block;
+                    margin: 0px 3px;
+                }
+
+                .citas-input-container label{
+                    display: block;
+                }
+                
+                .citas-input-container input,.citas-input-container textarea{
+                    width: 100%;
+                }
+                
+            .fecha_cita_container{
+                width: 200px;
+            }
+            
+            .motivo_cita_container{
+                width: 220px;
+                position: relative;
+                    top: -4px;
+            }
+            
+                .motivo_cita_container textarea{
+                    height: 30px;
+                    resize: none;
+                }
+            
+            .remove-cita img{
+                height: 30px;
+                width: 30px;
+            }
+    
+    #procedimiento_container{
+        width: 780px;
+    }
+/** fin del tercer tab **/
+    
+    
+    
+    
+#num_ficha_container{
+    display: inline-block;
+    padding: 1px 1px 6px 1px;
+    border-radius: 3px;
+}
+
+#num_ficha_large{
+    font-size: 36px;
+    color: #d2322d;
+    position: relative;
+        top: 5px;
+}
+
+#numero_factura_container{
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#464646+0,3c4044+36,5e5e5e+100 */
+    background: #464646; /* Old browsers */
+    background: -moz-linear-gradient(-45deg, #464646 0%, #3c4044 36%, #5e5e5e 100%); /* FF3.6-15 */
+    background: -webkit-linear-gradient(-45deg, #464646 0%,#3c4044 36%,#5e5e5e 100%); /* Chrome10-25,Safari5.1-6 */
+    background: linear-gradient(135deg, #464646 0%,#3c4044 36%,#5e5e5e 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+   
+    /*border: 1px solid #FFF;*/
+    border-radius: 5px 5px 5px 5px;
+    padding: 6px 6px 10px 6px;
+    margin-top: 2px;
+    position: relative;
+        bottom: 0px;
+    text-align: center;
+}
+
+#numero_factura_container > div{
+    width: 260px;
+}
+
+#numero_factura_container label{
+    color: #FFF;
+    font-size: 18px;
+    margin-bottom: 4px;
+}
+
+
+/** Editar Ficha de Manicura **/
+
+.mark_for_removal input,.mark_for_removal textarea{
+    border-color: #d2322d !important;
+    color: #d2322d !important;
+}
+
+.new_cita input,.new_cita textarea{
+    border-color: #0C3 !important;
+    color: #0C3 !important;
+}

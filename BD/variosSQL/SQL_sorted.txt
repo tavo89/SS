@@ -1,0 +1,309 @@
+////////////////////////////// SUCURSAL ///////////////////////////////////
+ALTER TABLE  `sucursal` ADD  `resol_papel` VARCHAR( 20 ) NOT NULL AFTER  `rango_credito` ,
+ADD  `fecha_resol_papel` DATE NOT NULL AFTER  `resol_papel` ,
+ADD  `rango_papel` VARCHAR( 30 ) NOT NULL AFTER  `fecha_resol_papel`;
+ALTER TABLE  `sucursal` ADD  `precio_bsf` DECIMAL( 10, 6 ) NOT NULL;
+ALTER TABLE  `sucursal` ADD  `resol_credito_ant` VARCHAR( 30 ) NOT NULL ,
+ADD  `fecha_resol_credito_ant` DATE NOT NULL ,
+ADD  `rango_credito_ant` VARCHAR( 30 ) NOT NULL;
+
+UPDATE  `sucursal` SET  `resol_credito_ant` =  'CRE',
+`fecha_resol_credito_ant` =  '2015-01-01',
+`rango_credito_ant` =  '(1 - 10000)' WHERE  `sucursal`.`cod_su` =1;
+ALTER TABLE  `sucursal` ADD  `cod_credito_ant` VARCHAR( 5 ) NOT NULL;
+
+UPDATE `sucursal` SET  `resol_credito_ant` =  '000000000000',
+`cod_credito_ant` =  'CRE' WHERE  `sucursal`.`cod_su` =1;
+
+ALTER TABLE  `sucursal` ADD  `cod_remi_pos` VARCHAR( 5 ) NOT NULL DEFAULT  'REMI',
+ADD  `resol_remi_pos` VARCHAR( 30 ) NOT NULL DEFAULT  '1000100',
+ADD  `fecha_remi_pos` DATE NOT NULL ,
+ADD  `rango_remi_pos` VARCHAR( 30 ) NOT NULL DEFAULT  '(1 - 100000)',
+ADD  `cod_remi_com` VARCHAR( 5 ) NOT NULL DEFAULT  'RCOM',
+ADD  `resol_remi_com` VARCHAR( 30 ) NOT NULL DEFAULT  '1000200',
+ADD  `fecha_remi_com` DATE NOT NULL ,
+ADD  `rango_remi_com` VARCHAR( 30 ) NOT NULL DEFAULT  '(1 - 100000)';
+ALTER TABLE  `sucursal` ADD  `licencia_key` VARCHAR(40) NOT NULL;
+ALTER TABLE  `sucursal` ADD  `id_responsable` VARCHAR( 30 ) NOT NULL ,
+ADD  `placa_vehiculo` VARCHAR( 10 ) NOT NULL;
+UPDATE  `sucursal` SET  `resol_credito_ant` =  '11001000' WHERE  `sucursal`.`cod_su` =1;
+
+////////////////////////////// SECCIONES //////////////////////////////////
+INSERT INTO  `secciones` (
+`id_secc` ,
+`des_secc`
+)
+VALUES (
+'',  'Arqueos e Informes'
+);
+
+
+UPDATE  `secciones` SET  `id_secc` =  'arqueos_informes' WHERE  `secciones`.`id_secc` =  '';
+INSERT INTO `secciones` (`id_secc`, `des_secc`) VALUES ('descuento_fac', 'Descuentos en Facturacion');
+
+INSERT INTO  `secciones` (
+`id_secc` ,
+`des_secc`
+)
+VALUES (
+'crea_recibo_caja',  'Crear Recibos Caja (Cartera)'
+);
+INSERT INTO `secciones` (
+`id_secc` ,
+`des_secc`
+)
+VALUES (
+'crear_anticipo',  'Crear Anticipos/Abonos'
+);
+INSERT INTO `secciones` (`id_secc`, `des_secc`) VALUES ('anula_comp_egreso', 'Anular Comprobante de Egreso'), ('fac_com_anula', 'Anular Factura de Compra');
+
+INSERT INTO `secciones` (`id_secc`, `des_secc`) VALUES ('dcto_per', 'Descuento Fac. Venta (porcentaje)');
+ALTER TABLE  `secciones` ADD  `modulo` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `secciones` ADD  `habilita` INT NOT NULL DEFAULT  '1';
+
+
+////////////////////////////// FAC COM ////////////////////////////////////
+ALTER TABLE  `fac_com` CHANGE  `fecha_mod`  `fecha_mod` TIMESTAMP ON UPDATE CURRENT_TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP;
+ALTER TABLE  `art_fac_com` ADD  `fabricante` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_fac_com` ADD  `clase` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_fac_com` ADD  `presentacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_fac_com` ADD  `fecha_vencimiento` DATE NOT NULL;
+ALTER TABLE  `fac_com` ADD  `pago` VARCHAR( 20 ) NOT NULL DEFAULT  'PENDIENTE',
+ADD  `fecha_pago` DATE NOT NULL DEFAULT  '0000-00-00';
+ALTER TABLE  `fac_com` ADD  `id_banco` INT NOT NULL ,
+ADD  `id_cuenta` INT NOT NULL ,
+ADD  `kardex` INT NOT NULL DEFAULT  '1';
+ALTER TABLE  `fac_com` ADD INDEX (  `kardex` );
+ALTER TABLE  `fac_com` ADD  `r_fte` DECIMAL( 10 ) NOT NULL ,
+ADD  `r_ica` DECIMAL( 10, 2 ) NOT NULL ,
+ADD  `r_iva` DECIMAL( 10, 2 ) NOT NULL;
+ALTER TABLE  `fac_com` ADD  `feVen` DATE NOT NULL ;
+ALTER TABLE  `fac_com` CHANGE  `r_fte`  `r_fte` DECIMAL( 10, 2 ) NOT NULL;
+ALTER TABLE  `fac_com` ADD  `sede_origen` INT NOT NULL DEFAULT  '1',
+ADD  `sede_destino` INT NOT NULL;
+ALTER TABLE  `fac_com` ADD  `serial_tras` BIGINT(20) NOT NULL;
+ALTER TABLE  `fac_com` ADD  `calc_dcto` VARCHAR( 5 ) NOT NULL DEFAULT  'per';
+ALTER TABLE  `art_fac_com` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `fac_com` ADD  `perflete` DECIMAL( 5, 2 ) NOT NULL;
+ALTER TABLE  `art_fac_com` ADD  `id` BIGINT NOT NULL;
+ALTER TABLE `art_fac_com` MODIFY COLUMN `id` INT NOT NULL UNIQUE AUTO_INCREMENT FIRST;
+ALTER TABLE `art_fac_com` DROP PRIMARY KEY, ADD PRIMARY KEY(`id`);
+
+///////////////////////////////// FAC DEV ////////////////////////////////////////
+ALTER TABLE  `art_fac_dev` ADD  `cod_barras` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_fac_dev` ADD  `color` VARCHAR( 30 ) NOT NULL ,
+ADD  `talla` VARCHAR( 20 ) NOT NULL ,
+ADD  `presentacion` VARCHAR( 30 ) NOT NULL ,
+ADD  `fecha_vencimiento` DATE NOT NULL;
+ALTER TABLE  `fac_dev` ADD  `kardex` INT NOT NULL DEFAULT  '1';ALTER TABLE  `fac_dev` ADD INDEX (  `kardex` );
+ALTER TABLE  `fac_dev` CHANGE  `num_fac_com`  `num_fac_com` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `nit_pro` ,  `num_fac_com` ,  `cod_su` ,  `serial_fac_dev` ) ;
+ALTER TABLE  `art_fac_dev` ADD  `serial_dev` BIGINT NOT NULL;
+
+UPDATE `art_fac_dev` a INNER JOIN (select serial_fac_dev,num_fac_com,nit_pro,cod_su from fac_dev) b ON a.num_fac_com=b.num_fac_com  SET a.serial_dev=b.serial_fac_dev  WHERE a.cod_su=b.cod_su AND a.nit_pro=b.nit_pro;
+
+ALTER TABLE  `art_fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `num_fac_com` ,  `ref` ,  `cod_su` ,  `nit_pro` ,  `serial_dev` ) ;
+ALTER TABLE  `art_fac_dev` ADD  `cod_barras` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_fac_dev` ADD  `color` VARCHAR( 30 ) NOT NULL ,
+ADD  `talla` VARCHAR( 20 ) NOT NULL ,
+ADD  `presentacion` VARCHAR( 30 ) NOT NULL ,
+ADD  `fecha_vencimiento` DATE NOT NULL;
+ALTER TABLE  `fac_dev` ADD  `kardex` INT NOT NULL DEFAULT  '1';ALTER TABLE  `fac_dev` ADD INDEX (  `kardex` );
+ALTER TABLE  `fac_dev` CHANGE  `num_fac_com`  `num_fac_com` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `nit_pro` ,  `num_fac_com` ,  `cod_su` ,  `serial_fac_dev` ) ;
+
+ALTER TABLE  `art_fac_dev` ADD  `serial_dev` BIGINT NOT NULL;
+
+UPDATE `art_fac_dev` a INNER JOIN (select serial_fac_dev,num_fac_com,nit_pro,cod_su from fac_dev) b ON a.num_fac_com=b.num_fac_com  SET a.serial_dev=b.serial_fac_dev  WHERE a.cod_su=b.cod_su AND a.nit_pro=b.nit_pro;
+
+ALTER TABLE  `art_fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `num_fac_com` ,  `ref` ,  `cod_su` ,  `nit_pro` ,  `serial_dev` ) ;
+
+////////////////////////////////// AJUSTES ////////////////////////////////////////////
+ALTER TABLE  `art_ajuste` ADD  `cant_saldo` DECIMAL( 24, 4 ) NOT NULL;
+ALTER TABLE  `art_ajuste` ADD  `cod_barras` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_ajuste` ADD  `cant_saldo` DECIMAL( 24, 4 ) NOT NULL;
+ALTER TABLE  `art_ajuste` ADD  `cod_barras` VARCHAR( 30 ) NOT NULL;
+
+////////////////////////////////// FAC VENTA ////////////////////////////////////////////////////////
+ALTER TABLE  `fac_venta` ADD  `resolucion` VARCHAR( 30 ) NOT NULL ,
+ADD  `fecha_resol` DATE NOT NULL ,
+ADD  `rango_resol` VARCHAR( 30 ) NOT NULL;
+UPDATE `fac_venta` SET resolucion='340000007067', fecha_resol='2014-05-13', rango_resol='(100001 - 200000)' WHERE 1;
+
+ALTER TABLE  `art_fac_ven` ADD  `cod_barras` VARCHAR( 30 ) NOT NULL ,
+ADD  `color` VARCHAR( 10 ) NOT NULL ,
+ADD  `talla` VARCHAR( 5 ) NOT NULL ,
+ADD  `fabricante` VARCHAR( 30 ) NOT NULL ,
+ADD  `clase` VARCHAR( 30 ) NOT NULL;
+
+ALTER TABLE `art_fac_ven` DROP PRIMARY KEY, ADD PRIMARY KEY(ref,cod_barras,num_fac_ven,prefijo,nit);
+ALTER TABLE  `art_fac_ven` ADD  `presentacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `art_fac_ven` ADD  `fecha_vencimiento` DATE NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `cod_caja` INT NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tot_bsf` DECIMAL( 10, 2 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `id_banco` INT NOT NULL ,
+ADD  `id_cuenta` INT NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `r_fte` DECIMAL( 10, 2 ) NOT NULL ,
+ADD  `r_ica` DECIMAL( 10, 2 ) NOT NULL ,
+ADD  `r_iva` DECIMAL( 10, 2 ) NOT NULL ,
+ADD  `kardex` INT NOT NULL DEFAULT  '1';
+ALTER TABLE  `fac_venta` ADD INDEX (  `kardex` );
+ALTER TABLE  `fac_venta` ADD  `num_pagare` BIGINT NOT NULL;
+ALTER TABLE  `art_fac_ven` ADD  `orden_in` INT NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `entrega_bsf` DECIMAL( 10, 2 ) NOT NULL;
+UPDATE `fac_venta` SET anulado='CERRADA' WHERE anulado!='ANULADO';
+ALTER TABLE  `fac_venta` ADD  `sede_destino` INT NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `per_fte` DECIMAL( 10, 2 ) NOT NULL ,
+ADD  `per_iva` DECIMAL( 10, 2 ) NOT NULL ,
+ADD  `per_ica` DECIMAL( 10, 2 ) NOT NULL;
+ALTER TABLE  `art_fac_ven` ADD  `cant_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `cant`;
+ALTER TABLE  `art_fac_ven` ADD  `uni_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `unidades_fraccion`;
+ALTER TABLE  `fac_venta` ADD  `tot_cre` DECIMAL( 20, 2 ) NOT NULL;
+ALTER TABLE  `fac_venta` CHANGE  `mecanico`  `mecanico` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `fac_venta` CHANGE  `vendedor`  `vendedor` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tasa_cam` DECIMAL( 10, 4 ) NOT NULL;
+UPDATE fac_venta SET tasa_cam=4.5 WHERE 1;
+
+ALTER TABLE  `fac_venta` ADD  `nota` VARCHAR( 255 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tot_tarjeta` DECIMAL( 10, 2 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tipo_fac` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `art_fac_ven` CHANGE  `des`  `des` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+///////////////////////////////// FAC REMI ///////////////////////////////////////
+DROP TABLE IF EXISTS `art_fac_remi`;
+CREATE TABLE IF NOT EXISTS `art_fac_remi` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `ref` varchar(30) NOT NULL,
+  `serial` varchar(30) NOT NULL,
+  `imei` varchar(30) NOT NULL,
+  `des` varchar(50) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `cant` decimal(20,2) NOT NULL,
+  `cant_dev` decimal(20,2) NOT NULL,
+  `precio` double(24,2) NOT NULL,
+  `sub_tot` double(24,2) NOT NULL,
+  `dcto` double(24,2) NOT NULL,
+  `nit` tinyint(4) NOT NULL,
+  `devolucion` varchar(10) NOT NULL,
+  `costo` decimal(24,2) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `cod_barras` varchar(30) NOT NULL,
+  `color` varchar(20) NOT NULL,
+  `talla` varchar(5) NOT NULL,
+  `fabricante` varchar(30) NOT NULL,
+  `clase` varchar(30) NOT NULL,
+  `presentacion` varchar(30) NOT NULL,
+  `fecha_vencimiento` date NOT NULL,
+  `fraccion` bigint(20) NOT NULL,
+  `unidades_fraccion` bigint(20) NOT NULL,
+  `uni_dev` decimal(20,2) NOT NULL,
+  `orden_in` int(11) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`ref`,`nit`,`prefijo`,`cod_barras`,`fecha_vencimiento`),
+  KEY `num_fac_ven` (`num_fac_ven`),
+  KEY `nit` (`nit`),
+  KEY `ref` (`ref`),
+  KEY `iva` (`iva`),
+  KEY `prefijo` (`prefijo`),
+  KEY `serial` (`serial`),
+  KEY `imei` (`imei`),
+  KEY `des` (`des`),
+  KEY `cod_barras` (`cod_barras`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `fac_remi`;
+CREATE TABLE IF NOT EXISTS `fac_remi` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `id_cli` varchar(30) NOT NULL,
+  `nom_cli` varchar(50) NOT NULL,
+  `tel_cli` varchar(30) NOT NULL,
+  `dir` varchar(50) NOT NULL,
+  `ciudad` varchar(30) NOT NULL,
+  `cajero` varchar(30) NOT NULL,
+  `mecanico` varchar(30) NOT NULL,
+  `tipo_venta` varchar(30) NOT NULL,
+  `tipo_cli` varchar(30) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `vendedor` varchar(30) NOT NULL,
+  `sub_tot` decimal(24,4) NOT NULL,
+  `iva` decimal(24,4) NOT NULL,
+  `descuento` decimal(24,4) NOT NULL,
+  `tot` decimal(24,4) NOT NULL,
+  `entrega` decimal(24,4) NOT NULL,
+  `cambio` decimal(24,4) NOT NULL,
+  `val_letras` varchar(100) NOT NULL,
+  `anulado` varchar(30) NOT NULL,
+  `modificable` varchar(30) NOT NULL,
+  `corte_cont` varchar(30) NOT NULL,
+  `nit` tinyint(4) NOT NULL,
+  `fecha_anula` datetime NOT NULL,
+  `estado` varchar(20) NOT NULL,
+  `mail` varchar(30) NOT NULL,
+  `fe_naci` date NOT NULL,
+  `placa` varchar(20) NOT NULL,
+  `porcentaje_cre` tinyint(2) NOT NULL,
+  `bono` bigint(20) NOT NULL DEFAULT '0',
+  `prefijo` varchar(5) NOT NULL,
+  `usu` varchar(20) NOT NULL,
+  `id_usu` varchar(20) NOT NULL,
+  `modifica` varchar(50) NOT NULL,
+  `fecha_mod` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `fecha_pago` timestamp NOT NULL DEFAULT '0000-00-00 00:00:00',
+  `resolucion` varchar(30) NOT NULL,
+  `fecha_resol` date NOT NULL,
+  `rango_resol` varchar(30) NOT NULL,
+  `num_exp` bigint(20) NOT NULL,
+  `abono_anti` decimal(10,2) NOT NULL,
+  `anticipo_bono` varchar(15) NOT NULL DEFAULT 'NO',
+  `cod_caja` int(11) NOT NULL,
+  `tot_bsf` decimal(10,2) NOT NULL,
+  `id_banco` int(11) NOT NULL,
+  `id_cuenta` int(11) NOT NULL,
+  `r_fte` decimal(10,2) NOT NULL,
+  `r_ica` decimal(10,2) NOT NULL,
+  `r_iva` decimal(10,2) NOT NULL,
+  `kardex` int(11) NOT NULL DEFAULT '1',
+  `num_pagare` bigint(20) NOT NULL,
+  `sede_destino` int(11) NOT NULL,
+  `entrega_bsf` decimal(10,2) NOT NULL,
+  `tec2` varchar(60) NOT NULL,
+  `tec3` varchar(60) NOT NULL,
+  `tec4` varchar(60) NOT NULL,
+  `tipo_fac` varchar(20) NOT NULL,
+  `nf` bigint(20) NOT NULL,
+  `pre` varchar(5) NOT NULL,
+  `tot_cre` decimal(20,2) NOT NULL,
+  `km` int(11) NOT NULL,
+  PRIMARY KEY (`id_cli`,`nom_cli`,`tipo_venta`,`tipo_cli`,`fecha`,`vendedor`,`tot`,`anulado`,`fecha_anula`),
+  KEY `placa` (`placa`),
+  KEY `fecha` (`fecha`),
+  KEY `tipo_venta` (`tipo_venta`),
+  KEY `tipo_cli` (`tipo_cli`),
+  KEY `vendedor` (`vendedor`),
+  KEY `anulado` (`anulado`),
+  KEY `fecha_anula` (`fecha_anula`),
+  KEY `estado` (`estado`),
+  KEY `num_fac_ven` (`num_fac_ven`),
+  KEY `prefijo` (`prefijo`),
+  KEY `kardex` (`kardex`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+DROP TABLE IF EXISTS `serv_fac_remi`;
+CREATE TABLE IF NOT EXISTS `serv_fac_remi` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `id_tec` varchar(20) NOT NULL,
+  `nota` varchar(255) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;

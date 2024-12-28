@@ -1,0 +1,21 @@
+UTIL A
+UPDATE inv_inter SET gana=ROUND( ((precio_v-costo*(1+iva/100))/(costo*(1+iva/100)))*100 ,2) WHERE 1;
+PVP A
+UPDATE inv_inter SET precio_v=ROUND(costo*(1+iva/100)*((1+gana/100)),-2) WHERE 1;
+
+UPDATE inv_inter SET costo=ROUND( precio_v/(1+( (100-gana)/100  ))  /(1+iva/100),-2) WHERE 1;
+
+
+UPDATE inv_inter  INNER JOIN productos 
+ON productos.id_pro=inv_inter.id_pro SET precio_v=ROUND(precio_v*1.10,-2) 
+WHERE nit_scs=1 AND (id_clase!='ACEITE' AND id_clase!='ACEITES' AND id_clase!='LLANTA' AND id_clase!='LLANTAS' AND id_clase!='LLANTAS' AND id_clase!='LUBRICANTE' AND id_clase!='LUBRICANTEICANTE' AND id_clase!='LUBRICANTENTE' AND id_clase!='LUBRICANTES' AND id_clase!='LUBRICANTES') ;
+
+
+
+
+
+
+UTIL B
+UPDATE inv_inter SET gana=ROUND((1-((costo*(1+iva/100))/(precio_v)))*100,2) WHERE 1;
+PVP B
+UPDATE inv_inter SET precio_v=ROUND(costo*(1+iva/100)/ ( (100-gana)/100 ) ,-2) WHERE 1;

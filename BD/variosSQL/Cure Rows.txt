@@ -1,0 +1,3 @@
+UPDATE inv_inter SET id_inter=REPLACE(id_inter,'\'',''), id_pro=REPLACE(id_pro,'\'','')  WHERE 1;
+
+UPDATE productos SET detalle=REPLACE(detalle,'\'',''), id_pro=REPLACE(id_pro,'\'','') ,id_clase=REPLACE(id_clase,'\'','') ,fab=REPLACE(fab,'\'',''),presentacion=REPLACE(presentacion,'\'','')   WHERE 1;

@@ -1,0 +1,3 @@
+ALTER TABLE  `inv_inter` ADD FOREIGN KEY (  `id_pro` ) REFERENCES  `ss`.`productos` (
+`id_pro`
+) ON DELETE CASCADE ON UPDATE CASCADE ;

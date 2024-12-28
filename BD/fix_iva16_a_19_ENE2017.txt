@@ -1,0 +1,81 @@
+UPDATE serv_fac_ven a INNER JOIN (select num_fac_ven,nit,prefijo,fecha FROM fac_venta WHERE DATE(fecha)>='2017-02-11' AND DATE(fecha)<='2017-03-10'  ) b ON a.num_fac_ven=b.num_fac_ven AND a.cod_su=b.nit AND a.prefijo=b.prefijo
+SET a.iva=19 WHERE a.iva=16;
+
+UPDATE art_fac_ven a INNER JOIN (select num_fac_ven,nit,prefijo,fecha FROM fac_venta WHERE DATE(fecha)>='2018-04-01' AND DATE(fecha)<='2018-05-30'  ) b ON a.num_fac_ven=b.num_fac_ven AND a.nit=b.nit AND a.prefijo=b.prefijo
+SET a.iva=19 WHERE a.iva=16;
+
+UPDATE art_fac_com a INNER JOIN (select num_fac_com,nit_pro,cod_su,fecha FROM fac_com WHERE DATE(fecha)>='2018-04-01' AND DATE(fecha)<='2018-05-30'  ) b ON a.num_fac_com=b.num_fac_com AND a.nit_pro=b.nit_pro AND a.cod_su=b.cod_su
+SET a.iva=19 WHERE a.iva=16;
+
+UPDATE inv_inter SET iva=19 WHERE iva=16;
+
+
+
+-------FISCALIA ENERO 2017 IVA 16
+
+
+UPDATE serv_fac_ven a INNER JOIN (select num_fac_ven,nit,prefijo,fecha FROM fac_venta WHERE id_cli='800187589-0' AND DATE(fecha)>='2017-01-01' AND DATE(fecha)<='2017-01-31'  ) b ON a.num_fac_ven=b.num_fac_ven AND a.cod_su=b.nit AND a.prefijo=b.prefijo
+SET a.iva=16 WHERE a.iva=19;
+UPDATE art_fac_ven a INNER JOIN (select num_fac_ven,nit,prefijo,fecha FROM fac_venta WHERE id_cli='800187589-0' AND DATE(fecha)>='2017-01-01' AND DATE(fecha)<='2017-01-31'  ) b ON a.num_fac_ven=b.num_fac_ven AND a.nit=b.nit AND a.prefijo=b.prefijo
+SET a.iva=16 WHERE a.iva=19;
+UPDATE fac_venta SET tot=1303000, iva=179724,sub_tot=1123276 WHERE num_fac_ven=6643 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=1030000, iva=142069,sub_tot=887931 WHERE num_fac_ven=6647 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=1876000, iva=258759,sub_tot=1617241 WHERE num_fac_ven=6648 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=404629, iva=55811,sub_tot=348818 WHERE num_fac_ven=6519 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=316200, iva=43614,sub_tot=272586 WHERE num_fac_ven=6520 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=52200, iva=7200,sub_tot=45000 WHERE num_fac_ven=6521 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=52200, iva=7200,sub_tot=45000 WHERE num_fac_ven=6523 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=267500, iva=15518,sub_tot=251982 WHERE num_fac_ven=6524 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=283286, iva=39074,sub_tot=244212 WHERE num_fac_ven=6525 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=148200, iva=20441,sub_tot=127759 WHERE num_fac_ven=6526 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=81200, iva=11200,sub_tot=70000 WHERE num_fac_ven=6529 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=907400, iva=125159,sub_tot=782241 WHERE num_fac_ven=6530 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=45240, iva=6240,sub_tot=39000 WHERE num_fac_ven=6531 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=171360, iva=11084,sub_tot=160276 WHERE num_fac_ven=6532 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=259840, iva=35840,sub_tot=224000 WHERE num_fac_ven=6533 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=158340, iva=21840,sub_tot=136500 WHERE num_fac_ven=6534 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=66000, iva=9103,sub_tot=56897 WHERE num_fac_ven=6535 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=45240, iva=6240,sub_tot=39000 WHERE num_fac_ven=6537 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=295640, iva=40778,sub_tot=254862 WHERE num_fac_ven=6712 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=205000, iva=28276,sub_tot=176724 WHERE num_fac_ven=6713 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=396000, iva=54621,sub_tot=341379 WHERE num_fac_ven=6716 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=444000, iva=61241,sub_tot=382759 WHERE num_fac_ven=6717 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=137000, iva=18897,sub_tot=118103 WHERE num_fac_ven=6718 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=387600, iva=53462,sub_tot=334138 WHERE num_fac_ven=6719 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=517000, iva=71310,sub_tot=445690 WHERE num_fac_ven=6720 AND prefijo='FP01' AND nit=1;
+UPDATE fac_venta SET tot=7678650, iva=1040641,sub_tot=6638009 WHERE num_fac_ven=6645 AND prefijo='FP01' AND nit=1;
+ 
+
+
+
+
+
+UPDATE serv_fac_remi a INNER JOIN (select num_fac_ven,nit,prefijo,fecha FROM fac_remi WHERE id_cli='800187589-0' AND DATE(fecha)>='2017-01-01' AND DATE(fecha)<='2017-01-31'  ) b ON a.num_fac_ven=b.num_fac_ven AND a.cod_su=b.nit AND a.prefijo=b.prefijo
+SET a.iva=16 WHERE a.iva=19;
+UPDATE art_fac_remi a INNER JOIN (select num_fac_ven,nit,prefijo,fecha FROM fac_remi WHERE id_cli='800187589-0' AND DATE(fecha)>='2017-01-01' AND DATE(fecha)<='2017-01-31'  ) b ON a.num_fac_ven=b.num_fac_ven AND a.nit=b.nit AND a.prefijo=b.prefijo
+SET a.iva=16 WHERE a.iva=19;
+
+UPDATE fac_remi SET tot=7678650, iva=1040641,sub_tot=6638009 WHERE num_fac_ven=1270 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=259840, iva=35840,sub_tot=224000 WHERE num_fac_ven=1219 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=10612400, iva=1445296,sub_tot=9167104 WHERE num_fac_ven=1221 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=1303000, iva=179724,sub_tot=1123276 WHERE num_fac_ven=1272 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=316200, iva=43614,sub_tot=272586 WHERE num_fac_ven=1192 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=52200, iva=7200,sub_tot=45000 WHERE num_fac_ven=1194 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=52200, iva=7200,sub_tot=45000 WHERE num_fac_ven=1196 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=158340, iva=21840,sub_tot=136500 WHERE num_fac_ven=1235 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=283286, iva=39074,sub_tot=244212 WHERE num_fac_ven=1239 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=1876000, iva=258759,sub_tot=1617241 WHERE num_fac_ven=1274 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=295640, iva=40778,sub_tot=254862 WHERE num_fac_ven=1282 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=137000, iva=18897,sub_tot=118103 WHERE num_fac_ven=1285 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=387600, iva=53462,sub_tot=334138 WHERE num_fac_ven=1281 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=517000, iva=71310,sub_tot=445690 WHERE num_fac_ven=1283 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=171360, iva=11084,sub_tot=160276 WHERE num_fac_ven=1204 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=267500, iva=15518,sub_tot=251982 WHERE num_fac_ven=1236 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=66000, iva=9103,sub_tot=56897 WHERE num_fac_ven=1243 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=205000, iva=28276,sub_tot=176724 WHERE num_fac_ven=1284 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=1030000, iva=142069,sub_tot=887931 WHERE num_fac_ven=1273 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=907400, iva=125159,sub_tot=782241 WHERE num_fac_ven=1201 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=45240, iva=6240,sub_tot=39000 WHERE num_fac_ven=1203 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=396000, iva=54621,sub_tot=341379 WHERE num_fac_ven=1287 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=444000, iva=61241,sub_tot=382759 WHERE num_fac_ven=1286 AND prefijo='CRE' AND nit=1;
+UPDATE fac_remi SET tot=404629, iva=55811,sub_tot=348818 WHERE num_fac_ven=1191 AND prefijo='CRE' AND nit=1;

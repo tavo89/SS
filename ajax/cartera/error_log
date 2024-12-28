@@ -1,0 +1,21 @@
+[16-Nov-2018 19:37:06 UTC] PHP Warning:  mysqli::mysqli(): (HY000/1105): (proxy) all backends are down in /home/u155514936/public_html/facturacion/DB.php on line 147
+[16-Nov-2018 19:37:06 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/DB.php on line 151
+[16-Nov-2018 19:37:06 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 19:37:06 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1908
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1908
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[16-Nov-2018 14:37:06 America/Bogota] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/ajax/cartera/confirm_cre.php on line 12

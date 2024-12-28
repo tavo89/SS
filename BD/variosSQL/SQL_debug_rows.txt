@@ -1,0 +1,1 @@
+UPDATE `fac_remi` SET `tipo_fac`='remision' WHERE anulado!='ANULADO' and anulado!='FACTURADA' and `tipo_fac`='' and `sede_destino`=0;

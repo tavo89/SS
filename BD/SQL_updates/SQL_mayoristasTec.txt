@@ -1,0 +1,104 @@
+ALTER TABLE  `fac_remi` CHANGE  `mecanico`  `mecanico` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `fac_venta` CHANGE  `mecanico`  `mecanico` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `fac_venta` CHANGE  `vendedor`  `vendedor` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `fac_remi` CHANGE  `vendedor`  `vendedor` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE  `fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `nit_pro` ,  `num_fac_com` ,  `cod_su` ,  `serial_fac_dev` ) ;
+
+ALTER TABLE  `art_fac_dev` ADD  `serial_dev` BIGINT NOT NULL;
+
+UPDATE `art_fac_dev` a INNER JOIN (select serial_fac_dev,num_fac_com,nit_pro,cod_su from fac_dev) b ON a.num_fac_com=b.num_fac_com  SET a.serial_dev=b.serial_fac_dev  WHERE a.cod_su=b.cod_su AND a.nit_pro=b.nit_pro;
+
+ALTER TABLE  `art_fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `num_fac_com` ,  `ref` ,  `cod_su` ,  `nit_pro` ,  `serial_dev` ) ;
+
+
+
+ALTER TABLE  `art_fac_com` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `inv_inter` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+
+ALTER TABLE  `inv_inter` ADD  `envase` INT( 2 ) NOT NULL;
+ALTER TABLE  `fac_remi` ADD  `nf` BIGINT NOT NULL;
+ALTER TABLE  `fac_remi` ADD  `pre` VARCHAR( 5 ) NOT NULL;
+ALTER TABLE  `fac_remi` ADD  `tot_cre` DECIMAL( 20, 2 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tot_cre` DECIMAL( 20, 2 ) NOT NULL;
+
+ALTER TABLE  `usuarios` ADD  `tope_credito` DECIMAL( 20, 2 ) NOT NULL ,
+ADD  `auth_credito` INT( 2 ) NOT NULL DEFAULT  '1';
+
+
+ALTER TABLE  `art_fac_ven` ADD  `cant_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `cant`;
+ALTER TABLE  `art_fac_ven` ADD  `uni_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `unidades_fraccion`;
+
+
+ALTER TABLE  `art_fac_remi` ADD  `cant_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `cant`;
+ALTER TABLE  `art_fac_remi` ADD  `uni_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `unidades_fraccion`;
+
+ALTER TABLE  `fac_remi` ADD  `km` INT( 11 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `km` INT( 11 ) NOT NULL;
+
+
+
+CREATE TABLE IF NOT EXISTS `serv_fac_remi` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `serv_fac_ven` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `vehiculo` (
+  `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT,
+  `placa` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  `modelo` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `cc` decimal(10,1) NOT NULL,
+  `color` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `km` int(11) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `id_propietario` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_vehiculo`),
+  UNIQUE KEY `placa` (`placa`),
+  KEY `modelo` (`modelo`,`cod_su`),
+  KEY `id_propietario` (`id_propietario`),
+  KEY `color` (`color`),
+  KEY `cc` (`cc`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `x_config` (
+  `id_config` int(11) NOT NULL AUTO_INCREMENT,
+  `des_config` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `val` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_config`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `id_serv` int(11) NOT NULL AUTO_INCREMENT,
+  `servicio` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `des_serv` varchar(100) COLLATE utf8_general_ci NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `km_revisa` decimal(10,1) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  PRIMARY KEY (`id_serv`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3 ;
+
+INSERT INTO `x_config` (`id_config`, `des_config`, `val`) VALUES
+(1, 'Tipo Utilidad', 'A');

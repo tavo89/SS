@@ -1,0 +1,2 @@
+UPDATE `fac_venta` SET `tipo_venta`='Contado' WHERE `tot_tarjeta`!=0;
+UPDATE `fac_venta` SET `tipo_venta`='Contado' WHERE `num_exp`!=0 OR `anticipo_bono`='SI'

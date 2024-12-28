@@ -1,0 +1,17 @@
+UPDATE inv_inter
+SET id_pro = REPLACE(id_pro, '"', '&quot;');
+
+UPDATE productos
+SET id_pro= REPLACE(id_pro, '"', '&quot;');
+
+UPDATE art_fac_ven
+SET ref= REPLACE(ref, '"', '&quot;');
+
+UPDATE art_fac_com
+SET ref= REPLACE(ref, '"', '&quot;');
+
+UPDATE art_fac_dev
+SET ref= REPLACE(ref, '"', '&quot;');
+
+UPDATE art_ajuste
+SET ref= REPLACE(ref, '"', '&quot;');

@@ -1,0 +1,7 @@
+ALTER TABLE  `fac_com` ADD  `serial_tras` BIGINT(20) NOT NULL;
+ALTER TABLE  `fac_com` ADD  `calc_dcto` VARCHAR( 5 ) NOT NULL DEFAULT  'per';
+
+ALTER TABLE  `fac_com` ADD  `perflete` DECIMAL( 5, 2 ) NOT NULL;
+
+ALTER TABLE  `art_fac_com` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `inv_inter` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;

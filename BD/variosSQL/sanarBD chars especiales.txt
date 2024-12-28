@@ -1,0 +1,29 @@
+UPDATE `productos` a INNER JOIN (select * from productos2) b ON a.id_pro=b.id_pro SET a.detalle=b.detalle;
+
+UPDATE `inv_inter` a INNER JOIN (select * from inv_inter2) b ON a.id_pro=b.id_pro SET a.precio_v=b.precio_v WHERE a.id_inter=b.id_inter AND a.fecha_vencimiento=b.fecha_vencimiento AND b.costo>130 AND b.iva>0;
+
+
+
+update usuarios set nombre = replace(nombre, 'Ã±', 'ñ'); update usuarios set nombre = replace(nombre, 'Ã¡', 'á'); update usuarios set nombre = replace(nombre, 'Ã³', 'ó'); update usuarios set nombre = replace(nombre, 'Ã', 'í'); update usuarios set nombre = replace(nombre, 'íº', 'ú'); update usuarios set nombre = replace(nombre, 'í©', 'é'); update usuarios set nombre = replace(nombre, 'Ãº', 'ú'); update usuarios set nombre = replace(nombre, 'í‘', 'Ñ');
+
+update usuarios set dir = replace(dir, 'Ã±', 'ñ'); update usuarios set dir = replace(dir, 'Ã¡', 'á'); update usuarios set dir = replace(dir, 'Ã³', 'ó'); update usuarios set dir = replace(dir, 'Ã', 'í'); update usuarios set dir = replace(dir, 'íº', 'ú'); update usuarios set dir = replace(dir, 'í©', 'é'); update usuarios set dir = replace(dir, 'Ãº', 'ú'); update usuarios set dir = replace(dir, 'í‘', 'Ñ');
+
+update fac_venta set nom_cli = replace(nom_cli, 'Ã±', 'ñ'); update fac_venta set nom_cli = replace(nom_cli, 'Ã¡', 'á'); update fac_venta set nom_cli = replace(nom_cli, 'Ã³', 'ó'); update fac_venta set nom_cli = replace(nom_cli, 'Ã', 'í'); update fac_venta set nom_cli = replace(nom_cli, 'íº', 'ú'); update fac_venta set nom_cli = replace(nom_cli, 'í©', 'é'); update fac_venta set nom_cli = replace(nom_cli, 'Ãº', 'ú'); update fac_venta set nom_cli = replace(nom_cli, 'í‘', 'Ñ');
+
+update fac_venta set dir = replace(dir, 'Ã±', 'ñ'); update fac_venta set dir = replace(dir, 'Ã¡', 'á'); update fac_venta set dir = replace(dir, 'Ã³', 'ó'); update fac_venta set dir = replace(dir, 'Ã', 'í'); update fac_venta set dir = replace(dir, 'íº', 'ú'); update fac_venta set dir = replace(dir, 'í©', 'é'); update fac_venta set dir = replace(dir, 'Ãº', 'ú'); update fac_venta set dir = replace(dir, 'í‘', 'Ñ');
+
+update productos set detalle = replace(detalle, 'Ã±', 'ñ'); update productos set detalle = replace(detalle, 'Ã¡', 'á'); update productos set detalle = replace(detalle, 'Ã³', 'ó'); update productos set detalle = replace(detalle, 'Ã', 'í'); update productos set detalle = replace(detalle, 'íº', 'ú'); update productos set detalle = replace(detalle, 'í©', 'é'); update productos set detalle = replace(detalle, 'Ãº', 'ú'); update productos set detalle = replace(detalle, 'í‘', 'Ñ');
+
+update productos set id_clase = replace(id_clase, 'Ã±', 'ñ'); update productos set id_clase = replace(id_clase, 'Ã¡', 'á'); update productos set id_clase = replace(id_clase, 'Ã³', 'ó'); update productos set id_clase = replace(id_clase, 'Ã', 'í'); update productos set id_clase = replace(id_clase, 'íº', 'ú'); update productos set id_clase = replace(id_clase, 'í©', 'é'); update productos set id_clase = replace(id_clase, 'Ãº', 'ú'); update productos set id_clase = replace(id_clase, 'í‘', 'Ñ');
+
+update productos set fab = replace(fab, 'Ã±', 'ñ'); update productos set fab = replace(fab, 'Ã¡', 'á'); update productos set fab = replace(fab, 'Ã³', 'ó'); update productos set fab = replace(fab, 'Ã', 'í'); update productos set fab = replace(fab, 'íº', 'ú'); update productos set fab = replace(fab, 'í©', 'é'); update productos set fab = replace(fab, 'Ãº', 'ú'); update productos set fab = replace(fab, 'í‘', 'Ñ');
+
+
+update art_fac_ven set des = replace(des, 'Ã±', 'ñ'); update art_fac_ven set des = replace(des, 'Ã¡', 'á'); update art_fac_ven set des = replace(des, 'Ã³', 'ó'); update art_fac_ven set des = replace(des, 'Ã', 'í'); update art_fac_ven set des = replace(des, 'íº', 'ú'); update art_fac_ven set des = replace(des, 'í©', 'é'); update art_fac_ven set des = replace(des, 'Ãº', 'ú'); update art_fac_ven set des = replace(des, 'í‘', 'Ñ');
+
+update art_fac_com set des = replace(des, 'Ã±', 'ñ'); update art_fac_com set des = replace(des, 'Ã¡', 'á'); update art_fac_com set des = replace(des, 'Ã³', 'ó'); update art_fac_com set des = replace(des, 'Ã', 'í'); update art_fac_com set des = replace(des, 'íº', 'ú'); update art_fac_com set des = replace(des, 'í©', 'é'); update art_fac_com set des = replace(des, 'Ãº', 'ú'); update art_fac_com set des = replace(des, 'í‘', 'Ñ');
+
+update art_fac_com set clase = replace(clase, 'Ã±', 'ñ'); update art_fac_com set clase = replace(clase, 'Ã¡', 'á'); update art_fac_com set clase = replace(clase, 'Ã³', 'ó'); update art_fac_com set clase = replace(clase, 'Ã', 'í'); update art_fac_com set clase = replace(clase, 'íº', 'ú'); update art_fac_com set clase = replace(clase, 'í©', 'é'); update art_fac_com set clase = replace(clase, 'Ãº', 'ú'); update art_fac_com set clase = replace(clase, 'í‘', 'Ñ');
+
+update art_fac_com set fabricante = replace(fabricante, 'Ã±', 'ñ'); update art_fac_com set fabricante = replace(fabricante, 'Ã¡', 'á'); update art_fac_com set fabricante = replace(fabricante, 'Ã³', 'ó'); update art_fac_com set fabricante = replace(fabricante, 'Ã', 'í'); update art_fac_com set fabricante = replace(fabricante, 'íº', 'ú'); update art_fac_com set fabricante = replace(fabricante, 'í©', 'é'); update art_fac_com set fabricante = replace(fabricante, 'Ãº', 'ú'); update art_fac_com set fabricante = replace(fabricante, 'í‘', 'Ñ');
+

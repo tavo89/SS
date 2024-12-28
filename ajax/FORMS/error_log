@@ -1,0 +1,203 @@
+[01-Jul-2018 10:44:19 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[02-Jul-2018 09:01:14 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[02-Jul-2018 15:34:36 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 15:34:36 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 15:34:36 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 15:34:36 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[02-Jul-2018 15:36:26 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 15:36:26 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 15:36:26 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 15:36:26 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[02-Jul-2018 15:36:46 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 15:36:46 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 15:36:46 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 15:36:46 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[02-Jul-2018 15:54:36 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 15:54:36 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 15:54:36 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 15:54:36 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[02-Jul-2018 17:35:14 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[02-Jul-2018 17:36:10 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 17:36:10 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 17:36:10 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 17:36:10 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[02-Jul-2018 18:25:26 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 18:25:26 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 18:25:26 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 18:25:26 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[02-Jul-2018 18:27:58 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[02-Jul-2018 18:27:58 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[02-Jul-2018 18:27:58 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[02-Jul-2018 18:27:58 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[03-Jul-2018 08:27:24 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[03-Jul-2018 09:56:30 America/Bogota] PHP Notice:  Undefined index: cod_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3571
+[03-Jul-2018 09:56:30 America/Bogota] PHP Notice:  Undefined index: resol_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3572
+[03-Jul-2018 09:56:30 America/Bogota] PHP Notice:  Undefined index: fecha_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3573
+[03-Jul-2018 09:56:30 America/Bogota] PHP Notice:  Undefined index: rango_remi_com2 in /home/u155514936/public_html/facturacion/Conexxx.php on line 3574
+[03-Jul-2018 17:40:46 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[04-Jul-2018 08:33:06 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[04-Jul-2018 16:02:54 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[05-Jul-2018 17:10:42 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[05-Jul-2018 18:56:56 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[06-Jul-2018 09:13:16 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[06-Jul-2018 09:19:14 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[07-Jul-2018 15:12:25 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[07-Jul-2018 15:39:36 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[09-Jul-2018 14:52:04 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[09-Jul-2018 18:17:40 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 11:13:15 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:04:52 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:08:24 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:08:24 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1990
+[11-Jul-2018 16:11:04 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:11:04 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1990
+[11-Jul-2018 16:15:01 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:15:01 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1990
+[11-Jul-2018 16:18:50 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:29:56 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Jul-2018 16:29:56 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1990
+[11-Jul-2018 16:39:00 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[12-Jul-2018 07:59:13 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[12-Jul-2018 08:42:12 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[13-Jul-2018 09:04:53 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[13-Jul-2018 09:05:37 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[13-Jul-2018 09:34:14 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[13-Jul-2018 11:07:08 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[13-Jul-2018 14:29:18 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[16-Jul-2018 18:49:53 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[17-Jul-2018 16:01:09 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[19-Jul-2018 07:52:45 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[19-Jul-2018 09:05:13 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[19-Jul-2018 09:38:42 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[19-Jul-2018 17:28:26 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[21-Jul-2018 07:48:00 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[22-Jul-2018 11:27:57 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Jul-2018 08:54:29 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Jul-2018 09:31:26 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Jul-2018 09:34:22 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Jul-2018 13:54:24 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Jul-2018 07:53:12 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Jul-2018 11:07:29 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Jul-2018 11:10:32 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Jul-2018 14:58:20 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Jul-2018 17:43:41 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[26-Jul-2018 14:01:24 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[26-Jul-2018 17:52:39 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[27-Jul-2018 09:12:31 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[27-Jul-2018 09:19:33 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[27-Jul-2018 10:18:31 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[28-Jul-2018 17:43:55 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[29-Jul-2018 12:02:26 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[29-Jul-2018 12:03:22 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[31-Jul-2018 08:29:45 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[31-Jul-2018 14:28:11 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[01-Aug-2018 16:53:29 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[03-Aug-2018 08:38:09 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[04-Aug-2018 16:25:21 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[06-Aug-2018 08:08:52 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[08-Aug-2018 14:49:39 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[08-Aug-2018 14:49:39 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1991
+[08-Aug-2018 18:01:33 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[09-Aug-2018 09:16:44 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[10-Aug-2018 15:55:35 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Aug-2018 09:13:52 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Aug-2018 17:18:43 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[12-Aug-2018 16:14:03 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[14-Aug-2018 08:43:52 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[14-Aug-2018 18:49:12 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[15-Aug-2018 17:01:50 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[16-Aug-2018 09:16:09 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[16-Aug-2018 09:42:34 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[16-Aug-2018 17:58:45 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[16-Aug-2018 17:58:45 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, boolean given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1991
+[19-Aug-2018 10:36:01 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[21-Aug-2018 16:14:10 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[23-Aug-2018 10:50:50 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[23-Aug-2018 13:16:50 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[23-Aug-2018 16:30:07 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Aug-2018 17:39:16 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Aug-2018 10:08:53 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[25-Aug-2018 17:09:25 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[27-Aug-2018 16:24:30 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[27-Aug-2018 16:25:32 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[27-Aug-2018 16:48:30 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[28-Aug-2018 10:29:26 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[29-Aug-2018 11:15:14 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[30-Aug-2018 10:45:02 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[30-Aug-2018 10:50:53 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[30-Aug-2018 10:59:09 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[30-Aug-2018 16:04:42 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[30-Aug-2018 17:49:13 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[03-Sep-2018 16:53:31 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[04-Sep-2018 09:21:51 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[04-Sep-2018 10:11:38 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[06-Sep-2018 14:41:00 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[06-Sep-2018 19:04:17 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[07-Sep-2018 16:26:42 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[10-Sep-2018 16:13:36 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Sep-2018 10:25:35 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[11-Sep-2018 10:26:30 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[12-Sep-2018 09:33:53 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[12-Sep-2018 17:55:18 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[13-Sep-2018 18:21:07 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[15-Sep-2018 11:26:52 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[15-Sep-2018 16:16:58 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[17-Sep-2018 14:31:16 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[18-Sep-2018 15:49:57 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[19-Sep-2018 23:58:47 UTC] PHP Notice:  Undefined index: sucursales in /home/u155514936/public_html/facturacion/Conexxx.php on line 17
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: FLUJO_INVENTARIO in /home/u155514936/public_html/facturacion/Conexxx.php on line 124
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: nom_su in /home/u155514936/public_html/facturacion/Conexxx.php on line 162
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: dir_su in /home/u155514936/public_html/facturacion/Conexxx.php on line 163
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: tel1_su in /home/u155514936/public_html/facturacion/Conexxx.php on line 164
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: tel2_su in /home/u155514936/public_html/facturacion/Conexxx.php on line 165
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: nom_usu in /home/u155514936/public_html/facturacion/Conexxx.php on line 168
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: id_usu in /home/u155514936/public_html/facturacion/Conexxx.php on line 169
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: tipo_usu in /home/u155514936/public_html/facturacion/Conexxx.php on line 170
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: rol_lv in /home/u155514936/public_html/facturacion/Conexxx.php on line 171
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: municipio in /home/u155514936/public_html/facturacion/Conexxx.php on line 172
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: departamento in /home/u155514936/public_html/facturacion/Conexxx.php on line 173
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: cod_caja in /home/u155514936/public_html/facturacion/Conexxx.php on line 175
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: ipClient in /home/u155514936/public_html/facturacion/Conexxx.php on line 177
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: sucursales in /home/u155514936/public_html/facturacion/empresa.php on line 261
+[19-Sep-2018 18:58:47 America/Bogota] PHP Notice:  Undefined index: cod_su in /home/u155514936/public_html/facturacion/Conexxx.php on line 1551
+[20-Sep-2018 08:47:59 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[20-Sep-2018 08:57:19 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[20-Sep-2018 17:00:18 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[21-Sep-2018 16:13:27 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Sep-2018 11:12:36 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[24-Sep-2018 17:46:47 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[28-Sep-2018 09:13:30 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[28-Sep-2018 09:57:35 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[28-Sep-2018 10:34:09 America/Bogota] PHP Notice:  Undefined variable: sqlA in /home/u155514936/public_html/facturacion/ajax/FORMS/insert_fac_dev.php on line 194
+[14-Nov-2018 12:39:18 UTC] PHP Warning:  mysqli::mysqli(): (HY000/1105): (proxy) all backends are down in /home/u155514936/public_html/facturacion/DB.php on line 147
+[14-Nov-2018 12:39:18 UTC] PHP Warning:  mysqli::set_charset(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/DB.php on line 151
+[14-Nov-2018 12:39:18 UTC] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 12:39:18 UTC] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1908
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1908
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_autocommit(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 2019
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::autocommit(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 2020
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_num_rows() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1569
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/ajax/FORMS/egresos.php on line 50
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_autocommit(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 2019
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::autocommit(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 2020
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 5553
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 5555
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::rollback(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 5558
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/ajax/FORMS/egresos.php on line 60
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_query(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/Conexxx.php on line 1986
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli_fetch_array() expects parameter 1 to be mysqli_result, null given in /home/u155514936/public_html/facturacion/Conexxx.php on line 1999
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::rollback(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/ajax/FORMS/egresos.php on line 88
+[14-Nov-2018 07:39:18 America/Bogota] PHP Warning:  mysqli::close(): Couldn't fetch mysqli in /home/u155514936/public_html/facturacion/ajax/FORMS/egresos.php on line 89

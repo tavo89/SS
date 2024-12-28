@@ -1,0 +1,14 @@
+CREATE TABLE IF NOT EXISTS `cartera_mult_pago` (
+  `num_comp` int(11) NOT NULL,
+  `num_fac` bigint(20) NOT NULL,
+  `pre` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  `id_cli` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `abono` decimal(10,2) NOT NULL,
+  `estado` varchar(15) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`num_comp`,`num_fac`,`pre`,`id_cli`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+ALTER TABLE  `comprobante_ingreso` ADD  `id_cli` VARCHAR( 30 ) NOT NULL;
+UPDATE `comprobante_ingreso` a INNER JOIN (SELECT * FROM fac_venta ) b ON a.num_fac=b.num_fac_ven SET a.id_cli=b.id_cli WHERE a.pre=b.prefijo;
+
+INSERT INTO `cartera_mult_pago`(`num_comp`,`num_fac`,`pre`,`id_cli`,`abono`,`estado`) SELECT `num_com`,`num_fac`,`pre`,`id_cli`,`valor`,`anulado` FROM `comprobante_ingreso` WHERE `num_fac`!=0 AND `pre`!='' ;

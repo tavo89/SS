@@ -1,0 +1,4 @@
+-- insert con sub consulta
+INSERT INTO tbl_temp2 (fld_id)
+  SELECT tbl_temp1.fld_order_id
+  FROM tbl_temp1 WHERE tbl_temp1.fld_order_id > 100;

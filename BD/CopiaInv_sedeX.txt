@@ -1,0 +1,6 @@
+SET @sucursal = 7;
+
+INSERT INTO `inv_inter` ( `id_pro`, `nit_scs`, `id_inter`, `exist`, `max`, `min`, `costo`, `precio_v`, `fraccion`, `gana`, `tipo_dcto`, `iva`, `impuesto_consumo`, `dcto2`, `color`, `talla`, `dcto3`, `presentacion`, `fecha_vencimiento`, `cod_color`, `vigencia_inicial`, `grupo_destino`, `campo_add_01`, `campo_add_02`, `unidades_frac`, `certificado_importacion`, `pvp_credito`, `ubicacion`, `envase`, `pvp_may`, `aplica_vehi`, `tipo_producto`, `marcas`) 
+SELECT      `id_pro`, @sucursal , `id_inter`, 0, `max`, `min`, `costo`, `precio_v`, `fraccion`, `gana`, `tipo_dcto`, `iva`, `impuesto_consumo`, `dcto2`, `color`, `talla`, `dcto3`, `presentacion`, `fecha_vencimiento`, `cod_color`, `vigencia_inicial`, `grupo_destino`, `campo_add_01`, `campo_add_02`, 0, `certificado_importacion`, `pvp_credito`, `ubicacion`, `envase`, `pvp_may`, `aplica_vehi`, `tipo_producto`, `marcas`
+FROM inv_inter 
+WHERE nit_scs=1;

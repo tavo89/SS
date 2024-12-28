@@ -1,0 +1,80 @@
+
+UNA LINEA A LA VEZ, BOTA ERROR DESCONOCIDO AL COPIAR TODAS LAS QUERY
+
+
+UPDATE productos SET detalle= REPLACE(detalle, '&Ntilde;', 'Ã‘');UPDATE productos SET detalle= REPLACE(detalle, 'Ñ', 'Ã‘');
+
+UPDATE productos SET detalle= REPLACE(detalle, '&Aacute;', 'Ã');UPDATE productos SET detalle= REPLACE(detalle, 'Á', 'Ã');
+
+UPDATE productos SET detalle= REPLACE(detalle, '&Iacute;', 'Ã');UPDATE productos SET detalle= REPLACE(detalle, 'Í', 'Ã');
+
+
+/*UPDATE usuarios SET nombre= REPLACE(nombre, '&Eacute;' 'Ã‰');*/ NO SIRVE
+
+
+
+
+DELETE FROM usuarios
+ WHERE id NOT IN (SELECT * 
+                    FROM (SELECT MAX(n.id)
+                            FROM usuarios n
+                        GROUP BY n.id_usu) x);
+
+UPDATE usuarios SET nombre= REPLACE(nombre, '&Ntilde;', 'Ã‘');UPDATE usuarios SET nombre= REPLACE(nombre, 'Ñ', 'Ã‘');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, '&Ntilde;', 'Ã‘');UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, 'Ñ', 'Ã‘');
+UPDATE fac_remi SET nom_cli= REPLACE(nom_cli, '&Ntilde;', 'Ã‘');UPDATE fac_remi SET nom_cli= REPLACE(nom_cli, 'Ñ', 'Ã‘');
+
+UPDATE usuarios SET nombre= REPLACE(nombre, '&Aacute;', 'Ã');UPDATE usuarios SET nombre= REPLACE(nombre, 'Á', 'Ã‘');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, '&Aacute;', 'Ã');UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, 'Á', 'Ã‘');
+UPDATE fac_remi SET nom_cli= REPLACE(nom_cli, '&Aacute;', 'Ã');UPDATE fac_remi SET nom_cli= REPLACE(nom_cli, 'Á', 'Ã‘');
+
+UPDATE usuarios SET nombre= REPLACE(nombre, '&Iacute;', 'Ã');UPDATE usuarios SET nombre= REPLACE(nombre, 'Í', 'Ã');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, '&Iacute;', 'Ã');UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, 'Í', 'Ã');
+UPDATE fac_remi SET nom_cli= REPLACE(nom_cli, '&Iacute;', 'Ã');UPDATE fac_remi SET nom_cli= REPLACE(nom_cli, 'Í', 'Ã');
+
+UPDATE usuarios SET nombre = REPLACE( nombre,  '&OACUTE;',  'Ã“' );UPDATE usuarios SET nombre = REPLACE( nombre,  'Ó',  'Ã“' );
+UPDATE fac_venta SET nom_cli = REPLACE( nom_cli,  '&OACUTE;',  'Ã“' );UPDATE fac_venta SET nom_cli = REPLACE( nom_cli,  'Ó',  'Ã“' );
+
+
+
+
+
+
+
+USAR SOLO PARA INSTALACIONES DIRECTAS (NO VIRTUALBOX)
+
+UPDATE productos SET detalle= REPLACE(detalle, '&Ntilde;', 'Ñ');
+UPDATE productos SET detalle= REPLACE(detalle, '&Aacute;', 'Á');
+UPDATE productos SET detalle= REPLACE(detalle, '&Eacute;' 'É');
+UPDATE productos SET detalle= REPLACE(detalle, '&Iacute;', 'Í');
+
+
+
+UPDATE usuarios SET nombre= REPLACE(nombre,'Ã‘' , 'Ñ');
+UPDATE usuarios SET nombre= REPLACE(nombre, '&Ntilde;', 'Ñ');
+UPDATE usuarios SET nombre= REPLACE(nombre, '&NTILDE;', 'Ñ');
+
+UPDATE usuarios SET nombre= REPLACE(nombre, 'Ã?', 'Ñ');
+
+
+UPDATE usuarios SET nombre= REPLACE(nombre, '&Aacute;', 'Á');
+UPDATE usuarios SET nombre= REPLACE(nombre, '&AACUTE;', 'Á');
+UPDATE usuarios SET nombre= REPLACE(nombre, '&Iacute;', 'Í');
+UPDATE usuarios SET nombre= REPLACE(nombre, '&IACUTE;', 'Í');
+UPDATE usuarios SET nombre= REPLACE(nombre, '&OACUTE;', 'Ó');
+
+
+
+
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, 'Ã‘' , 'Ñ');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli,  '&Ntilde;', 'Ñ');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, '&NTILDE;', 'Ñ');
+
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, 'Ã?', 'Ñ');
+
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, '&AACUTE;', 'Á');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli, '&Aacute;', 'Á');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli,'&Iacute;', 'Í');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli,  '&IACUTE;', 'Í');
+UPDATE fac_venta SET nom_cli= REPLACE(nom_cli,  '&OACUTE;', 'Ó');
+

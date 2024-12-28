@@ -1,0 +1,87 @@
+CREATE TABLE IF NOT EXISTS `ficha_tecnica_manicura` (
+  `serial` int(11) NOT NULL AUTO_INCREMENT,
+  `num_ficha` bigint(20) NOT NULL,
+  `num_fac_ven` bigint(20) NOT NULL,
+  `id_cli` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_cli` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `dir` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `tel_cli` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `ciudad` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_tratamiento` datetime NOT NULL,
+  `fecha` datetime NOT NULL COMMENT 'fecha en que se creó la ficha',
+  `fecha_edicion` datetime NOT NULL,
+  `primera_visita_izq_menique` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_izq_anular` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_izq_medio` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_izq_indice` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_izq_pulgar` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_der_menique` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_der_anular` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_der_medio` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_der_indice` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `primera_visita_der_pulgar` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `tratamiento_realizar` text COLLATE utf8_unicode_ci NOT NULL,
+  `cuidados_recomendados` text COLLATE utf8_unicode_ci NOT NULL,
+  `alergias` text COLLATE utf8_unicode_ci NOT NULL,
+  `nit` tinyint(4) NOT NULL COMMENT 'codigo de la sucursal',
+  PRIMARY KEY (`serial`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `ficha_tecnica_cabello` (
+  `serial` int(11) NOT NULL AUTO_INCREMENT,
+  `num_ficha` bigint(20) NOT NULL,
+  `num_fac_ven` bigint(20) NOT NULL,
+  `id_cli` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `nom_cli` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `dir` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `tel_cli` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `ciudad` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `email` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `fecha_tratamiento` datetime NOT NULL,
+  `fecha` datetime NOT NULL COMMENT 'fecha en que se creo la ficha',
+  `fecha_edicion` datetime NOT NULL,
+  `apariencia_inicial` text COLLATE utf8_unicode_ci NOT NULL,
+  `deseo_cliente` text COLLATE utf8_unicode_ci NOT NULL,
+  `procesos_anteriores` varchar(55) COLLATE utf8_unicode_ci NOT NULL,
+  `otros_procesos_ant` text COLLATE utf8_unicode_ci NOT NULL,
+  `desc_tipo_cabello` text COLLATE utf8_unicode_ci NOT NULL,
+  `tono_natural` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `porcentaje_canas` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `forma_cabello` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `proceso_realizar` text COLLATE utf8_unicode_ci NOT NULL,
+  `coloracion_requerida` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `alteraciones_daños_fibra` varchar(5) COLLATE utf8_unicode_ci NOT NULL,
+  `textura_cabello` varchar(10) COLLATE utf8_unicode_ci NOT NULL,
+  `porosidad_cabello` varchar(20) COLLATE utf8_unicode_ci NOT NULL,
+  `estado_salud` varchar(40) COLLATE utf8_unicode_ci NOT NULL,
+  `estado_salud_otros` text COLLATE utf8_unicode_ci NOT NULL,
+  `procedimientos` text COLLATE utf8_unicode_ci NOT NULL,
+  `nit` tinyint(4) NOT NULL COMMENT 'codigo de la sucursal',
+  PRIMARY KEY (`serial`),
+  UNIQUE KEY `num_ficha` (`num_ficha`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+CREATE TABLE IF NOT EXISTS `art_ficha_manicura_citas` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `num_ficha` bigint(20) NOT NULL,
+  `fecha` datetime NOT NULL,
+  `motivo` text COLLATE utf8_unicode_ci NOT NULL,
+  `nit` tinyint(4) NOT NULL COMMENT 'codigo de la sucursal',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;
+
+
+
+CREATE TABLE IF NOT EXISTS `art_ficha_cabello` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `num_ficha` bigint(20) NOT NULL,
+  `nombre` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `cantidad` decimal(24,4) NOT NULL,
+  `fabricante` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
+  `observaciones` text COLLATE utf8_unicode_ci NOT NULL,
+  `nit` tinyint(4) NOT NULL COMMENT 'codigo de la sucursal',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci AUTO_INCREMENT=1 ;

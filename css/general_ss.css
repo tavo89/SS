@@ -1,0 +1,209 @@
+/*******************Menu_top.php***********************/
+.top_menu {
+	width: 100%;
+	height:31px;
+	background: #91cfa1;
+	background: rgba(0, 0, 0, 0.6);
+	text-transform: uppercase;
+	/*font-size: 0.69em;*/
+	line-height: 2.2;
+}
+
+.top_menu a {
+	display: inline-block;
+	padding: 0 1em;
+	color: #AAA;
+	text-decoration: none;
+	letter-spacing: 0.1em;
+	height:26px;
+	margin-top:2px;
+	margin-bottom:2px;
+}
+
+.top_menu a:hover {
+	background: rgba(255,255,255,0.95);
+	color: #444;
+	text-decoration:none;
+	border-radius:4px;
+	height:26px;
+	margin-top:2px;
+	margin-bottom:2px;
+}
+
+.top_menu .uk-dropdown a:hover{
+	width:80%;
+	color:#444;
+	text-decoration:none;
+}
+
+/*******************INFORMES_2.php /*******************/
+		/*#form_fac div{
+			display:inline-block;
+		}*/
+		
+		.ms-selectable,.ms-selection{
+			border-radius:5px;
+		}
+				
+		.ms_panels{
+			background:rgba(40,40,40,0.2);
+			border-radius:5px;
+			color:white;
+			display:inline-block;
+			font-size:21px;
+			margin:5px;
+			padding:10px;
+		}
+		
+		.ms_panels input{
+			font-size:21px;
+		}
+				
+		#botones_gen_informe button{
+			background:rgba(220,220,220,1);
+			font-size:18px;
+			margin:5px;
+			padding:3px 8px 3px 8px;
+		}
+		
+		#botones_gen_informe button:hover{
+			background:rgba(255,255,255,1);
+			box-shadow: 0px 0px 2px #fff;
+		}
+		
+/*******************creditos_parti.php /*******************/	
+
+		.creditos_filter_table{
+		background:rgba(40,40,40,0.2);
+		border-radius:2px;
+		color:white;
+		padding:10px 10px 5px 10px;
+		
+	}
+	
+	.creditos_filter_table th{
+		background:#CCC;
+		border-radius:2px;
+		color:black;
+		font-size:18px;
+		text-align:center;
+		padding:3px;
+	}
+	
+	.creditos_filter_table td{
+		padding-top:3px;
+	}
+	
+.icono_ss{height:40px;
+width:50px;
+}
+
+/*******************comp_ingreso_vario.php/*******************/
+#comp_ingreso_vario_grid{
+	font-size:15px;
+	color:white;
+	background: #222;
+}
+
+#comp_ingreso_vario_grid div{
+	margin:5px 0px 15px 0px;
+}
+
+#comp_ingreso_vario_grid label{
+	display:block;
+	margin-bottom:10px;
+}
+
+#comp_ingreso_vario_grid input,#comp_ingreso_vario_grid #form_pago{
+	font-size:16px;
+	font-weight:100;
+	height:30px;
+	width:200px;
+}
+
+/*******************comp_ingreso.php/*******************/
+#comp_ingreso_grid{
+	font-size:16px;
+	font-weight:bold;
+	color:white;
+	background: #222;
+}
+
+#comp_ingreso_grid div{
+	margin:5px 0px 15px 0px;
+	padding:0px;
+}
+
+#comp_ingreso_grid label{
+	display:block;
+	margin-bottom:10px;
+}
+
+#comp_ingreso_grid input,#comp_ingreso_grid #form_pago{
+	font-size:16px;
+	font-weight:bold;
+	height:30px;
+	width:200px;
+}
+
+
+/*******************agregar_exp.php/*******************/
+#agregar_exp_grid{
+	font-size:16px;
+	font-weight:bold;
+	color:white;
+	background: #222;
+	padding-top:10px;
+}
+
+#agregar_exp_grid div{
+	margin:5px 0px 5px 0px;
+	padding:0px;
+}
+
+#agregar_exp_grid label{
+	display:block;
+	margin-bottom:5px;
+}
+
+#agregar_exp_grid input,#agregar_exp_grid #form_pago{
+	font-size:16px;
+	font-weight:bold;
+	height:30px;
+	width:200px;
+}
+
+
+
+/*******************comp_anticipo.php/*******************/
+#comp_anticipo_grid{
+	font-size:16px;
+	font-weight:bold;
+	color:white;
+	background: #222;
+}
+
+#comp_anticipo_grid div{
+	margin:5px 0px 15px 0px;
+	padding:0px;
+}
+
+#comp_anticipo_grid label{
+	display:block;
+	margin-bottom:10px;
+}
+
+#comp_anticipo_grid input,#comp_anticipo_grid #form_pago{
+	font-size:16px;
+	font-weight:bold;
+	height:30px;
+	width:200px;
+}
+
+/*******************facturacion/*******************/
+
+.rowSelected {
+	background-color: blueviolet;
+	color: #fff;
+}
+

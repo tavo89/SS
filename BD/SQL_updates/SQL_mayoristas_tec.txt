@@ -1,0 +1,110 @@
+ALTER TABLE  `fac_venta` ADD INDEX (  `tot_tarjeta` );
+ALTER TABLE  `fac_venta` ADD INDEX (  `tot_bsf` );
+ALTER TABLE  `fac_venta` ADD INDEX (  `abono_anti` );
+
+ALTER TABLE  `fac_venta` ADD INDEX (  `tot_cre` );
+ALTER TABLE  `fac_venta` ADD INDEX (  `anticipo_bono` );
+
+
+
+
+ALTER TABLE  `comp_egreso` ADD INDEX (  `tipo_pago` );
+ALTER TABLE  `comp_egreso` ADD INDEX (  `cajero` );
+ALTER TABLE  `comp_egreso` ADD INDEX (  `fecha_anula` );
+
+ALTER TABLE  `comp_anti` ADD INDEX (  `tipo_pago` );
+ALTER TABLE  `comp_anti` ADD INDEX (  `tipo_comprobante` );
+
+ALTER TABLE  `comp_egreso` ADD INDEX (  `serial_fac_com` );
+ALTER TABLE  `comp_egreso` ADD INDEX (  `cod_caja` );
+
+ALTER TABLE  `art_ajuste` CHANGE  `des`  `des` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+INSERT INTO  `secciones` (
+`id_secc` ,
+`des_secc` ,
+`modulo` ,
+`habilita`
+)
+VALUES (
+'vende_credito',  'Vender a Credito',  'Ventas',  '1'
+);
+
+ALTER TABLE  `usuarios` ADD  `tipo_usu` VARCHAR( 20 ) NOT NULL DEFAULT  'Particular';
+ALTER TABLE  `art_ajuste` ADD  `estado2` VARCHAR( 20 ) NOT NULL;
+
+ALTER TABLE  `exp_anticipo` ADD INDEX (  `prefijo` );
+
+ALTER TABLE  `comprobante_ingreso` ADD  `forma_pago` VARCHAR( 30 ) NOT NULL DEFAULT  'Contado',
+ADD INDEX (  `forma_pago` );
+
+ALTER TABLE  `usuarios` ADD  `id` BIGINT NOT NULL;
+ALTER TABLE `usuarios` MODIFY COLUMN `id` INT NOT NULL UNIQUE AUTO_INCREMENT FIRST;
+ALTER TABLE  `comp_anti` ADD  `id` BIGINT NOT NULL;
+ALTER TABLE `comp_anti` MODIFY COLUMN `id` INT NOT NULL UNIQUE AUTO_INCREMENT FIRST;
+
+
+INSERT INTO  `secciones` (
+`id_secc` ,
+`des_secc` ,
+`modulo` ,
+`habilita`
+)
+VALUES (
+'cotizacion',  'Cotizaciones',  'Ventas',  '1'
+);
+
+INSERT INTO  `secciones` (
+`id_secc` ,
+`des_secc` ,
+`modulo` ,
+`habilita`
+)
+VALUES (
+'mod_comp_egreso',  'Modificar Comprobante de Egreso',  'Egresos',  '1'
+);
+
+
+ALTER TABLE  `cartera_mult_pago` CHANGE  `pre`  `pre` VARCHAR( 10 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `cartera_mult_pago` CHANGE  `id_cli`  `id_cli` VARCHAR( 30 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `cartera_mult_pago` CHANGE  `estado`  `estado` VARCHAR( 15 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE  `cartera_mult_pago` CHANGE  `abono`  `abono` DECIMAL( 24, 2 ) NOT NULL;
+ALTER TABLE  `comprobante_ingreso` CHANGE  `valor`  `valor` DECIMAL( 24, 2 ) NOT NULL;
+ALTER TABLE  `comp_anti` CHANGE  `valor`  `valor` DECIMAL( 24, 2 ) NOT NULL;
+ALTER TABLE  `comp_egreso` CHANGE  `valor`  `valor` DECIMAL( 24, 2 ) NOT NULL;
+ALTER TABLE  `exp_anticipo` CHANGE  `tot`  `tot` DECIMAL( 24, 2 ) NOT NULL;
+
+
+ ALTER TABLE  `art_fac_com` ADD  `id` BIGINT NOT NULL;
+ ALTER TABLE `art_fac_com` MODIFY COLUMN `id` INT NOT NULL UNIQUE AUTO_INCREMENT FIRST;
+ ALTER TABLE  `art_fac_com` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `id` ) ;
+
+ALTER TABLE  `fac_remi` ADD  `tipo_fac` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tipo_fac` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `serv_fac_ven` ADD  `id_tec` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `serv_fac_remi` ADD  `id_tec` VARCHAR( 20 ) NOT NULL;
+
+
+ALTER TABLE  `art_fac_ven` CHANGE  `des`  `des` VARCHAR( 100 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+
+UPDATE `fac_remi` SET `tipo_fac`='Traslado' WHERE tipo_cli='Traslado';
+UPDATE `fac_remi` SET `tipo_fac`='Remision' WHERE tipo_cli='Mostrador.';
+ALTER TABLE  `productos` ADD  `nit_proveedor` VARCHAR( 30 ) NOT NULL;
+UPDATE `productos` a INNER JOIN (SELECT nit_pro,ref FROM art_fac_com WHERE nit_pro!='00000000-0') b ON a.id_pro=b.ref SET a.nit_proveedor=b.nit_pro WHERE 1;
+
+
+CREATE TABLE IF NOT EXISTS `ajuste_cajas` (
+  `fecha` date NOT NULL,
+  `base_caja` decimal(24,2) NOT NULL,
+  `valor_base` decimal(24,2) NOT NULL,
+  `valor_entrega` decimal(24,2) NOT NULL,
+  `valor_diferencia` decimal(22,2) NOT NULL,
+  `cod_su` int(11) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`fecha`,`cod_su`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+
+/////////////////////////////////////// CAMBIAR DIAS SEGÙN CORRESPONDA ////////////////////////////////////////
+DROP TRIGGER IF EXISTS `AUTO_BAN_CARTERA`;CREATE DEFINER=`root`@`127.0.0.1` TRIGGER `AUTO_BAN_CARTERA` BEFORE INSERT ON `fac_venta` FOR EACH ROW UPDATE usuarios a INNER JOIN (SELECT num_fac_ven,prefijo,nom_cli,id_cli,fecha,tot,DATEDIFF(CURRENT_DATE(),DATE(fecha) ) AS mora,DATEDIFF(DATE(fecha_pago),DATE(fecha) ) AS mora2 FROM fac_venta WHERE  anulado!='ANULADO' AND tipo_venta='Credito' AND estado!='PAGADO' AND DATEDIFF(CURRENT_DATE(),DATE(fecha) )>40 AND fecha_pago='0000-00-00 00:00:00' GROUP BY id_cli) b ON a.id_usu=b.id_cli SET a.auth_credito=0;

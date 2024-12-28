@@ -1,0 +1,45 @@
+UPDATE `fac_venta` SET `nom_cli`='1505-01'  WHERE `vendedor`='JONATHAN VILLAMIZAR';
+UPDATE `fac_venta` SET `vendedor`='1505-01'  WHERE `nom_cli`='1505-01';
+UPDATE  `usuarios` SET `nombre`='1505-01' WHERE `nombre`='JONATHAN VILLAMIZAR';
+
+	UPDATE `fac_remi` SET `nom_cli`='1505-01'  WHERE `vendedor`='JONATHAN VILLAMIZAR';
+	UPDATE `fac_remi` SET `vendedor`='1505-01'  WHERE `nom_cli`='1505-01';
+
+
+UPDATE `fac_venta` SET `nom_cli`='1505-02'  WHERE `vendedor`='CONDUCTOR-LUIS ALBERTO DAVILA';
+UPDATE `fac_venta` SET `vendedor`='1505-02'  WHERE `nom_cli`='1505-02';
+UPDATE  `usuarios` SET `nombre`='1505-02' WHERE `nombre`='CONDUCTOR-LUIS ALBERTO DAVILA';
+UPDATE `fac_venta` SET `nom_cli`='1505-02'  WHERE `vendedor`='LUIS ALBERTO DAVILA POLO';
+UPDATE `fac_venta` SET `vendedor`='1505-02'  WHERE `nom_cli`='1505-02';
+UPDATE  `usuarios` SET `nombre`='1505-02' WHERE `nombre`='LUIS ALBERTO DAVILA POLO';
+
+
+UPDATE `fac_venta` SET `nom_cli`='1505-03'  WHERE `vendedor`='JESUS GARCIA';
+UPDATE `fac_venta` SET `vendedor`='1505-03'  WHERE `nom_cli`='1505-03';
+UPDATE  `usuarios` SET `nombre`='1505-03' WHERE `nombre`='JESUS GARCIA';
+
+
+UPDATE `fac_venta` SET `nom_cli`='1505-04'  WHERE `vendedor`='Caseta-mildred Bello';
+UPDATE `fac_venta` SET `vendedor`='1505-04'  WHERE `nom_cli`='1505-04';
+UPDATE  `usuarios` SET `nombre`='1505-04' WHERE `nombre`='Caseta-mildred Bello';
+
+
+UPDATE `fac_venta` SET `nom_cli`='1505-05'  WHERE `vendedor`='Deposito' OR `vendedor`='DEPOSITO';
+UPDATE `fac_venta` SET `vendedor`='1505-05'  WHERE `nom_cli`='1505-05';
+UPDATE  `usuarios` SET `nombre`='1505-05' WHERE `nombre`='DEPOSITO';
+
+
+UPDATE `fac_venta` SET `nom_cli`='1505-06'  WHERE `vendedor`='GASTOS';
+UPDATE `fac_venta` SET `vendedor`='1505-06'  WHERE `nom_cli`='1505-06';
+UPDATE  `usuarios` SET `nombre`='1505-06' WHERE `nombre`='GASTOS';
+
+
+UPDATE `fac_venta` SET `nom_cli`='1505-07'  WHERE `vendedor`='BODEGA-ELVER';
+UPDATE `fac_venta` SET `vendedor`='1505-07'  WHERE `nom_cli`='1505-07';
+UPDATE  `usuarios` SET `nombre`='1505-07' WHERE `nombre`='BODEGA-ELVER';
+
+--Ventas Consignacion
+
+UPDATE `fac_venta` SET `nom_cli`='1505-08'  WHERE `vendedor`='VENTAS CONSIGNACION';
+UPDATE `fac_venta` SET `vendedor`='1505-08'  WHERE `nom_cli`='1505-08';
+UPDATE  `usuarios` SET `nombre`='1505-08' WHERE `nombre`='VENTAS CONSIGNACION';

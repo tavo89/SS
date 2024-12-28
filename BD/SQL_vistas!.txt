@@ -1,0 +1,41 @@
+DROP VIEW ventas_x_pro;
+CREATE ALGORITHM = UNDEFINED VIEW  `ventas_x_pro` AS SELECT nit,ref, cod_barras, prefijo, num_fac_ven, des, iva, precio, sub_tot, b.fab, cant, fraccion, unidades_fraccion, dcto, costo,b.id_clase,id_sub_clase,nit_proveedor
+FROM art_fac_ven a
+INNER JOIN productos b ON a.ref = b.id_pro;
+
+
+
+DROP VIEW vista_arqueo_pro;
+CREATE ALGORITHM = MERGE VIEW  `vista_arqueo_pro` AS SELECT fac_venta.fecha, fac_venta.fecha_anula, fac_venta.anulado, art_fac_ven.nit, anticipo_bono, tot_tarjeta, entrega_bsf, art_fac_ven.num_fac_ven, precio, des, art_fac_ven.sub_tot, art_fac_ven.iva, cant, ref, TIME( fecha ) AS hora, DATE( fecha ) AS fe, tipo_venta, tipo_cli, vendedor, art_fac_ven.prefijo, tot_bsf,cod_caja
+FROM fac_venta
+INNER JOIN art_fac_ven ON fac_venta.num_fac_ven = art_fac_ven.num_fac_ven AND fac_venta.prefijo = art_fac_ven.prefijo AND fac_venta.nit = art_fac_ven.nit;
+
+
+
+DROP VIEW vista_inventario;
+CREATE ALGORITHM = TEMPTABLE VIEW  `vista_inventario` AS SELECT productos.id_pro id_glo, inv_inter.id_inter id_sede, detalle, id_clase, fraccion, fab, max, min, costo, precio_v, exist, iva, gana, nit_scs, productos.presentacion, nit_proveedor, id_sub_clase, inv_inter.color, inv_inter.talla, inv_inter.ubicacion,inv_inter.aplica_vehi,inv_inter.pvp_may,inv_inter.pvp_credito
+FROM productos
+INNER JOIN inv_inter ON productos.id_pro = inv_inter.id_pro;
+
+
+
+DROP VIEW vista_ventas_rotacion;
+CREATE ALGORITHM = TEMPTABLE VIEW  `vista_ventas_rotacion` AS SELECT a.num_fac_ven, a.prefijo as preArt,b.prefijo as preFac, a.ref, a.cod_barras, a.des, a.cant, a.costo, b.fecha, b.anulado, b.nit as facNit, a.nit as artNit, SUM( a.cant ) tot_dia, AVG( a.cant ) prom_dia, MIN( a.cant ) min, MAX( a.cant ) max
+FROM art_fac_ven a
+INNER JOIN fac_venta b ON a.num_fac_ven = b.num_fac_ven
+
+WHERE  a.prefijo=b.prefijo AND a.nit=b.nit
+GROUP BY a.cod_barras,DATE(fecha);
+
+
+
+
+
+DROP VIEW vista_resoluciones_dian;
+CREATE ALGORITHM = UNDEFINED VIEW  `vista_resoluciones_dian` AS SELECT  `prefijo` ,  `resolucion` ,  `fecha_resol` ,  `rango_resol` ,  `nit` ,MAX(num_fac_ven) as lastN
+FROM  `fac_venta` 
+GROUP BY resolucion, prefijo, rango_resol, nit ;
+
+
+
+CREATE ALGORITHM = UNDEFINED  VIEW `repetidos_inv` AS select `inv_inter`.`serial_inv` AS `serial_inv`,`inv_inter`.`id_pro` AS `id_pro`,`inv_inter`.`nit_scs` AS `nit_scs`,`inv_inter`.`id_inter` AS `id_inter`,`inv_inter`.`exist` AS `exist`,`inv_inter`.`max` AS `max`,`inv_inter`.`min` AS `min`,`inv_inter`.`costo` AS `costo`,`inv_inter`.`precio_v` AS `precio_v`,`inv_inter`.`fraccion` AS `fraccion`,`inv_inter`.`gana` AS `gana`,`inv_inter`.`tipo_dcto` AS `tipo_dcto`,`inv_inter`.`iva` AS `iva`,`inv_inter`.`dcto2` AS `dcto2`,`inv_inter`.`color` AS `color`,`inv_inter`.`talla` AS `talla`,`inv_inter`.`dcto3` AS `dcto3`,`inv_inter`.`presentacion` AS `presentacion`,`inv_inter`.`fecha_vencimiento` AS `fecha_vencimiento`,`inv_inter`.`unidades_frac` AS `unidades_frac`,`inv_inter`.`certificado_importacion` AS `certificado_importacion`,`inv_inter`.`pvp_credito` AS `pvp_credito`,`inv_inter`.`marcas` AS `marcas`,`inv_inter`.`ubicacion` AS `ubicacion`,`inv_inter`.`envase` AS `envase`,`inv_inter`.`aplica_vehi` AS `aplica_vehi`,`inv_inter`.`pvp_may` AS `pvp_may`,count(`inv_inter`.`id_inter`) AS `n` from `inv_inter` group by `inv_inter`.`id_inter`,`inv_inter`.`fecha_vencimiento`,`inv_inter`.`nit_scs` having (`n` > 1);

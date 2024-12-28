@@ -1,0 +1,13 @@
+DELETE FROM sub_clase
+WHERE `des_sub_clase`
+
+IN
+(SELECT *   FROM (SELECT `des_sub_clase` FROM sub_clase GROUP BY `des_sub_clase` HAVING (COUNT(`des_sub_clase`) > 1)
+                  ) AS A
+            );
+			
+			
+			
+
+DELETE FROM `inv_inter` WHERE `id_pro` NOT IN(SELECT `id_pro` FROM productos);
+DELETE FROM `productos` WHERE `id_pro` NOT IN (SELECT `id_pro` FROM inv_inter);

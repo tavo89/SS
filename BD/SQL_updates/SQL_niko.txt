@@ -1,0 +1,161 @@
+ALTER TABLE  `sucursal` ADD  `resol_credito_ant` VARCHAR( 30 ) NOT NULL ,
+ADD  `fecha_resol_credito_ant` DATE NOT NULL ,
+ADD  `rango_credito_ant` VARCHAR( 30 ) NOT NULL;
+
+UPDATE  `sucursal` SET  `resol_credito_ant` =  'CRE',
+`fecha_resol_credito_ant` =  '2015-01-01',
+`rango_credito_ant` =  '(1 - 10000)' WHERE  `sucursal`.`cod_su` =1;
+
+INSERT INTO `seriales` (`id_serial`, `seccion`, `serial_inf`, `serial_sup`, `nit_sede`) VALUES (NULL, 'cartera_ant', '1', '10000', '1');
+
+
+ALTER TABLE  `sucursal` ADD  `cod_credito_ant` VARCHAR( 5 ) NOT NULL;
+ALTER TABLE  `sucursal` ADD  `licencia_key` VARCHAR(40) NOT NULL;
+
+UPDATE `sucursal` SET  `resol_credito_ant` =  '000000000000',
+`cod_credito_ant` =  'CRE' WHERE  `sucursal`.`cod_su` =1;
+
+
+INSERT INTO `seriales` (`id_serial`, `seccion`, `serial_inf`, `serial_sup`, `nit_sede`) VALUES (NULL, 'remision', '1', '100000', '1'), (NULL, 'remision', '1', '100000', '2');
+
+INSERT INTO `seriales` (`id_serial`, `seccion`, `serial_inf`, `serial_sup`, `nit_sede`) VALUES (NULL, 'remision_com', '1', '100000', '1'), (NULL, 'remision_com', '1', '100000', '2');
+
+ALTER TABLE  `sucursal` ADD  `cod_remi_pos` VARCHAR( 5 ) NOT NULL DEFAULT  'REMI',
+ADD  `resol_remi_pos` VARCHAR( 30 ) NOT NULL DEFAULT  '1000100',
+ADD  `fecha_remi_pos` DATE NOT NULL ,
+ADD  `rango_remi_pos` VARCHAR( 30 ) NOT NULL DEFAULT  '(1 - 100000)',
+ADD  `cod_remi_com` VARCHAR( 5 ) NOT NULL DEFAULT  'RCOM',
+ADD  `resol_remi_com` VARCHAR( 30 ) NOT NULL DEFAULT  '1000200',
+ADD  `fecha_remi_com` DATE NOT NULL ,
+ADD  `rango_remi_com` VARCHAR( 30 ) NOT NULL DEFAULT  '(1 - 100000)';
+
+
+
+
+
+ALTER TABLE  `fac_venta` CHANGE  `mecanico`  `mecanico` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE  `fac_venta` CHANGE  `vendedor`  `vendedor` VARCHAR( 60 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+ALTER TABLE  `fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `nit_pro` ,  `num_fac_com` ,  `cod_su` ,  `serial_fac_dev` ) ;
+
+ALTER TABLE  `art_fac_dev` ADD  `serial_dev` BIGINT NOT NULL;
+
+UPDATE `art_fac_dev` a INNER JOIN (select serial_fac_dev,num_fac_com,nit_pro,cod_su from fac_dev) b ON a.num_fac_com=b.num_fac_com  SET a.serial_dev=b.serial_fac_dev  WHERE a.cod_su=b.cod_su AND a.nit_pro=b.nit_pro;
+
+ALTER TABLE  `art_fac_dev` DROP PRIMARY KEY ,
+ADD PRIMARY KEY (  `num_fac_com` ,  `ref` ,  `cod_su` ,  `nit_pro` ,  `serial_dev` ) ;
+
+
+
+ALTER TABLE  `art_fac_com` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `inv_inter` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+
+ALTER TABLE  `inv_inter` ADD  `envase` INT( 2 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tot_cre` DECIMAL( 20, 2 ) NOT NULL;
+
+ALTER TABLE  `usuarios` ADD  `tope_credito` DECIMAL( 20, 2 ) NOT NULL ,
+ADD  `auth_credito` INT( 2 ) NOT NULL DEFAULT  '1';
+
+
+ALTER TABLE  `art_fac_ven` ADD  `cant_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `cant`;
+ALTER TABLE  `art_fac_ven` ADD  `uni_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `unidades_fraccion`;
+
+ALTER TABLE  `fac_venta` ADD  `km` INT( 11 ) NOT NULL;
+
+
+
+CREATE TABLE IF NOT EXISTS `serv_fac_remi` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `serv_fac_ven` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `vehiculo` (
+  `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT,
+  `placa` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  `modelo` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `cc` decimal(10,1) NOT NULL,
+  `color` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `km` int(11) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `id_propietario` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_vehiculo`),
+  UNIQUE KEY `placa` (`placa`),
+  KEY `modelo` (`modelo`,`cod_su`),
+  KEY `id_propietario` (`id_propietario`),
+  KEY `color` (`color`),
+  KEY `cc` (`cc`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `x_config` (
+  `id_config` int(11) NOT NULL AUTO_INCREMENT,
+  `des_config` varchar(50) COLLATE utf8_general_ci NOT NULL,
+  `val` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_config`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=2 ;
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `id_serv` int(11) NOT NULL AUTO_INCREMENT,
+  `servicio` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `des_serv` varchar(100) COLLATE utf8_general_ci NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `km_revisa` decimal(10,1) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  PRIMARY KEY (`id_serv`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3 ;
+
+INSERT INTO `x_config` (`id_config`, `des_config`, `val`) VALUES
+(1, 'Tipo Utilidad', 'A');
+
+CREATE TABLE IF NOT EXISTS `cartera_mult_pago` (
+  `num_comp` int(11) NOT NULL,
+  `num_fac` bigint(20) NOT NULL,
+  `pre` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  `id_cli` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `abono` decimal(10,2) NOT NULL,
+  `estado` varchar(15) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`num_comp`,`num_fac`,`pre`,`id_cli`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
+
+ALTER TABLE  `comprobante_ingreso` ADD  `id_cli` VARCHAR( 30 ) NOT NULL;
+UPDATE `comprobante_ingreso` a INNER JOIN (SELECT * FROM fac_venta ) b ON a.num_fac=b.num_fac_ven SET a.id_cli=b.id_cli WHERE a.pre=b.prefijo;
+
+INSERT INTO `cartera_mult_pago`(`num_comp`,`num_fac`,`pre`,`id_cli`,`abono`,`estado`) SELECT `num_com`,`num_fac`,`pre`,`id_cli`,`valor`,`anulado` FROM `comprobante_ingreso` WHERE `num_fac`!=0 AND `pre`!='' ;
+
+
+
+
+
+
+
+ALTER TABLE  `productos` ADD  `id_sub_clase` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `fac_com` ADD  `serial_tras` BIGINT(20) NOT NULL;
+UPDATE `fac_venta` SET anulado='CERRADA' WHERE anulado!='ANULADO';
+
+CREATE TABLE IF NOT EXISTS `sub_clase` (
+  `id_clase` bigint(20) NOT NULL,
+  `id_sub_clase` bigint(20) NOT NULL AUTO_INCREMENT,
+  `des_sub_clase` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_sub_clase`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=4 ;

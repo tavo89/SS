@@ -1,0 +1,32 @@
+CREATE TRIGGER `ajuste_cant_fraccion_compra` BEFORE UPDATE ON  `art_fac_com` FOR EACH ROW BEGIN DECLARE tipo_util VARCHAR( 50 ) ;
+
+SELECT val
+INTO tipo_util
+FROM x_config
+WHERE id_config =1;
+
+IF OLD.fraccion !=0 THEN WHILE NEW.unidades_fraccion >= OLD.fraccion DO IF NEW.unidades_fraccion >= OLD.fraccion THEN SET NEW.unidades_fraccion = NEW.unidades_fraccion - OLD.fraccion,
+NEW.cant = NEW.cant +1;
+
+END IF ;
+
+END WHILE;
+
+END IF ;
+
+WHILE NEW.unidades_fraccion <0 DO IF NEW.unidades_fraccion <0 THEN SET NEW.unidades_fraccion = NEW.unidades_fraccion + OLD.fraccion,
+NEW.cant = NEW.cant -1;
+
+END IF ;
+
+END WHILE;
+
+END
+
+
+
+
+UPDATE art_fac_com a 
+INNER JOIN 
+(SELECT SUM(cant) as cant, SUM(unidades_fraccion) as unidades_fraccion,ref,cod_barras FROM art_fac_ven a INNER JOIN fac_venta b ON a.num_fac_ven=b.num_fac_ven AND a.prefijo=b.prefijo AND a.nit=b.nit WHERE b.fecha>='2018-05-20' GROUP BY cod_barras) b ON a.ref=b.ref AND a.cod_barras=b.cod_barras 
+SET a.cant=a.cant-b.cant, a.unidades_fraccion=a.unidades_fraccion-b.unidades_fraccion   WHERE a.num_fac_com='3' AND nit_pro='69298890-5';

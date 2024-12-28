@@ -1,0 +1,15 @@
+-- SETEA UTILIDAD PRIMERO
+UPDATE inv_inter SET gana=15;
+
+
+-- consulta diff
+
+SELECT a.id_pro, a.id_inter, a.precio_v, b.precio_v FROM inv_inter a INNER JOIN inv_interBK_24092023 b ON a.id_pro=b.id_pro AND a.id_inter=b.id_inter AND a.nit_scs=b.nit_scs  WHERE a.precio_v!=b.precio_v;
+-- Costo
+
+UPDATE inv_inter SET costo = IFNULL(ROUND((precio_v / (1+(gana*1/100)) ) / ((iva*1)/100 +1)),0) WHERE 1;
+
+
+
+-- carga precios desde BACKUP
+UPDATE `inv_inter` a INNER JOIN inv_interBK b ON a.id_pro=b.id_pro AND a.id_inter=b.id_inter AND a.nit_scs=b.nit_scs SET a.precio_v=b.precio_v WHERE 1;

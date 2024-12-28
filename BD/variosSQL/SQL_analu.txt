@@ -1,0 +1,3 @@
+UPDATE inv_inter a INNER JOIN (SELECT costo, precio_v,id_pro FROM inv_inter2) b ON a.id_pro=b.id_pro SET a.costo=b.costo, a.precio_v=b.precio_v;
+
+UPDATE art_fac_com a INNER JOIN (SELECT costo, precio_v,id_pro FROM inv_inter2) b ON a.ref=b.id_pro SET a.costo=b.costo;

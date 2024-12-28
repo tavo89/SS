@@ -1,0 +1,19 @@
+SET @sucursal = 5; 
+
+DELETE FROM `fac_venta` WHERE nit=@sucursal;
+DELETE FROM `art_fac_ven` WHERE nit=@sucursal;
+DELETE FROM `cartera_mult_pago` WHERE cod_su=@sucursal;
+DELETE FROM `comprobante_ingreso` WHERE cod_su=@sucursal;
+DELETE FROM `comp_egreso` WHERE cod_su=@sucursal;
+DELETE FROM `exp_anticipo` WHERE cod_su=@sucursal;
+DELETE FROM `comp_anti` WHERE cod_su=@sucursal;
+DELETE FROM `ajustes` WHERE cod_su=@sucursal;
+DELETE FROM `art_ajuste` WHERE cod_su=@sucursal;
+DELETE FROM `art_fac_com` WHERE cod_su=@sucursal;
+DELETE FROM `art_fac_remi` WHERE nit=@sucursal;
+DELETE FROM `comp_egreso` WHERE cod_su=@sucursal;
+DELETE FROM `fac_com` WHERE cod_su=@sucursal;
+DELETE FROM `fac_dev_venta` WHERE nit=@sucursal;
+DELETE FROM `fac_remi` WHERE nit=@sucursal;
+DELETE FROM `fac_ven_cambios` WHERE cod_su=@sucursal;
+DELETE FROM `inv_inter` WHERE nit_scs=@sucursal;

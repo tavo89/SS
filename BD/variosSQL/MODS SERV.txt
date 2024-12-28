@@ -1,0 +1,11 @@
+ALTER TABLE  `serv_fac_ven` ADD  `nota` VARCHAR( 255 ) NOT NULL;
+ALTER TABLE  `serv_fac_remi` ADD  `nota` VARCHAR( 255 ) NOT NULL;
+
+
+ALTER TABLE  `fac_remi` ADD  `tec2` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec3` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec4` VARCHAR( 60 ) NOT NULL;
+
+ALTER TABLE  `fac_venta` ADD  `tec2` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec3` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec4` VARCHAR( 60 ) NOT NULL;

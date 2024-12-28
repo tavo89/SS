@@ -1,0 +1,8 @@
+[18-May-2022 14:51:42 America/Bogota] PHP Notice:  Undefined index: errors in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 113
+[18-May-2022 14:51:42 America/Bogota] PHP Notice:  Undefined index: errors in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 115
+[18-May-2022 14:51:42 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 115
+[18-May-2022 14:51:42 America/Bogota] PHP Notice:  Undefined index: errors in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 125
+[18-May-2022 14:55:11 America/Bogota] PHP Notice:  Undefined index: errors in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 113
+[18-May-2022 14:55:11 America/Bogota] PHP Notice:  Undefined index: errors in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 115
+[18-May-2022 14:55:11 America/Bogota] PHP Warning:  Invalid argument supplied for foreach() in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 115
+[18-May-2022 14:55:11 America/Bogota] PHP Notice:  Undefined index: errors in /home/u155514936/public_html/facturacionbk/ajax/FE/enviaFacElec.php on line 125

@@ -1,0 +1,89 @@
+ALTER TABLE  `sucursal` ADD  `licencia_key` VARCHAR(40) NOT NULL;
+
+
+ALTER TABLE  `art_fac_remi` ADD  `cant_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `cant`;
+ALTER TABLE  `art_fac_remi` ADD  `uni_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `unidades_fraccion`;
+
+ALTER TABLE  `art_fac_ven` ADD  `cant_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `cant`;
+ALTER TABLE  `art_fac_ven` ADD  `uni_dev` DECIMAL( 20, 2 ) NOT NULL AFTER  `unidades_fraccion`;
+
+
+ALTER TABLE  `art_fac_com` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+ALTER TABLE  `inv_inter` ADD  `ubicacion` VARCHAR( 30 ) NOT NULL;
+
+
+
+
+
+
+
+ALTER TABLE  `fac_remi` ADD  `tec2` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec3` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec4` VARCHAR( 60 ) NOT NULL;
+
+ALTER TABLE  `fac_venta` ADD  `tec2` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec3` VARCHAR( 60 ) NOT NULL ,
+ADD  `tec4` VARCHAR( 60 ) NOT NULL;
+
+ALTER TABLE  `fac_remi` ADD  `tipo_fac` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `fac_venta` ADD  `tipo_fac` VARCHAR( 20 ) NOT NULL;
+
+CREATE TABLE IF NOT EXISTS `vehiculo` (
+  `id_vehiculo` int(11) NOT NULL AUTO_INCREMENT,
+  `placa` varchar(10) COLLATE utf8_general_ci NOT NULL,
+  `modelo` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `cc` decimal(10,1) NOT NULL,
+  `color` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `km` int(11) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `id_propietario` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  PRIMARY KEY (`id_vehiculo`),
+  UNIQUE KEY `placa` (`placa`),
+  KEY `modelo` (`modelo`,`cod_su`),
+  KEY `id_propietario` (`id_propietario`),
+  KEY `color` (`color`),
+  KEY `cc` (`cc`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3 ;
+ALTER TABLE  `productos` ADD  `nit_proveedor` VARCHAR( 30 ) NOT NULL;
+UPDATE `productos` a INNER JOIN (SELECT nit_pro,ref FROM art_fac_com WHERE nit_pro!='00000000-0') b ON a.id_pro=b.ref SET a.nit_proveedor=b.nit_pro WHERE 1;
+CREATE TABLE IF NOT EXISTS `servicios` (
+  `id_serv` int(11) NOT NULL AUTO_INCREMENT,
+  `servicio` varchar(30) COLLATE utf8_general_ci NOT NULL,
+  `des_serv` varchar(100) COLLATE utf8_general_ci NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `km_revisa` decimal(10,1) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  PRIMARY KEY (`id_serv`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci AUTO_INCREMENT=3 ;
+CREATE TABLE IF NOT EXISTS `serv_fac_remi` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+CREATE TABLE IF NOT EXISTS `serv_fac_ven` (
+  `num_fac_ven` bigint(20) NOT NULL,
+  `prefijo` varchar(5) NOT NULL,
+  `id_serv` int(11) NOT NULL,
+  `serv` varchar(30) NOT NULL,
+  `iva` int(11) NOT NULL,
+  `pvp` decimal(20,2) NOT NULL,
+  `cod_serv` bigint(20) NOT NULL,
+  `cod_su` int(4) NOT NULL,
+  PRIMARY KEY (`num_fac_ven`,`prefijo`,`id_serv`,`cod_su`),
+  KEY `serv` (`serv`),
+  KEY `cod_serv` (`cod_serv`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+ALTER TABLE  `serv_fac_ven` ADD  `id_tec` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `serv_fac_remi` ADD  `id_tec` VARCHAR( 20 ) NOT NULL;
+ALTER TABLE  `serv_fac_ven` ADD  `nota` VARCHAR( 255 ) NOT NULL;
+ALTER TABLE  `serv_fac_remi` ADD  `nota` VARCHAR( 255 ) NOT NULL;

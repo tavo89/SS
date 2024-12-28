@@ -1,0 +1,45 @@
+UPDATE `comp_egreso`
+SET tipo_gasto='Facturas Proveedores'
+WHERE  `tipo_gasto` LIKE  'Comision por Ventas'
+AND  `serial_fac_com` !=  '0'
+
+
+
+
+WIRPAT
+DELETE FROM  `cuentas_mvtos` WHERE  `clase_mov` =  'Anticipos';
+
+
+
+SELECT * FROM `inv_inter` WHERE id_pro not in (select id_pro from productos) AND exist!=0
+
+
+update `productos` set id_pro=replace(id_pro,'*','') WHERE 1;
+
+update `inv_inter` set id_pro=replace(id_pro,'*','') WHERE 1;
+
+update `art_fac_com` set ref=replace(ref,'*','') WHERE 1;
+
+update `art_fac_ven` set ref=replace(ref,'*','') WHERE 1;
+
+update `art_ajuste` set ref=replace(ref,'*','') WHERE 1;
+
+
+
+
+UPDATE  IGNORE `productos2` SET  id_pro = SUBSTRING(id_pro, 1, CHAR_LENGTH(id_pro) - 1)  WHERE `id_pro` like '%f' or  `id_pro` like '%*';
+
+
+
+-- BORRAR PRODUCTOS FUERA DE AJUSTES SECCION
+
+DELETE FROM  inv_inter WHERE id_inter NOT IN (SELECT cod_barras FROM `art_fac_com` 
+WHERE (`num_fac_com`='11' AND `nit_pro`='00000000-0' AND `cod_su`=1) 
+OR (`num_fac_com`='10' AND `nit_pro`='00000000-0' AND `cod_su`=1)
+OR (`num_fac_com`='9' AND `nit_pro`='00000000-0' AND `cod_su`=1)
+OR (`num_fac_com`='8' AND `nit_pro`='00000000-0' AND `cod_su`=1)
+                                                      );
+													  
+													  
+DELETE FROM `inv_inter` WHERE `id_pro` NOT IN(SELECT `id_pro` FROM productos);
+DELETE FROM `productos` WHERE `id_pro` NOT IN (SELECT `id_pro` FROM inv_inter);
