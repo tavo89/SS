@@ -596,16 +596,16 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfSymlinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $owner = $this->getFileOwner($conex);
-        $this->filesystem->chown($conex, $owner);
+        $owner = $this->getFileOwner($link);
+        $this->filesystem->chown($link, $owner);
 
-        $this->assertSame($owner, $this->getFileOwner($conex));
+        $this->assertSame($owner, $this->getFileOwner($link));
     }
 
     public function testChownLink()
@@ -613,16 +613,16 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $owner = $this->getFileOwner($conex);
-        $this->filesystem->chown($conex, $owner);
+        $owner = $this->getFileOwner($link);
+        $this->filesystem->chown($link, $owner);
 
-        $this->assertSame($owner, $this->getFileOwner($conex));
+        $this->assertSame($owner, $this->getFileOwner($link));
     }
 
     public function testChownSymlinkFails()
@@ -631,13 +631,13 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfSymlinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $this->filesystem->chown($conex, 'user'.time().mt_rand(1000, 9999));
+        $this->filesystem->chown($link, 'user'.time().mt_rand(1000, 9999));
     }
 
     public function testChownLinkFails()
@@ -646,13 +646,13 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $this->filesystem->chown($conex, 'user'.time().mt_rand(1000, 9999));
+        $this->filesystem->chown($link, 'user'.time().mt_rand(1000, 9999));
     }
 
     public function testChownFail()
@@ -699,16 +699,16 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfSymlinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $group = $this->getFileGroup($conex);
-        $this->filesystem->chgrp($conex, $group);
+        $group = $this->getFileGroup($link);
+        $this->filesystem->chgrp($link, $group);
 
-        $this->assertSame($group, $this->getFileGroup($conex));
+        $this->assertSame($group, $this->getFileGroup($link));
     }
 
     public function testChgrpLink()
@@ -716,16 +716,16 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $group = $this->getFileGroup($conex);
-        $this->filesystem->chgrp($conex, $group);
+        $group = $this->getFileGroup($link);
+        $this->filesystem->chgrp($link, $group);
 
-        $this->assertSame($group, $this->getFileGroup($conex));
+        $this->assertSame($group, $this->getFileGroup($link));
     }
 
     public function testChgrpSymlinkFails()
@@ -734,13 +734,13 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfSymlinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $this->filesystem->chgrp($conex, 'user'.time().mt_rand(1000, 9999));
+        $this->filesystem->chgrp($link, 'user'.time().mt_rand(1000, 9999));
     }
 
     public function testChgrpLinkFails()
@@ -749,13 +749,13 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $this->filesystem->chgrp($conex, 'user'.time().mt_rand(1000, 9999));
+        $this->filesystem->chgrp($link, 'user'.time().mt_rand(1000, 9999));
     }
 
     public function testChgrpFail()
@@ -823,17 +823,17 @@ class FilesystemTest extends FilesystemTestCase
         }
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         // $file does not exist right now: creating "broken" links is a wanted feature
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $this->assertTrue(is_link($conex));
+        $this->assertTrue(is_link($link));
 
         // Create the linked file AFTER creating the link
         touch($file);
 
-        $this->assertEquals($file, readlink($conex));
+        $this->assertEquals($file, readlink($link));
     }
 
     /**
@@ -843,13 +843,13 @@ class FilesystemTest extends FilesystemTestCase
     {
         $this->markAsSkippedIfSymlinkIsMissing();
 
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
-        $this->filesystem->remove($conex);
+        $this->filesystem->remove($link);
 
-        $this->assertFalse(is_link($conex));
-        $this->assertFalse(is_file($conex));
-        $this->assertDirectoryDoesNotExist($conex);
+        $this->assertFalse(is_link($link));
+        $this->assertFalse(is_file($link));
+        $this->assertDirectoryDoesNotExist($link);
     }
 
     public function testSymlinkIsOverwrittenIfPointsToDifferentTarget()
@@ -857,15 +857,15 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfSymlinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
-        symlink($this->workspace, $conex);
+        symlink($this->workspace, $link);
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $this->assertTrue(is_link($conex));
-        $this->assertEquals($file, readlink($conex));
+        $this->assertTrue(is_link($link));
+        $this->assertEquals($file, readlink($link));
     }
 
     public function testSymlinkIsNotOverwrittenIfAlreadyCreated()
@@ -873,15 +873,15 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfSymlinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
-        symlink($file, $conex);
+        symlink($file, $link);
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $this->assertTrue(is_link($conex));
-        $this->assertEquals($file, readlink($conex));
+        $this->assertTrue(is_link($link));
+        $this->assertEquals($file, readlink($link));
     }
 
     public function testSymlinkCreatesTargetDirectoryIfItDoesNotExist()
@@ -908,13 +908,13 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $this->assertTrue(is_file($conex));
-        $this->assertEquals(fileinode($file), fileinode($conex));
+        $this->assertTrue(is_file($link));
+        $this->assertEquals(fileinode($file), fileinode($link));
     }
 
     /**
@@ -924,11 +924,11 @@ class FilesystemTest extends FilesystemTestCase
     {
         $this->markAsSkippedIfLinkIsMissing();
 
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
-        $this->filesystem->remove($conex);
+        $this->filesystem->remove($link);
 
-        $this->assertTrue(!is_file($conex));
+        $this->assertTrue(!is_file($link));
     }
 
     public function testLinkIsOverwrittenIfPointsToDifferentTarget()
@@ -937,16 +937,16 @@ class FilesystemTest extends FilesystemTestCase
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
         $file2 = $this->workspace.\DIRECTORY_SEPARATOR.'file2';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
         touch($file2);
-        link($file2, $conex);
+        link($file2, $link);
 
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $this->assertTrue(is_file($conex));
-        $this->assertEquals(fileinode($file), fileinode($conex));
+        $this->assertTrue(is_file($link));
+        $this->assertEquals(fileinode($file), fileinode($link));
     }
 
     public function testLinkIsNotOverwrittenIfAlreadyCreated()
@@ -954,15 +954,15 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
-        link($file, $conex);
+        link($file, $link);
 
-        $this->filesystem->hardlink($file, $conex);
+        $this->filesystem->hardlink($file, $link);
 
-        $this->assertTrue(is_file($conex));
-        $this->assertEquals(fileinode($file), fileinode($conex));
+        $this->assertTrue(is_file($link));
+        $this->assertEquals(fileinode($file), fileinode($link));
     }
 
     public function testLinkWithSeveralTargets()
@@ -988,15 +988,15 @@ class FilesystemTest extends FilesystemTestCase
         $this->markAsSkippedIfLinkIsMissing();
 
         $file = $this->workspace.\DIRECTORY_SEPARATOR.'file';
-        $conex = $this->workspace.\DIRECTORY_SEPARATOR.'link';
+        $link = $this->workspace.\DIRECTORY_SEPARATOR.'link';
 
         touch($file);
 
         // practically same as testLinkIsNotOverwrittenIfAlreadyCreated
-        $this->filesystem->hardlink($file, [$conex, $conex]);
+        $this->filesystem->hardlink($file, [$link, $link]);
 
-        $this->assertTrue(is_file($conex));
-        $this->assertEquals(fileinode($file), fileinode($conex));
+        $this->assertTrue(is_file($link));
+        $this->assertEquals(fileinode($file), fileinode($link));
     }
 
     public function testReadRelativeLink()
@@ -1050,15 +1050,15 @@ class FilesystemTest extends FilesystemTestCase
         }
 
         $file = $this->workspace.'/file';
-        $conex = $this->workspace.'/link';
+        $link = $this->workspace.'/link';
 
-        $this->filesystem->symlink($file, $conex);
+        $this->filesystem->symlink($file, $link);
 
-        $this->assertEquals($file, $this->filesystem->readlink($conex));
-        $this->assertNull($this->filesystem->readlink($conex, true));
+        $this->assertEquals($file, $this->filesystem->readlink($link));
+        $this->assertNull($this->filesystem->readlink($link, true));
 
         touch($file);
-        $this->assertEquals($file, $this->filesystem->readlink($conex, true));
+        $this->assertEquals($file, $this->filesystem->readlink($link, true));
     }
 
     public function testReadLinkDefaultPathDoesNotExist()

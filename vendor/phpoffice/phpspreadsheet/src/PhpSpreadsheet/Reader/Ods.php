@@ -521,9 +521,9 @@ class Ods extends BaseReader
                                             $dataValue = $allCellDataText;
 
                                             foreach ($paragraphs as $paragraph) {
-                                                $conex = $paragraph->getElementsByTagNameNS($textNs, 'a');
-                                                if ($conex->length > 0) {
-                                                    $hyperlink = $conex->item(0)->getAttributeNS($xlinkNs, 'href');
+                                                $link = $paragraph->getElementsByTagNameNS($textNs, 'a');
+                                                if ($link->length > 0) {
+                                                    $hyperlink = $link->item(0)->getAttributeNS($xlinkNs, 'href');
                                                 }
                                             }
 
