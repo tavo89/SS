@@ -145,6 +145,7 @@ $meca3=$row["tec3"];
 $meca4=$row["tec4"];
 
 $nota_fac=$row["nota"];
+$nota_domicilio=$row["NORECE"];
 
 $vendedor=nomTrim($row['vendedor']);	
 $tipoPago=$row['tipo_venta'];
@@ -848,16 +849,17 @@ include("fac_ven_load_serv.php");
         <tr id="desc">
         
         <td>
-        <table>
+        <table align="right" width="100%">
         <tr >
         
-          <td colspan="3" rowspan="<?php if($MODULES["ANTICIPOS"]==1){echo "15";}else {echo "14";} ?>" align="center" width="" > 
+          <td colspan="3" rowspan="<?php if($MODULES["ANTICIPOS"]==1){echo "15";}else {echo "14";} ?>" align="center" width="" class="" > 
  
             <div align="left">
-              <textarea name="vlr_let" id="vlr_let" readonly="readonly" cols="40" style="width:200px" class="save_fc">
-			  <?php echo "$val_letras" ?></textarea>
-              <br>
-              <textarea name="nota_fac" id="nota_fac"   cols="40" placeholder="NOTAS" style="width:200px;
+              <textarea name="vlr_let" id="vlr_let" readonly="readonly" cols="40" style="width:200px" class="save_fc uk-hidden">
+			        <?php echo "$val_letras" ?>
+              </textarea>
+              
+              <textarea name="nota_fac" id="nota_fac"   cols="40" rows="6" placeholder="NOTAS" style="width:200px;
 -webkit-border-radius:19px;
 -moz-border-radius:19px;
 border-radius:19px;
@@ -865,7 +867,12 @@ border:6px solid rgb(201, 38, 38);" class="save_fc"><?php echo "$nota_fac" ?></t
               
               
               
-            </div></td>
+            </div>
+            <div align="left">
+<textarea class="save_fc" name="nota_domicilio" id="nota_domicilio"   cols="40" rows="4" placeholder="DATOS DOMICILIO" style="-webkit-border-radius:19px;-moz-border-radius:19px;border-radius:19px;border:6px solid rgb(201, 38, 38);"><?php echo "$nota_domicilio" ?></textarea>
+</div>
+          </td>
+
           <th style="background-color: #000; color:#FFF" width="300px">Base IVA:</th>
           <td align="right"><input  id="SUB" type="text" readonly="" value="<?php echo money("$SUB") ?>"   name="sub" class="save_fc"/>
             <input type="hidden" name="SUB" value="<?php echo "$SUB" ?>" id="SUBH" class="save_fc"/>
@@ -873,11 +880,13 @@ border:6px solid rgb(201, 38, 38);" class="save_fc"><?php echo "$nota_fac" ?></t
            <input id="EXCENTOS" type="hidden" readonly="" value="0" name="exc" class="save_fc"/>
             
             </td>
+            
         </tr>
 <tr>
 <th style="background-color: #000; color:#FFF;<?php echo $hide;?>">Dcto:</th>
 <td align="right" style="<?php echo $hide;?>"><input <?php if($DESCUENTO>0){echo " ";}?> placeholder="%" id="DCTO_PER" type="text"  value="" name="DCTO_PER"  style="width:50px" onKeyUp="calc_per($(this),$('#SUB'),$('#DESCUENTO2'));" onChange="dctoB();"/><input name="dcto2" id="DESCUENTO2" type="text" value="<?php echo money("$DESCUENTO") ?>" onKeyUp="dctoB();" class="save_fc" />
            </td>
+           
         </tr>
     
         
@@ -885,14 +894,19 @@ border:6px solid rgb(201, 38, 38);" class="save_fc"><?php echo "$nota_fac" ?></t
 		if($usar_iva==1){
 		?>
         <tr>
+          
           <td  align="center" colspan="">I.V.A: </td>
           <td align="right"><input name="iva" readonly="readonly" id="IVA" type="text" value="<?php echo money("$IVA") ?>" class="save_fc"/>
             <input id="IVAH" type="hidden" name="IVA" value="<?php echo "$IVA" ?>" class="save_fc"/></td>
+            
         </tr>
         <?php
 		}
 		?>
 <tr id="anticipo_bono_tr" class="<?php if($rolLv!=$Adminlvl && !val_secc($id_Usu,"dcto_despues_iva")){echo "uk-hidden";}?>">
+
+
+
 <td style=" background-color: #000; color:#FFF;font-size:24px; padding:1px;">Dcto Despu&eacute;s IVA: 
 <input class="save_fc" placeholder="%" id="DCTO_IVA_PER" type="text"  value="" name="DCTO_IVA_PER"  style="width:50px" onKeyUp="calc_per($(this),$('#SUB'),$('#DESCUENTO_IVA'));" onBlur="tot();"/>
 </td>
