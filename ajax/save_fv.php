@@ -36,6 +36,7 @@ if ($row = $stmt->fetch()) {
 	$tel=r('tel');
 	
 	$nota_fac=rm("nota_fac");
+	$nota_domicilio=rm("nota_domicilio");
 	
 	$form_p=r('form_pago');
 	$tipo_cli=r('tipo_cli');
@@ -131,16 +132,62 @@ if ($row = $stmt->fetch()) {
 
 
 
-$sql="UPDATE fac_venta SET 
-id_cli='$ced',nom_cli='$cliente',dir='$dir',tel_cli='$tel',ciudad='$cuidad',tipo_venta='$form_p',tipo_cli='$tipo_cli',
-vendedor='$ven',mecanico='$meca',cajero='$cajero',fecha='$fecha',val_letras='$vlr_let',sub_tot=$sub,iva=$iva,descuento=$dcto,
-tot=$tot,entrega=$entrega,cambio=$cambio,modificable='si',estado='$estado',mail='$mail',fe_naci='$fe_naci',usu='$nomUsu',id_usu='$id_Usu',
-num_pagare='$pagare',tot_bsf='$tot_bsf',entrega_bsf='$entrega2',r_fte='$r_fte',r_iva='$r_iva',r_ica='$r_ica',per_fte='$r_fte_per',per_iva='$r_iva_per',
-per_ica='$r_ica_per',num_exp='$num_exp',abono_anti='$abon_anti',anticipo_bono='$confirm_bono',nota='$nota_fac',placa='$placa',km='$km',tot_tarjeta='$entrega3',
-tec2='$meca2',tec3='$meca3',tec4='$meca4', id_cuenta='$idCta',cod_comision='$codComision', tipo_comi='$tipoComi', id_vendedor='$idVen', marca_moto='$marcaMoto',
-imp_consumo='$IMP_CONSUMO', DESCUENTO_IVA='$DESCUENTO_IVA', snombr='$snombr', apelli='$apelli',num_bolsas='$NUM_BOLSAS',impuesto_bolsas='$IMP_BOLSAS'
-
-WHERE num_fac_ven=$num_fac AND prefijo='$PRE' AND hash='$hash' AND nit=$codSuc ";
+$sql="UPDATE fac_venta SET id_cli='$ced',
+						   nom_cli='$cliente',
+						   dir='$dir',
+						   tel_cli='$tel',
+						   ciudad='$cuidad',
+						   tipo_venta='$form_p',
+						   tipo_cli='$tipo_cli',
+						   vendedor='$ven',
+						   mecanico='$meca',
+						   cajero='$cajero',
+						   fecha='$fecha',
+						   val_letras='$vlr_let',
+						   sub_tot=$sub,
+						   iva=$iva,
+						   descuento=$dcto,
+                           tot=$tot,
+						   entrega=$entrega,
+						   cambio=$cambio,
+						   modificable='si',
+						   estado='$estado',
+						   mail='$mail',
+						   fe_naci='$fe_naci',
+						   usu='$nomUsu',
+						   id_usu='$id_Usu',
+                           num_pagare='$pagare',
+						   tot_bsf='$tot_bsf',
+						   entrega_bsf='$entrega2',
+						   r_fte='$r_fte',
+						   r_iva='$r_iva',
+						   r_ica='$r_ica',
+						   per_fte='$r_fte_per',
+						   per_iva='$r_iva_per',
+                           per_ica='$r_ica_per',
+						   num_exp='$num_exp',
+						   abono_anti='$abon_anti',
+						   anticipo_bono='$confirm_bono',
+						   nota='$nota_fac',
+						   NORECE='$nota_domicilio',
+						   placa='$placa',
+						   km='$km',
+						   tot_tarjeta='$entrega3',
+                           tec2='$meca2',
+						   tec3='$meca3',
+						   tec4='$meca4', 
+						   id_cuenta='$idCta',
+						   cod_comision='$codComision', 
+						   tipo_comi='$tipoComi', 
+						   id_vendedor='$idVen', 
+						   marca_moto='$marcaMoto',
+                           imp_consumo='$IMP_CONSUMO', 
+						   DESCUENTO_IVA='$DESCUENTO_IVA', 
+						   snombr='$snombr', 
+						   apelli='$apelli',
+						   num_bolsas='$NUM_BOLSAS',
+						   impuesto_bolsas='$IMP_BOLSAS'
+    WHERE num_fac_ven=$num_fac AND prefijo='$PRE' AND hash='$hash' AND nit=$codSuc ";
 
 //echo "$sql";
 $linkPDO->exec($sql);
