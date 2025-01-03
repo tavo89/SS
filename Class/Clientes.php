@@ -46,7 +46,7 @@ class Clientes {
                 $arrayIdClientes[] = $row['id_cli'];
             } 
         }
-        $this->DbConnect = null;
+        
         return array_unique($arrayIdClientes);
     }
 
@@ -68,7 +68,6 @@ class Clientes {
             }
             
             $this->DbConnect->exec($update);
-            $this->DbConnect = null;
         }
         
     }
@@ -99,7 +98,6 @@ class Clientes {
             }
 
         }
-        $this->DbConnect = null;
 
         // pendiente crear funcion para imprimir, dejar esta para consultar unicamente
 
@@ -123,7 +121,7 @@ class Clientes {
             $datosCliente['telefono']  = $row['tel'];
             $datosCliente['ciudad']    = $row['cuidad'];
         }
-        $this->DbConnect = null;
+
         return $datosCliente;
     }
 
@@ -147,7 +145,7 @@ class Clientes {
             $htmlList.='</li>';
         }
         $htmlList.='</ul>';
-        $this->DbConnect = null;
+
         return $htmlList;
     }
 }
