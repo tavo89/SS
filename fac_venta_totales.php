@@ -7,15 +7,33 @@ if($fac_ven_verSubtotales==1){$HIDDEN_SUBS2="";}
 
 ?>
 <table align="right" width="100%">
+<tr>
+<td rowspan="<?php if($MODULES["ANTICIPOS"]==1){echo "15";}else if($fac_ven_verSubtotales==1){echo "20";}else {echo "14";} ?>">
+
+
+
+<table align="right" width="100%">
 <tr id="desc">        
-<td colspan="" rowspan="<?php if($MODULES["ANTICIPOS"]==1){echo "15";}else if($fac_ven_verSubtotales==1){echo "20";}else {echo "14";} ?>" align="center" width="100px"  class=""> 
-<div align="left"><textarea name="vlr_let" id="vlr_let" readonly="readonly" cols="40" style="width:300px;" class="save_fc uk-hidden"></textarea>
+<td colspan="" rowspan="<?php if($MODULES["ANTICIPOS"]==1){echo "";}else if($fac_ven_verSubtotales==1){echo "";}else {echo "";} ?>" align="center" width="100px"  class=""> 
+<div align="left">
+    <textarea name="vlr_let" id="vlr_let" readonly="readonly" cols="40" style="width:300px;" class="save_fc uk-hidden"></textarea>
 
 <textarea class="save_fc" name="nota_fac" id="nota_fac"   cols="40" rows="6" placeholder="NOTAS" style="-webkit-border-radius:19px;-moz-border-radius:19px;border-radius:19px;border:6px solid rgb(201, 38, 38);"><?php echo "$nota_fac" ?></textarea>
-</div></td> 
+</div>
+</td> 
 
+</tr>
+<tr id="" class="<?php  if(!$usarNotaDomicilios) {echo "uk-hidden";}?>">        
+<td colspan=""  align="center" width="100px"  class="<?php  if(!$usarNotaDomicilios) {echo "uk-hidden";}?>"> 
+<div align="left">
+<textarea class="save_fc" name="nota_domicilio" id="nota_domicilio"   cols="40" rows="4" placeholder="DATOS DOMICILIO" style="-webkit-border-radius:19px;-moz-border-radius:19px;border-radius:19px;border:6px solid rgb(201, 38, 38);"><?php echo "" ?></textarea>
+</div>
+</td> 
 
-
+</tr>
+</table>
+</td>
+</tr>
 
 <!-- SUBS IVA DETALLADO -->
 <tr class="<?php echo $HIDDEN_SUBS2; ?>">

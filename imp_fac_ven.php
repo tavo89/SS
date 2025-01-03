@@ -168,6 +168,7 @@ $IMP_BOLSAS=$row['impuesto_bolsas'];
 $TOT_PAGAR=$TOT+$IMP_BOLSAS-($R_FTE+$R_ICA+$R_IVA);
 
 	$NOTA_FAC=$row["nota"];
+	$NOTA_DOMICILIO=$row["NORECE"];
 	
 
 	if($form_pa=="Contado")
@@ -891,6 +892,8 @@ if($form_pa=="Credito"){
 if($t!=2){
 	
 	if(!empty($NOTA_FAC))$showNote="Nota: $NOTA_FAC<br>";
+	if(!empty($NOTA_DOMICILIO))$showNote.="Domicilio: <i>$NOTA_DOMICILIO</i><br>";
+	
 	
 ?>
 <hr size="2%" style="height:0px; border-style: dotted;"  />

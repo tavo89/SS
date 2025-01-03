@@ -87,6 +87,7 @@ $num_fac="";
 	$tipoResol=r("tipo_resol");
     $validaDiaSinIVA = ($tipoResol=='PAPEL');
 	$nota_fac=rm("nota_fac");
+	$nota_domicilio=rm("nota_domicilio");
 	if($dia_sin_iva==1 && $validaDiaSinIVA){$nota_fac.='<br>D&iacute;a sin IVA decreto 1314 del 20 de octubre de 2021';}
 	
 
@@ -300,7 +301,7 @@ $sqlA="INSERT INTO fac_venta($columnas) VALUES($num_fac,'$ced','$cliente','$dir'
 	   '$codCaja','$totBsF','$FLUJO_INV','$NUM_PAGARE','$entrega2','$r_fte','$r_iva','$r_ica','$r_fte_per','$r_iva_per',
 	   '$r_ica_per','$TC','$PLACA','$KM','$nota_fac','$entrega3','$meca2','$meca3','$meca4','$idCta','$codComision',
 	   '$tipoComi','$IMP_CONSUMO','$NUM_BOLSAS','$IMP_BOLSAS','$idVen','$hashFac','$marcaMoto','$MesaID', '$TIPDOC', 
-	   '$FECVEN', '$MONEDA', '$regFiscal', '$CODSUC', '$NUMREF', '$FORIMP', '$CLADET', '$ORDENC', '$NUREMI', '$NORECE', 
+	   '$FECVEN', '$MONEDA', '$regFiscal', '$CODSUC', '$NUMREF', '$FORIMP', '$CLADET', '$ORDENC', '$NUREMI', '$nota_domicilio', 
 	   '$EANTIE', '$COMODE', '$COMOHA', '$FACCAL', '$FETACA', '$FECREF', '$OBSREF', '$TEXDOC', '$MODEDI', '$NDIAN', '$SOCIED', 
 	   '$MOTDEV', '$claper', '$coddoc', '$paicli', '$depcli', '$nomcon', '$regtri', '$razsoc', '$snombr', '$apelli','$DESCUENTO_IVA','$tipoResol','')";
 $linkPDO->exec($sqlA);

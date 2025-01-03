@@ -467,6 +467,8 @@ $fac_ven_etiqueta_nogravados = varSesionSistema('fac_ven_etiqueta_nogravados');
 $mod_resolucion=varSesionSistema('mod_resolucion');
 $formatoFacturaDefecto=varSesionSistema('formatoFacturaDefecto');
 $vende_a_costo=varSesionSistema('vende_a_costo');
+//usarNotaDomicilios
+$usarNotaDomicilios=varSesionSistema('usarNotaDomicilios');
 
 if(!empty($ResolCompartida)){
 	$ResolCompartida = explode(',',$ResolCompartida);
