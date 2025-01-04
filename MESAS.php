@@ -254,17 +254,17 @@ if(!empty($row["hash"]) || ($row['num_fac_ven']!=0 && !empty($row['num_fac_ven']
 	if(!is_numeric ($row["num_mesa"])){$TITULO_OBJ='';}
 	if(!empty($row["num_mesa"])){
 ?>
-<div id="drag<?php echo $ii ?>" class="uk-panel uk-text-large" style=" padding:5px;border: double; border-width:5px; width:140px; cursor:pointer;<?php echo "left:$row[p_left] ; top:$row[p_top]" ?>" onMouseUp="savePos($(this),'<?php echo $row["id_mesa"] ?>')">
+<div id="drag<?php echo $ii ?>" class="uk-panel uk-text-large" style=" padding:5px;border: double; border-width:5px; width:110px; cursor:pointer;<?php echo "left:$row[p_left] ; top:$row[p_top]" ?>" onMouseUp="savePos($(this),'<?php echo $row["id_mesa"] ?>')">
 
 <?php echo "$TITULO_OBJ $row[num_mesa]" ?> 
 <?php if(is_numeric ($row["num_mesa"]) || buscaString('VENTAS',strtoupper($row["num_mesa"])) ){?>
 <br>
 <div align="" class="uk-text-large uk-badge uk-badge<?php if($row["estado"]=="Ocupada"){echo "-warning";}else{echo "-success";}?>"><?php echo $row["estado"];?></div> 
-<div style=" font-size:28px;">
+<div style=" font-size:20px;">
 <?php echo money2($row["valor"]) ?>
 </div>
 <div class="uk-button-dropdown " data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
-<a   class="uk-button uk-button-primary uk-button-mini " style="width:140px; font-size:20px;">Opciones <i class="uk-icon-caret-down"></i></a>
+<a   class="uk-button uk-button-primary uk-button-mini " style="width:110px; font-size:20px;">Opciones <i class="uk-icon-caret-down"></i></a>
 <div class="uk-dropdown uk-dropdown-small uk-dropdown-bottom" style="top: 30px; left: 0px;">
 <ul  class="uk-nav uk-nav-dropdown">
 <li>
