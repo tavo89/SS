@@ -5,7 +5,7 @@ date_default_timezone_set('America/Bogota');
 
 mysqli_query($conex, "SET time_zone = '-05:00';");
 mysqli_query($conex, "SET sql_mode = '';");
-error_reporting(E_ERROR | E_PARSE);
+//error_reporting(E_ERROR | E_PARSE);
 
 
 
@@ -6594,14 +6594,18 @@ for($i=0;$i<$max;$i++){
 	if($tipoCol[$i]=="hidden"){$HIDDEN=" uk-hidden";}
 	else{$HIDDEN="";}
 
-	if($tipoCol[$i]!="select"){$HTML.=" <div class=\"uk-form-row\">
+	if($tipoCol[$i]!="select"){
+		$HTML.=" <div class=\"uk-form-row\">
         <label class=\"uk-form-label $HIDDEN\" for=\"f$i\">".$LABEL_INPUT[$colSet[$i]]."</label>
         <input name=\"c$i\" id=\"f$i\" type=\"".$tipoCol[$i]."\" placeholder=\"\" value=\"$default_col[$i]\" >
-		</div>";}
-		else {$HTML.=" <div class=\"uk-form-row\">
-        <label class=\"uk-form-label $HIDDEN\" for=\"f$i\">".$LABEL_INPUT[$colSet[$i]]."</label>
-        <select name=\"c$i\" id=\"f$i\" required>".$SelOpt[$cols[$i]]."</select>
-		</div>";}
+		</div>";
+	}
+	else {
+			$HTML.=" <div class=\"uk-form-row\">
+			<label class=\"uk-form-label $HIDDEN\" for=\"f$i\">".$LABEL_INPUT[$colSet[$i]]."</label>
+			<select name=\"c$i\" id=\"f$i\" required>".$SelOpt[$cols[$i]]."</select>
+			</div>";
+	}
 }
 
 $HTML.="

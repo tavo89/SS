@@ -197,10 +197,25 @@ $total = $rowTotal["total"];
 <?php
 //        0       1       2         3          4              5           6     7        8      9         10        11               12          13    14
 
+
+$sqlMesa = "SELECT max(cast(num_mesa as UNSIGNED))+1 as nMesa FROM `mesas` WHERE num_mesa REGEXP '^-?[0-9]+$'";
+$rsMesa = $linkPDO->query($sqlMesa);
+if($rowMesa = $rsMesa->fetch()) {
+	$ultimaMesa = $rowMesa['nMesa'];
+}
+else {
+	$ultimaMesa = 1;
+}
+
+$opcionesNumMesas = "<option value=\"$ultimaMesa\">Mesa # $ultimaMesa</option>"
+                   ."<option value=\"DOMICILIOS -VENTAS\">DOMICILIOS -VENTAS</option>";
+
+$selecOPTColumns=array("num_mesa"=>$opcionesNumMesas);
+
 $columnas="cod_su,num_mesa";
-$tipoCol=array(0=>"hidden","text");
-$default=array(0=>"$codSuc","" );
-crear_any_form("mesas",$columnas,$tipoCol,$default, " function(){ return true;}", "successAny","Mesas $SEDES[$codSuc]","");
+$tipoCol=array(0=>"hidden","select");
+$default=array(0=>"$codSuc",$opcionesNumMesas);
+crear_any_form("mesas",$columnas,$tipoCol,$default, " function(){ return true;}", "successAny","Mesas $SEDES[$codSuc]","",$selecOPTColumns);
 
 
 ?>
@@ -219,13 +234,13 @@ crear_any_form("mesas",$columnas,$tipoCol,$default, " function(){ return true;}"
 $classHidden='';
 while ($row = $rs->fetch()) 
 { 
-$ii++;
-$FunctPop=" location.assign('fac_venta.php?id_mesa=$row[id_mesa]');";
-$FunctCambiarMesa="tranferirMesa('$row[id_mesa]','$row[num_mesa]')";
-$iconOpt="plus-square";
-$fontColor="";
+	$ii++;
+	$FunctPop=" location.assign('fac_venta.php?id_mesa=$row[id_mesa]');";
+	$FunctCambiarMesa="tranferirMesa('$row[id_mesa]','$row[num_mesa]')";
+	$iconOpt="plus-square";
+	$fontColor="";
 
-$classHidden=$row["estado"]!="Ocupada"?'uk-hidden':'';
+	$classHidden=$row["estado"]!="Ocupada"?'uk-hidden':'';
 
 if(!empty($row["hash"]) || ($row['num_fac_ven']!=0 && !empty($row['num_fac_ven']))){
 	$iconOpt="pencil";
@@ -233,31 +248,33 @@ if(!empty($row["hash"]) || ($row['num_fac_ven']!=0 && !empty($row['num_fac_ven']
 	$FunctPop=" location.assign('mod_fac_ven.php?num_fac_venta=$row[num_fac_ven]&pre=$row[prefijo]&id_mesa=$row[id_mesa]&hash=$row[hash]');";
 	
 	}
+	
 
 	$TITULO_OBJ='<i class="uk-icon-beer"></i> MESA';
 	if(!is_numeric ($row["num_mesa"])){$TITULO_OBJ='';}
-if(!empty($row["num_mesa"])){
+	if(!empty($row["num_mesa"])){
 ?>
-<div id="drag<?php echo $ii ?>" class="uk-panel" style=" padding:5px;border: double; border-width:5px; width:80px; cursor:pointer;<?php echo "left:$row[p_left] ; top:$row[p_top]" ?>" onMouseUp="savePos($(this),'<?php echo $row["id_mesa"] ?>')">
+<div id="drag<?php echo $ii ?>" class="uk-panel uk-text-large" style=" padding:5px;border: double; border-width:5px; width:140px; cursor:pointer;<?php echo "left:$row[p_left] ; top:$row[p_top]" ?>" onMouseUp="savePos($(this),'<?php echo $row["id_mesa"] ?>')">
 
 <?php echo "$TITULO_OBJ $row[num_mesa]" ?> 
 <?php if(is_numeric ($row["num_mesa"]) || buscaString('VENTAS',strtoupper($row["num_mesa"])) ){?>
-<div align="" class="uk-badge uk-badge<?php if($row["estado"]=="Ocupada"){echo "-warning";}else{echo "-success";}?>"><?php echo $row["estado"];?></div> 
-<div style=" font-size:18px;">
+<br>
+<div align="" class="uk-text-large uk-badge uk-badge<?php if($row["estado"]=="Ocupada"){echo "-warning";}else{echo "-success";}?>"><?php echo $row["estado"];?></div> 
+<div style=" font-size:28px;">
 <?php echo money2($row["valor"]) ?>
 </div>
-<div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
-<a   class="uk-button uk-button-primary uk-button-mini" style="width:80px;">Opciones <i class="uk-icon-caret-down"></i></a>
+<div class="uk-button-dropdown " data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
+<a   class="uk-button uk-button-primary uk-button-mini " style="width:140px; font-size:20px;">Opciones <i class="uk-icon-caret-down"></i></a>
 <div class="uk-dropdown uk-dropdown-small uk-dropdown-bottom" style="top: 30px; left: 0px;">
 <ul  class="uk-nav uk-nav-dropdown">
 <li>
 <a href="#" class="" onMouseUp="<?php echo $FunctPop ?>">
-<i class="uk-icon-<?php echo $iconOpt ?>">PEDIDO</i>
+<i class="uk-text-large uk-icon-<?php echo $iconOpt ?>">PEDIDO</i>
 </a>
 </li>
 <li class="<?php echo $classHidden; ?>">
 <a href="#" class="" onMouseUp="<?php echo $FunctCambiarMesa; ?>">
-<i class="uk-icon-refresh">Cambiar de Mesa</i>
+<i class="uk-text-large uk-icon-refresh">Cambiar de Mesa</i>
 </a>
 </li>
 </ul>
