@@ -184,7 +184,7 @@ EFECTIVO/<BR />TARJETA
 </div>
 <div  class="uk-width-6-10">
 
-<input PLACEHOLDER="PAGO" style="  " id="entrega" type="text"  value="" name="entrega" onKeyUp="mover($(this),$('#cod'),$(this),0);change($(this));" onBlur="change($(this));" class="save_fc  uk-form-success  facVeNumericTots"  />
+<input PLACEHOLDER="PAGO"  id="entrega" type="text"  value="" name="entrega" onKeyUp="mover($(this),$('#cod'),$(this),0);change($(this));" onBlur="change($(this));" class="save_fc  uk-form-success  facVeNumericTots"  />
 </div>
 </div>
 </td>
@@ -195,7 +195,7 @@ EFECTIVO/<BR />TARJETA
 
 <tr id="pago_tarjetas_pesos_tr" class="PAGO_PESOS2<?php if($MODULES["PAGO_EFECTIVO_TARJETA"]!=1)echo " uk-hidden"; ?>">
 <td style="font-size:24px;" align="right">Pago Excedente en Tarjeta</td>
-<td  align="right" colspan="" class="PAGO_PESOS2" style="font-size:24px;"> <input id="entrega3" type="text"  value="" name="entrega3" onKeyUp="change($(this));mover($(this),$('#cod'),$(this),0);" onBlur="//change($(this));" data-uk-tooltip title="SOLO APLICA PARA PAGO PARCIAL (La otra parte debe ser a acontado)" class="save_fc uk-form-small facVeNumericTots"  style="  "/>
+<td  align="right" colspan="" class="PAGO_PESOS2" style="font-size:24px;"> <input id="entrega3" type="text"  value="" name="entrega3" onKeyUp="change($(this));mover($(this),$('#cod'),$(this),0);" onBlur="//change($(this));" data-uk-tooltip title="SOLO APLICA PARA PAGO PARCIAL (La otra parte debe ser a acontado)" class="save_fc uk-form-small facVeNumericTots"  />
 </td>
  
 
@@ -204,7 +204,7 @@ EFECTIVO/<BR />TARJETA
 <tr>
 
 <td  align="right" colspan="2" style="font-size:40px; height:49px;"><b>CAMBIO</b> 
-<input style=""  id="cambio" type="text"  value="0" name="cambio" readonly="readonly" class="save_fc  facVeNumericTots uk-text-primary uk-text-bold " />
+<input   id="cambio" type="text"  value="0" name="cambio" readonly="readonly" class="save_fc  facVeNumericTots uk-text-primary uk-text-bold " />
 <div id="cambio_pesos" style="  color:#F00"></div>
 </td>
 
@@ -214,13 +214,8 @@ EFECTIVO/<BR />TARJETA
 
 <td   ></td>
 <td align="right" colspan="" style="font-size:20px;">Pago Efectivo(bsF):
-<input id="entrega2" type="text"  value="" name="entrega2" onKeyUp="mover($(this),$('#cod'),$(this),0);change($(this));" onBlur="change($(this));" class="save_fc uk-form-small facVeNumeric"  style=""/>
+<input id="entrega2" type="text"  value="" name="entrega2" onKeyUp="mover($(this),$('#cod'),$(this),0);change($(this));" onBlur="change($(this));" class="save_fc uk-form-small facVeNumeric"  />
 </td>
 </tr>
-    
-
-
-  
-    
-    </table>   
+</table>   
  

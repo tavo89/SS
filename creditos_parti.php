@@ -636,22 +636,45 @@ if(($rolLv==$Adminlvl || val_secc($id_Usu,"creditos_publico")) && $codSuc>0){
 <div class="uk-button-dropdown" data-uk-dropdown="{mode:'click'}" aria-haspopup="true" aria-expanded="false">
 <button class="uk-button uk-button-primary" style="width:100px;">Opciones <i class="uk-icon-caret-down"></i></button>
 <div class="uk-dropdown uk-dropdown-small uk-dropdown-bottom" style="top: 30px; left: 0px;">
-<ul class="uk-nav uk-nav-dropdown">
-<li><a href="#" class="" onClick="print_pop('<?php echo "comp_ingreso.php?cc=$id_cli&nf=$num_fac&pre=$pre&tot_fac=$tot_fac&saldo=$saldo"; ?>','PAGOS',750,600);"><i class="uk-icon-dollar    uk-icon-small"></i> Pagar</a></li>
-<li><a href="<?php echo $url ?>?opc=cuotas&valor=<?php echo $num_fac ?>&pag=<?php echo $pag ?>&pre=<?php echo $pre ?>" class="" ><i class="uk-icon-database     uk-icon-small"></i> Ver Cuotas</a></li>
+<ul class="uk-nav uk-nav-dropdown uk-text-large">
+<li><a href="#" class="" onClick="print_pop('<?php echo "comp_ingreso.php?cc=$id_cli&nf=$num_fac&pre=$pre&tot_fac=$tot_fac&saldo=$saldo"; ?>','PAGOS',750,600);"><i class="uk-icon-dollar    uk-icon-large"></i> Pagar</a></li>
+<li><a href="<?php echo $url ?>?opc=cuotas&valor=<?php echo $num_fac ?>&pag=<?php echo $pag ?>&pre=<?php echo $pre ?>" class="" ><i class="uk-icon-database     uk-icon-large"></i> Ver Cuotas</a></li>
 
-<li><a href="<?php echo $url ?>?opc=Imprimir&valor=<?php echo $num_fac ?>&pre=<?php echo $row['prefijo'] ?>&tipo_imp=carta&pag=<?php echo $pag ?>" class="" ><i class="uk-icon-print     uk-icon-small"></i> Imprimir Factura</a></li>
-            
+<li><a href="<?php echo $url ?>?opc=Imprimir&valor=<?php echo $num_fac ?>&pre=<?php echo $row['prefijo'] ?>&tipo_imp=carta&pag=<?php echo $pag ?>" class="" ><i class="uk-icon-print     uk-icon-large"></i> Imprimir Factura</a></li>
+
+<?php
+$saldoCreditoCliente = money2($ConsultaSaldo['saldo']);
+if ($fac_servicios_mensuales==1)
+{
+	$codPais_telefono = 57;
+	$conceptoCobro ="Facturación Electrónica ";
+	
+	$fechaPagoCobro = "20-01-2025";
+	$mensajeCobro = urlencode("Hola $nom, tu servicio de $conceptoCobro es de $saldoCreditoCliente, por favor pagar antes de $fechaPagoCobro");
+	if(!empty($tel) ){
+		echo <<<EOS
+		<li><a href="https://wa.me/$codPais_telefono$tel/?text=$mensajeCobro" target="_blank"><i class="uk-icon-whatsapp     uk-icon-large"></i> &nbsp;Envia Cobro a cliente</a></li>
+		EOS;
+	}
+	else {
+		echo <<<EOS
+		<li><a href="#" target="_blank"><i class="uk-icon-whatsapp     uk-icon-large uk-text-danger"></i> &nbsp;Tel. no disponible</a></li>
+		EOS;
+	}
+}
+
+?>
+
 <?php if($MODULES["PLAN_AMOR"]==1){?>
 <li class="uk-nav-divider"></li>
-<li><a href="#" onClick="print_pop('<?php echo "plan_amortizacion.php?n_fac_ven=$num_fac&prefijo=$pre"; ?>','Kardex',850,650);" class=""><i class="uk-icon-suitcase     uk-icon-small"></i> Crear Plan Amortizaci&oacute;n</a></li>
+<li><a href="#" onClick="print_pop('<?php echo "plan_amortizacion.php?n_fac_ven=$num_fac&prefijo=$pre"; ?>','Kardex',850,650);" class=""><i class="uk-icon-suitcase     uk-icon-large"></i> Crear Plan Amortizaci&oacute;n</a></li>
 <?php }?>
 </ul>
 </div>
 </div>
 
 
-<!--<a href="<?php echo $url ?>?opc=cuotas&valor=<?php echo $num_fac ?>&pag=<?php echo $pag ?>&pre=<?php echo $pre ?>" class="uk-icon-money uk-icon-button uk-icon-hover uk-icon-small"></a>-->
+<!--<a href="<?php echo $url ?>?opc=cuotas&valor=<?php echo $num_fac ?>&pag=<?php echo $pag ?>&pre=<?php echo $pre ?>" class="uk-icon-money uk-icon-button uk-icon-hover uk-icon-large"></a>-->
 </td>
 
 <?php
@@ -662,7 +685,7 @@ if(($rolLv==$Adminlvl || val_secc($id_Usu,"creditos_publico")) && $codSuc>0){
 </tr>
 <?php if($MODULES["PLAN_AMOR"]==1){?>
 <tr>
-<td><a href="#" onClick="print_pop('<?php echo "plan_amortizacion.php?n_fac_ven=$num_fac&prefijo=$pre"; ?>','Kardex',850,650);"><i class="uk-icon-calculator uk-icon-button uk-icon-hover uk-icon-small"></i></a></td>
+<td><a href="#" onClick="print_pop('<?php echo "plan_amortizacion.php?n_fac_ven=$num_fac&prefijo=$pre"; ?>','Kardex',850,650);"><i class="uk-icon-calculator uk-icon-button uk-icon-hover uk-icon-large"></i></a></td>
 </tr>
 <?php }?>
 </table>
@@ -676,7 +699,7 @@ if(($rolLv==$Adminlvl || val_secc($id_Usu,"creditos_publico")) && $codSuc>0){
 <td class="uk-hidden-touch"><?php echo $ciudad; ?></td>
 <td><?php echo money($totFac); ?></td>
 <td><?php if($estado!="PAGADO"){echo "<div class=\"  uk-badge uk-badge-warning\">$estado</div>";}else {echo "<div class=\"  uk-badge uk-badge-success\">$estado</div>";} ?></td>
-<td class="uk-hidden-touch"><b><?php echo money2($ConsultaSaldo['saldo']); ?></b></td>
+<td class="uk-hidden-touch"><b><?php echo $saldoCreditoCliente; ?></b></td>
 <td><?php echo $fecha; ?></td>
 <td class="uk-hidden-touch"><?php echo $fecha_pago; ?></td>
 <td><?php echo $mora; ?></td>

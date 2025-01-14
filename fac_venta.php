@@ -105,7 +105,7 @@ table td, table th {
 .sticky + .container {
   padding-top: 102px;
 }
-.container{}
+
 </style> 
 
 </head>
@@ -274,7 +274,7 @@ $val=($usar_posFac==0 || val_secc($id_Usu,"caja_centro"));
 <?php if($MODULES["SERVICIOS"]==1){ ?>
 <tr>
 <td colspan=""><!-- max-height: 200px;height:150px; border-style: double-->
-                  <div class="uk-overflow-container" style="">
+                  <div class="uk-overflow-container" >
 <table id="servicios" width="100%" cellspacing="0" cellpadding="0" style="font-size:12px;">
               <tr style="background-color: #000; color:#FFF">
               <?php if($MODULES["modulo_planes_internet"]!=1){?>
