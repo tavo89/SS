@@ -648,12 +648,13 @@ if ($fac_servicios_mensuales==1)
 {
 	$codPais_telefono = 57;
 	$conceptoCobro ="Facturación Electrónica ";
+	$numCelular =limpianum($tel);
 	
 	$fechaPagoCobro = "20-01-2025";
 	$mensajeCobro = urlencode("Hola $nom, tu servicio de $conceptoCobro es de $saldoCreditoCliente, por favor pagar antes de $fechaPagoCobro");
 	if(!empty($tel) ){
 		echo <<<EOS
-		<li><a href="https://wa.me/$codPais_telefono$tel/?text=$mensajeCobro" target="_blank"><i class="uk-icon-whatsapp     uk-icon-large"></i> &nbsp;Envia Cobro a cliente</a></li>
+		<li><a href="https://wa.me/$codPais_telefono$numCelular/?text=$mensajeCobro" target="_blank"><i class="uk-icon-whatsapp     uk-icon-large"></i> &nbsp;Envia Cobro a cliente</a></li>
 		EOS;
 	}
 	else {
