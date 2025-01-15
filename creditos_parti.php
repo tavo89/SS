@@ -642,7 +642,7 @@ $saldoCreditoCliente = money2($ConsultaSaldo['saldo']);
 if ($fac_servicios_mensuales==1)
 {
 	$codPais_telefono = 57;
-	$conceptoCobro ="Facturación Electrónica Noviembre y Diciembre 2024git";
+	$conceptoCobro ="Facturación Electrónica Noviembre y Diciembre 2024";
 	$numCelular =limpianum($tel);
 	
 	$fechaPagoCobro = "20-01-2025";
