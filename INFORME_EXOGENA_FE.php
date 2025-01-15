@@ -186,6 +186,16 @@ $tot_mostrador=0;
 $tot_fac_mostrador=0;
 $TOTAL=0;
 
+$totalIVA19=0;
+$totalIVA10=0;
+$totalIVA05=0;
+
+$totalSubTotal19=0;
+$totalSubTotal10=0;
+$totalSubTotal05=0;
+
+$totalExcentas=0;
+
 
 $tot_tarjetaDeb=0;
 $tot_contado=0;
@@ -219,7 +229,7 @@ while($row=$rs->fetch())
 
 	$SERV=serv_0_05_16($num_fac,$pre);
 
-	$TOTAL+=$row['tot'];
+	
 
 	$SUB19=round($row['sub19']+$SERV[19]);
 	$IVA19=round(($row['sub19']+$SERV[19])*0.19);
@@ -232,6 +242,18 @@ while($row=$rs->fetch())
 	$SUB05=round($row['sub05']+$SERV[5]);
 	$IVA05=round(($row['sub05']+$SERV[5])*0.05);
 	$excento+=$SERV[0];
+
+    $TOTAL+=$row['tot'];
+    $totalIVA19+=$IVA19;
+    $totalIVA10+=$IVA10;
+    $totalIVA05+=$IVA05;
+
+    $totalSubTotal19+=$SUB19;
+    $totalSubTotal10+=$SUB10;
+    $totalSubTotal05+=$SUB05;
+
+    $totalExcentas+=$excento;
+
 
 	if($tipoCli=="Mostrador")
 	{
@@ -279,7 +301,13 @@ while($row=$rs->fetch())
 <tfoot>
 <td></td><td></td><td></td><td></td><td></td><td></td>
 <?php if($fechaI<"2017-01-31"){?><td></td><td></td><?php }?>
-<td></td><td></td><td></td><td><?php echo money3( $TOTAL);?></td><td></td>
+<td><?php echo money3( $totalSubTotal19);?></td>
+<td><?php echo money3( $totalIVA19);?></td>
+<td><?php echo money3( $totalSubTotal05);?></td>
+<td><?php echo money3( $totalIVA05);?></td>
+<td><?php echo money3( $totalExcentas);?></td>
+<td><?php echo money3( $TOTAL);?></td>
+<td></td>
 </tfoot>
 </tbody>
     <?php
