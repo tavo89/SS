@@ -7596,7 +7596,7 @@ $iva=19;
 
 
 $cols="num_fac_com,cant,      ref,             des,       costo,       dcto,iva,uti,      pvp,   tot,cod_su,nit_pro,tipo_dcto,dcto2,cod_barras,     color, talla,fabricante,clase,presentacion,fecha_vencimiento,fraccion,unidades_fraccion,aplica_vehi,cod_color,vigencia_inicial,grupo_destino";
-$values="'1122334455-IMP','$csv_array[13]','$csv_array[0]','$csv_array[1]','$csv_array[5]','0','$iva','0','$csv_array[6]','0','$codSuc','R-66Y','','0',    '$csv_array[9]','$csv_array[4]','$csv_array[3]','$csv_array[8]','$csv_array[2]','UNIDAD','0000-00-00','$csv_array[7]',	'0','','$csv_array[11]','$csv_array[12]','$csv_array[13]'";
+$values="'1122334455-IMP','$csv_array[13]','$csv_array[0]','$csv_array[1]','$csv_array[5]','0','$iva','0','$csv_array[6]','0','$codSuc','R-66Y','','0',    '$csv_array[9]','$csv_array[4]','$csv_array[3]','$csv_array[8]','$csv_array[2]','UNIDAD','0000-00-00','$csv_array[7]',	'0','','$csv_array[10]','$csv_array[11]','$csv_array[12]'";
 }
 
 
