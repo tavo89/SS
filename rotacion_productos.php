@@ -113,9 +113,11 @@ if(!empty($filtro_fab)){
 
 $s="SELECT * FROM provedores WHERE nit='$filtro_fab'";
 $r=$linkPDO->query($s);
-$rowA=$r->fetch();
-$nomPro=$rowA["nom_pro"];
-echo "<h2>PROVEEDOR: $nomPro</h2>";
+if($rowA=$r->fetch()){
+	$nomPro=$rowA["nom_pro"];
+	echo "<h2>PROVEEDOR: $nomPro</h2>";
+}
+
 
 }
 
@@ -212,7 +214,7 @@ while ($row = $rs->fetch())
             $des =$row["detalle"]; 
 			$clase = $row["id_clase"];
 			$id = $row["id_sede"];
-			$frac=$row["fraccion"];
+			$frac=$row["fraccion"]>0?$row["fraccion"]:1;
 			$unidades=$row["unidades_frac"];
 			$fab = $row["fab"];
 			$costo=$row['costo']*1; 
