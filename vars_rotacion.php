@@ -298,7 +298,7 @@ while($row=$rs->fetch())
 	$DIAS=$row['dias'];
 	$tot_dia=$row['tot_dia'];
 	$tot_diaFrac=$row['tot_diaFrac'];
-	$frac=$row["fraccion"];
+	$frac=$row["fraccion"]>0?$row["fraccion"]:1;
 	if(isset($tot_vendidos[$ref][$nit_scs])){
 	
 	$tot_vendidosFrac[$ref][$nit_scs]+=$tot_diaFrac;

@@ -903,7 +903,7 @@ if($t!=2){
 <p align="center" >
 <span style="font-size:12px"><?php echo "<b>$showNote</b>"; ?></span>
 <?php
-if($MODULES["mesas_pedidos"]==1000 && $estado=="CERRADA"){
+if($MODULES["mesas_pedidos"]==1 && $estado=="CERRADA"){
 echo "Propina sugeria: por disposicion de la superintendencia de industria y comercio se informa que en este establecimiento la propina es sugerida al consumidor y corresonde al 10% sobre el valor total de la cuenta, el cual podra ser aceptado, rechazado o modificado por usted de aceurdo a la valorizacion del servicio prestado. Si no desea cancelar dicho valor haga caso omiso del mismo, si desea cancelar un valor diferente indiquelo asi para hacer el ajuste correspondiente: $ __________<br>En este establecimiento publico el dinero recogido por concepto de propinas se reparte en un 100% entre los trabajadores de las diferentes areas de trabajo. Cualquier inconveiente cobn el cobro de la propina comuniquese a la linea 3143678727";
 }
 else{
