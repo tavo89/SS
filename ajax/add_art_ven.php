@@ -76,7 +76,7 @@ if($row=$rs->fetch()){
 			$marcaFAB = $row["fab"];
 			
 			
-			$iva = $row["iva"];
+			$iva = !empty($row["iva"])?$row["iva"]:0;
  
 			if($dia_sin_iva == 1 && $validaDiaSinIVA){
 				$pvp=redondeoF($pvp/(1+($iva/100)),-1);
