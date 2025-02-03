@@ -43,19 +43,18 @@ xmlns="http://www.w3.org/TR/REC-html40">
 <style>
 @page
 {
-   {mso-header-data:"&CInventory";
+   mso-header-data:"&CInventory";
 	mso-footer-data:"Page &P of &N";
 	margin:.31in 0in .31in 0in;
 	mso-header-margin:0in;
 	mso-footer-margin:0in;
 	mso-page-orientation:landscape;}
-tr
-	{mso-height-source:auto;}
+tr {mso-height-source:auto;}
 col
 	{mso-width-source:auto;}
 br
 	{mso-data-placement:same-cell;}	
-}
+
 @page Section1 { }
 div.Section1 { page:Section1; }
 p.MsoHeader, p.MsoFooter { border: 1px solid black; }

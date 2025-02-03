@@ -89,8 +89,8 @@ $stmt=null;
 $linkPDO= null;
 if($all_query_ok)
 {
-$_SESSION['num_comp_ingre']=$num_com;
-imp_a("num_comp_ingre",$num_com,"imp_comp_ingre.php","Comprobante de Ingreso No. $num_com","800px","600px");
+	$_SESSION['num_comp_ingre']=$num_com;
+	imp_comp_ingre($num_com);
 }
 }
 else if(($STATS["abono"]+$valor)>$STATS["tot"])

@@ -161,7 +161,7 @@ $_SESSION['num_comp_ingre']=$num_com;
 
 $URL_print="imp_comp_ingre.php";
 if($tipo_imp_comprobantes=="POS"){$URL_print="imp_comp_ingre_pos.php";}
-imp_a("num_comp_ingre",$num_com,$URL_print,"Comprobante de Ingreso No. $num_com","800px","600px");
+imp_comp_ingre($num_com);
 
 
 echo "<script>window.close();</script>";

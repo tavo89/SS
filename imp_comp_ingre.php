@@ -27,12 +27,14 @@ $valor_comp=0;
 $pre="";
 
 if(isset($_SESSION['num_comp_ingre']))$num_comp=$_SESSION['num_comp_ingre'];
-if(isset($_SESSION['num_fac_ven']))$num_fac=$_SESSION['num_fac_ven'];
-$pre=s('pre');
+
+
 
 $titulo="Comprobante de Ingreso No. $num_comp";
 
-$sql="SELECT *,DATE(fecha) as fe,(select CONCAT(nombre,' ',snombr,' ',apelli) from usuarios WHERE usuarios.id_usu=comprobante_ingreso.id_cli LIMIT 1) as nom_cli FROM comprobante_ingreso WHERE num_com=$num_comp AND cod_su=$codSuc";
+$sql="SELECT *,DATE(fecha) as fe,(select CONCAT(nombre,' ',snombr,' ',apelli) from usuarios 
+      WHERE usuarios.id_usu=comprobante_ingreso.id_cli LIMIT 1) as nom_cli 
+      FROM comprobante_ingreso WHERE num_com=$num_comp AND cod_su=$codSuc";
 //echo "<li>$sql</li>";
 $rs=$linkPDO->query($sql);
 if($row=$rs->fetch())
@@ -59,18 +61,6 @@ else {$STATS_PAGOS=tot_saldo($id_cli,$FechaC,$num_comp);}
 $tot_fac=$STATS_PAGOS["tot"];
 $tot_cuotas=$STATS_PAGOS["abono"];
 
-
-/*
-$sql="SELECT SUM(valor) as tot_abon FROM comprobante_ingreso c INNER JOIN fac_venta p ON p.num_fac_ven=c.num_fac WHERE p.prefijo=c.pre AND p.prefijo='$pre' AND p.num_fac_ven=$num_fac AND c.anulado!='ANULADO' AND date(c.fecha)<='$fecha_comp' AND  c.cod_su=p.nit AND p.nit='$codSuc'";	
-	//echo "<br><b>$sql</b>";
-	$rs=$linkPDO->query($sql);
-	
-	if($row=$rs->fetch())
-	{
-	   	$tot_cuotas=$row['tot_abon'];
-	}
-
-*/	
 $saldo=$STATS_PAGOS["saldo"];
 ?>
 
@@ -139,10 +129,7 @@ $(document).ready(
    <td>
    
    <table width="100%" frame="box" style="-webkit-border-radius:10px;-moz-border-radius:10px;" class="imp_pos">
-  <!-- <tr>
-   <td width="20%">Factura:</td><td style="color:red"><?php echo "$pre-$num_fac"?></td>
-   </tr>
-   -->
+
    <tr>
    <td width="20%">Cliente:</td><td><?php echo "$nom_cli"?></td>
    </tr>

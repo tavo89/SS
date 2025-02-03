@@ -18,7 +18,7 @@ $dominioPrincipal='nanimosoft.com';
  * 
  */
 //                	1             2          3        4           5             6	     	   7		       8
-$DB_test=array(1,"u155514936_tittoscomida","interplus","metalhierro","elbutaco","comidas","interplus","motos_nomina","u155514936_analu");
+$DB_test=array(1,"u155514936_testwirpat","interplus","metalhierro","elbutaco","comidas","interplus","motos_nomina","u155514936_analu");
 
 // CONEXION LOCAL
 $SUB_DOMINIOS=[0=>"127.0.0.1/SS/"];

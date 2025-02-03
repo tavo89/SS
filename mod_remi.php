@@ -365,7 +365,7 @@ while($row=$rs_top_panel->fetch())
                 <td><input name="city" type="text" id="city" value="<?php echo "$ciudadCli" ?>" onChange="valida_doc('cliente',this.value);" class="save_fc" /></td>
                   <?php if($MODULES["VEHICULOS"]==1){?>
                 <td>
-                PLACA:
+                PRODUCTO:
                 <a href="#OT_VEHI" data-uk-modal>REGISTRAR</a>
                 </td>
                 <td>
@@ -1063,19 +1063,25 @@ font-style:italic;">
 <div class="uk-modal-dialog">
 
 <a class="uk-modal-close uk-close"></a>
-<h1 style="color:#000">REGISTRO VEH&Iacute;CULO</h1>
+<h1 style="color:#000">REGISTRA ELECTRODOMESTICO</h1>
 <table>
 <tr>
 
 <td>
-<input type="text" value="" name="placa_ve" id="placa_ve" placeholder="PLACA VEH&Iacute;CULO" class="VEHI" onChange="">
+<input type="text" value="" name="placa_ve" id="placa_ve" placeholder="NUMERO DE SERIE" class="VEHI" onChange="">
 </td>
 
 <td>
-<input type="text" value="" name="modelo_ve" id="modelo_ve" placeholder="MODELO VEH&Iacute;CULO" class="VEHI">
+
+<select name="modelo_ve" id="modelo_ve" class="VEHI">
+<option value="AIRE">AIRE</option>
+<option value="AIRE">NEVERA</option>
+<option value="AIRE">LAVADORA</option>
+<option value="COCINA">COCINA</option>
+</select>
 </td>
 <td>
-<input type="text" value="" name="color_ve" id="color_ve" placeholder="COLOR VEH&Iacute;CULO" class="VEHI">
+<input type="text" value="" name="color_ve" id="color_ve" placeholder="COLOR" class="VEHI">
 </td>
 </tr>
 

@@ -46,14 +46,12 @@ function imp_fac_pos($num_fac,$pre,$boton ,$t=1,$sedeOrig="no",$ID=0)
  
 
 };
-function imp_comp_ingre($numFac,$pre,$numComp)
-{
-global $tipo_imp_comprobantes,$ImpURLcomprobantesPOS,$ImpURLcomprobantesCOM;
-$_SESSION['num_fac_ven']=$numFac;
-$_SESSION['pre']=$pre;
-$_SESSION['num_comp_ingre']=$numComp;
-if($tipo_imp_comprobantes=="POS")popup("$ImpURLcomprobantesPOS","", "800px","650px");
-else popup("$ImpURLcomprobantesCOM","", "900px","650px");
+function imp_comp_ingre($numComp)
+{	//sss
+	global $tipo_imp_comprobantes,$ImpURLcomprobantesPOS,$ImpURLcomprobantesCOM;
+	$_SESSION['num_comp_ingre']=$numComp;
+	if($tipo_imp_comprobantes=="POS")popup("$ImpURLcomprobantesPOS","", "800px","700px");
+	else popup("$ImpURLcomprobantesCOM","", "900px","700px");
 };
 
 function imprimir_fac($num_fac,$pre,$hash){

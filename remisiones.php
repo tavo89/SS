@@ -124,8 +124,8 @@ $cols="<th width=\"50\">#</th>
 
 if($MODULES["VEHICULOS"]==1){
 $cols.="
-<th width=\"100\">Placa</th>
-<th width=\"100\" align=\"center\">VEH&Iacute;CULO</th>
+<th width=\"100\">S/N</th>
+<th width=\"100\" align=\"center\">Producto</th>
 ";
 }
 $cols.=

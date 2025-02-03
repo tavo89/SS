@@ -117,7 +117,7 @@ $rs=$linkPDO->query($sql);
 <div id="mensaje">
 </div>
   <input type="hidden" name="check" value="0" id="check" />
-    <input type="hidden" name="num_d" value="<?php echo $num_d ?>" id="num_d" />
+    <input type="hidden" name="num_d" value="<?php echo "" ?>" id="num_d" />
 </form>
 
 <?php

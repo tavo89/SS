@@ -158,7 +158,7 @@ $_SESSION['pre']=$pre;
 $_SESSION['num_comp_ingre']=$val;*/
 //imp_a("num_comp_ingre",$val,"imp_comp_ingre.php","Comprobante de Ingreso No. $val","800px","600px");
 
-imp_comp_ingre($num_fac,$pre,$val);
+imp_comp_ingre($val);
 };
 ?>
 
