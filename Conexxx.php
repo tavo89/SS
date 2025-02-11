@@ -26,7 +26,7 @@ $yearActual=gmdate("Y",hora_local(-5));
 
 $LAST_VER=$FechaHoy;
 $LAST_VER='13.221227-3'; // version del sistema, renueva cache de cliente si se cambia.
-//$LAST_VER=$hoy;
+$LAST_VER=$hoy;
 
 $fechaVenciInterval="days";
 $fechaVenciMINval="180";
@@ -2884,6 +2884,8 @@ $sql="SELECT SUM(valor) as t, COUNT(*) AS c FROM comp_anti WHERE DATE(fecha)>='$
 	return $resp;
 
 };
+
+
 function tot_credito($fechaI,$fechaF,$codSuc,$cod_caja=-1)
 {
 	global $linkPDO;
@@ -2915,6 +2917,46 @@ if($row=$rs->fetch())
 
 return $tot_Credito;
 };
+
+
+function tot_SisteCredito($fechaI,$fechaF,$codSuc,$cod_caja=-1)
+{
+	global $linkPDO;
+	$filtroCerradas=" AND anulado='CERRADA'";
+	$filtroNOanuladas="AND ( (".VALIDACION_VENTA_VALIDA." $filtroCerradas) OR (DATE(fecha_anula)!=DATE(fecha) AND  anulado='ANULADO')) ";
+
+
+	$filtroSEDE_nit="AND nit=$codSuc";
+	if($codSuc=="all")
+	{$filtroSEDE_nit=" ";}
+
+	if($cod_caja!=-1)
+	{
+	$sql="SELECT SUM(tot) as TOT FROM fac_venta  
+	WHERE  cod_caja='$cod_caja' $filtroSEDE_nit  AND DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' 
+	AND tipo_venta='SisteCredito' $filtroNOanuladas";
+	}
+	else
+	{
+		$sql="SELECT SUM(tot) as TOT FROM fac_venta  
+		WHERE   DATE(fecha)>='$fechaI' $filtroSEDE_nit AND DATE(fecha)<='$fechaF' 
+		AND tipo_venta='SisteCredito' $filtroNOanuladas";
+	}
+
+$rs=$linkPDO->query($sql);
+
+$tot_Credito=0;
+if($row=$rs->fetch())
+{
+	$tot_Credito=$row['TOT'];
+
+}
+
+return $tot_Credito;
+};
+
+
+
 function trunca_num($num)
 {
 	return (float)$num;
@@ -4409,7 +4451,8 @@ else{echo "ERROR! Intente nuevamente";}
 function tot_cre_car($fechaI,$fechaF,$codSuc,$filtroHora,$filtroNOanuladas)
 {
 	global $linkPDO;
-	$sql="SELECT SUM(tot_cre) as tc FROM fac_venta WHERE nit='$codSuc' AND tot_cre!=0 AND (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) $filtroNOanuladas";
+	$sql="SELECT SUM(tot_cre) as tc FROM fac_venta 
+	      WHERE nit='$codSuc' AND tot_cre!=0 AND (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) $filtroNOanuladas";
 	$rs=$linkPDO->query($sql);
 
 	if($row=$rs->fetch())

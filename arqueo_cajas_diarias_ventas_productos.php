@@ -1,10 +1,5 @@
 <?php
 
-//$sql="SELECT fac_venta.fecha,fac_venta.fecha_anula,fac_venta.anulado,art_fac_ven.nit,anticipo_bono,tot_tarjeta,entrega_bsf,art_fac_ven.num_fac_ven, precio,des,art_fac_ven.sub_tot,art_fac_ven.iva,cant,ref, TIME(fecha) as hora, DATE(fecha) as fe, tipo_venta,tipo_cli,vendedor,art_fac_ven.prefijo,tot_bsf FROM fac_venta INNER JOIN art_fac_ven ON fac_venta.num_fac_ven=art_fac_ven.num_fac_ven WHERE fac_venta.prefijo=art_fac_ven.prefijo AND fac_venta.nit=art_fac_ven.nit $filtroSEDE_art_ven_nit AND abono_anti=0   AND (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) $filtroNOanuladas";
-
-
-
-//"SELECT * FROM vista_arqueo_pro  WHERE abono_anti=0 $filtroSEDE_nit    AND (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) $filtroNOanuladas";
 $sql="	SELECT 	fac_venta.abono_anti,fac_venta.fecha, fac_venta.fecha_anula, fac_venta.anulado, 
         		art_fac_ven.nit, anticipo_bono, tot_tarjeta, entrega_bsf, art_fac_ven.num_fac_ven, 
 				precio, des, art_fac_ven.sub_tot, art_fac_ven.iva, cant, ref, TIME( fecha ) AS hora, 
@@ -27,6 +22,7 @@ $total_fanalca=0;
 
 $total_contado=0;
 $total_credito=0;
+$total_Sistecredito=0;
 $total_cre_empleados=0;
 $total_cre_fanalca=0;
 $total_cre_otros=0;
@@ -132,6 +128,12 @@ while($row=$rs->fetch())
 		$total_vendedores[$vendedor][3]+=round($row['sub_tot']*$factorImpoConsumo);
 		
 		}
+	if($tipo_venta=="SisteCredito"){
+		$total_Sistecredito+=round($row['sub_tot']*$factorImpoConsumo);
+		$total_vendedores[$vendedor][33]+=round($row['sub_tot']*$factorImpoConsumo);
+		
+		}
+	
 	if($tipo_venta=="Anticipo")
 	{
 		$totFacAnticipo+=round($row['sub_tot']*$factorImpoConsumo);
@@ -163,9 +165,16 @@ while($row=$rs->fetch())
 	
 }// FIN ARTICULOS
 
+
+
+// SERVICIOS Sumatoria
 if($MODULES["SERVICIOS"]==1){
 
-$sql="SELECT * FROM fac_venta a INNER JOIN serv_fac_ven b ON a.num_fac_ven=b.num_fac_ven WHERE a.prefijo=b.prefijo AND a.nit=b.cod_su $filtroSEDE_Bcod_su $filtroCaja    AND (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) $filtroNOanuladas";
+$sql="SELECT * FROM fac_venta a 
+               INNER JOIN serv_fac_ven b 
+			   ON a.num_fac_ven=b.num_fac_ven 
+	  WHERE a.prefijo=b.prefijo AND a.nit=b.cod_su $filtroSEDE_Bcod_su $filtroCaja    
+	  AND (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) $filtroNOanuladas";
 $rs=$linkPDO->query($sql );
 
 
@@ -247,7 +256,13 @@ $i++;
 		$total_credito+=$row['pvp']*1;
 		$total_vendedores[$vendedor][3]+=$row['pvp']*1;
 		
-		}
+	}
+	if($tipo_venta=="SisteCredito")
+	{
+		$total_Sistecredito+=$row['pvp']*1;
+		$total_vendedores[$vendedor][33]+=$row['pvp']*1;
+		
+	}
 	if($tipo_venta=="Anticipo")
 	{
 		$totFacAnticipo+=$row['pvp']*1;

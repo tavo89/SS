@@ -14,11 +14,11 @@ UPDATE `art_fac_ven` SET ref=CONCAT(ref,'OLD'), cod_barras=CONCAT(cod_barras,'OL
 
 
 ----- total !!!
-SET @sucursal=8;
+SET @sucursal=1;
 UPDATE `art_fac_com` SET ref=CONCAT(ref,'OLD'), cod_barras=CONCAT(cod_barras,'OLD') WHERE  cod_su=@sucursal AND (num_fac_com!='8' AND nit_pro!='1');
 
 
-SET @sucursal=8;
+SET @sucursal=1;
 UPDATE  art_devolucion_venta SET ref=CONCAT(ref,'OLD'), cod_barras=CONCAT(cod_barras,'OLD') WHERE nit=@sucursal;
 UPDATE  art_ajuste SET ref=CONCAT(ref,'OLD'), cod_barras=CONCAT(cod_barras,'OLD') WHERE cod_su=@sucursal;
 UPDATE `art_fac_ven` SET ref=CONCAT(ref,'OLD'), cod_barras=CONCAT(cod_barras,'OLD') WHERE  nit=@sucursal;

@@ -2547,12 +2547,6 @@ function val_fv(frm)
 	 ctaIN=frm.id_cuenta.value;
 	}
 	
-	//alert('val_fv');
-	//else if((esVacio(frm.exi_ref.value)|| frm.exi_ref.value<=0)&&(frm.exi_serv.value<=0 || esVacio(frm.exi_serv.value))){alert('Debe cargar articulos y/o servicios a la Factura!');$('#cod').focus();}
-
-   
-	//else if((cambio)<0&&frm.form_pago.value!='Credito'){alert('El valor entregado es inferior al Total, Cambielo');$('#entrega').focus();}
-	//else if( ( (cambio<0 && anticipo==0) || ( (esVacio($('#entrega').val()) && esVacio($('#entrega2').val()) ) && anticipo==0) ) && frm.form_pago.value!='Credito' && modFac==0){alert('Ingrese el monto que entrega el cliente');$('#entrega').focus();}.
 
 
 var ifB1=esVacio(frm.ced.value)|| esVacio(frm.cli.value);	
@@ -2572,11 +2566,11 @@ else if(cta_bancos==1 && (fp!="Contado" && fp!="Credito" && fp!="Cheque") &&( es
 else if( (fp!="Contado" ) && (!esVacio(PagoTar2) && PagoTar2!=0) ){warrn_pop('Este campo SOLO aplica para pagos de CONTADO y TARJETA, si quiere pagar solo tarjeta SELECCIONE la forma de pago "Tarjeta de Credito/Debito" y digite el monto en la casilla "PAGO"');focusRed($(frm.entrega));return true;}
 	 else if((fp=='Contado'||fp=='Contado-Caja General') && (!esVacio(ctaIN)) &&  cta_bancos==1){warrn_pop('Los pagos de CONTADO solo pueden ir a la Cuenta de CAJA GENERAL');focusRed($(frm.form_pago));return true;}
 	 
-	 //else if((cambio)<0&&frm.form_pago.value!='Credito'){alert('El valor entregado es inferior al Total, Cambielo');$('#entrega').focus();return true;}
+	 
 	else if(esVacio(frm.fecha.value) || frm.fecha.value=='0000-00-00'){warrn_pop('Ingrese la fecha');focusRed($(frm.fecha));return true;}
 	else if(esVacio(frm.tipo_cli.value)){warrn_pop('Especifique Tipo de Cliente');focusRed($(frm.tipo_cli));return true;}
 	else if(esVacio(frm.vendedor.value)){warrn_pop('Especifique el Vendedor');focusRed($(frm.vendedor));return true;}
-	else if( ((cambio)<0&&frm.form_pago.value!='Credito') && pos_fac==0){warrn_pop('El valor entregado es inferior al Total, Cambielo');focusRed($('#entrega'));return true;}
+	else if( ((cambio)<0 && (frm.form_pago.value!='Credito' && frm.form_pago.value!='SisteCredito')) && pos_fac==0){warrn_pop('El valor entregado es inferior al Total, Cambielo');focusRed($('#entrega'));return true;}
 
 else if(1 && ( ifB1  ) )
 	{warrn_pop('Registre el Cliente ') ;
@@ -2841,8 +2835,8 @@ function gfo(btn,id,frm)
 	//else if(esVacio(frm.exi_ref.value)|| frm.exi_ref.value<=0){alert('Debe cargar articulos a la Factura!');$('#cod').focus();}
     //else if((esVacio(frm.exi_ref.value)|| frm.exi_ref.value<=0)&&(frm.exi_serv.value<=0 || esVacio(frm.exi_serv.value))){alert('Debe cargar articulos y/o servicios a la Factura!');$('#cod').focus();}
    else if(frm.num_serv.value>0&&esVacio(frm.placa.value)){alert('Ingrese la Placa de la Moto');frm.placa.focus();}
-	else if(entrega<tot&&frm.form_pago.value!='Credito'){alert('El valor entregado es inferior al Total, Cambielo');$('#entrega').focus();}
-	else if(entrega<=0&&frm.form_pago.value!='Credito'){alert('Ingrese el monto que entrega el cliente');$('#entrega').focus();}
+	else if(entrega<tot&& frm.form_pago.value!='Credito' && frm.form_pago.value!='SisteCredito'){alert('El valor entregado es inferior al Total, Cambielo');$('#entrega').focus();}
+	else if(entrega<=0&&frm.form_pago.value!='Credito' && frm.form_pago.value!='SisteCredito'){alert('Ingrese el monto que entrega el cliente');$('#entrega').focus();}
 	
 	
 	
@@ -2879,11 +2873,6 @@ function gfvt(val,id,frm)
 	else if((esVacio(frm.exi_ref.value)|| frm.exi_ref.value<=0)&&(frm.exi_serv.value<=0 || esVacio(frm.exi_serv.value))&&dcto_remi==0){alert('Debe cargar articulos y/o servicios a la Factura!');$('#cod').focus();}
     
    else if(frm.num_serv.value>0&&esVacio(frm.placa.value)){alert('Ingrese la Placa de la Moto');frm.placa.focus();}
-	
-	//else if(entrega<=0){alert('Ingrese el monto que entrega el cliente');$('#entrega').focus();}
-	
-	//else if(entrega<tot&&frm.form_pago.value!='Credito'){alert('El valor entregado es inferior al Total, Cambielo');$('#entrega').focus();}
-	
 	
 	
 	else {

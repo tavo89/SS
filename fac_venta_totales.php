@@ -161,6 +161,7 @@ if($usar_iva==0){?>
 <option value="Cheque"  >Cheque</option>
 <?php if($rolLv>=$Adminlvl|| val_secc($id_Usu,"vende_credito")){?>
 <option value="Credito" <?php if($ventas_credito==1){echo "selected";}?>>Cr&eacute;dito</option>
+<option value="SisteCredito" >SisteCredito</option>
 <?php }?>
 <option value="Tarjeta Credito" >Tarjeta Credito</option>
 <option value="Tarjeta Debito" >Tarjeta Debito</option>

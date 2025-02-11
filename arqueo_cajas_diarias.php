@@ -73,6 +73,7 @@ $tot_fac_mostrador=0;
 $tot_trabajos3ros=0;
 $tot_fac_contado=0;
 $tot_fac_credito=0;
+$tot_fac_Sistecredito=0;
 $tot_fac_tarjeta_credito=0;
 $tot_fac_cheque=0;
 $InteresesCreditos=0;
@@ -92,7 +93,8 @@ while($row=$rs->fetch())
 	$total_vendedores[$n][2]=0; // Contado
 	$total_vendedores[$n][22]=0;// Bolivares fuertes
 	$total_vendedores[$n][21]=0;
-	$total_vendedores[$n][3]=0;
+	$total_vendedores[$n][3]=0; // credito
+	$total_vendedores[$n][33]=0; // Sistecredito
 	$total_vendedores[$n][4]=0;
 	$total_vendedores[$n][5]=0;// Gastos
 	$total_vendedores[$n]["tarjetas"]=0;
@@ -183,7 +185,7 @@ while($row=$rs->fetch())
 
 //***********************************************************************************************************************
 
-//AND (anulado!='ANULADO' OR (DATE(fecha_anula)!=DATE(fecha) AND  anulado='ANULADO'))
+
 $TOT_COMP_EGRESOS=0;//;tot_comp_egreso($fechaI,$fechaF,$codSuc,"","contado");
 $sql="SELECT SUM(valor-r_fte-r_ica) as t,cajero FROM comp_egreso WHERE DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora $filtroSEDE_cod_su AND tipo_pago='Contado' AND (anulado!='ANULADO'  ) GROUP BY cajero";
 	$rs=$linkPDO->query($sql);
@@ -211,6 +213,11 @@ $TOTAL_ANTI_BONO_COBRADOS=tot_anticipos($filtroCaja,$fechaI,$fechaF,$codSuc,"p",
 
 $tot_Credito=tot_credito($fechaI,$fechaF,$codSuc,$CodCajero);
 }
+
+////////////////////////////////////////////////////////// TOTAL SISTECREDITO /////////////////////////////////////////////////////////////////////////////////////////
+$tot_sistecredito=tot_SisteCredito($fechaI,$fechaF,$codSuc,$CodCajero);
+
+
 $TOTAL=0;
 
 /////////////////////////////////////////////////////////// TOTALES FAC ANULADAS /////////////////////////////////////////////////////////////
@@ -346,6 +353,17 @@ $rs=$linkPDO->query($sql);
 if($row=$rs->fetch())
 {
 	$tot_fac_credito=$row['tot_fac'];
+	
+}
+
+
+$sql="SELECT  nit,COUNT(num_fac_ven) as tot_fac,MAX(num_fac_ven) as ultima,MIN(num_fac_ven) as primera FROM fac_venta  
+	  WHERE (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroHora) AND tipo_venta='SisteCredito' 
+	  AND anticipo_bono='NO' $filtroNOanuladas $filtroSEDE_nit";
+$rs=$linkPDO->query($sql);
+if($row=$rs->fetch())
+{
+	$tot_fac_Sistecredito=$row['tot_fac'];
 	
 }
 
@@ -779,6 +797,12 @@ if($MODULES["PAGO_EFECTIVO_TARJETA"]==1){
 <td>CR&Eacute;DITO:</td><td><span id="iva5"><?PHP echo money(redondeo($tot_Credito+$TOT_CRE)) ?></span></td>
 <td align="right" style="border: ridge"><span><?PHP echo $tot_fac_credito ?></span></td>
 </tr>
+
+<tr>
+<td>SISTECR&Eacute;DITO:</td><td><span id="SISTECredito"><?PHP echo money(redondeo($tot_sistecredito)) ?></span></td>
+<td align="right" style="border: ridge"><span><?PHP echo $tot_fac_Sistecredito ?></span></td>
+</tr>
+
 <?php
 if($MODULES["ANTICIPOS"]==1){
 ?>

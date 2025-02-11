@@ -34,20 +34,25 @@ VENTAS POR VENDEDOR
 <td align="center">Tarjetas</td>
 <td align="center">Transferencias</td>
 <td align="center">Cr&eacute;dito</td>
+<td align="center">SisteCr&eacute;dito</td>
 <td align="center">Abonos Cr&eacute;ditos</td>
 <td align="center">Gastos</td>
 
 </tr>
 
 <?php
-$rs=$linkPDO->query("SELECT vendedor from fac_venta WHERE (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' ) $filtroNOanuladas $filtroSEDE_nit  GROUP BY vendedor" );
+$sql ="SELECT vendedor from fac_venta 
+					 WHERE (DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' ) $filtroNOanuladas $filtroSEDE_nit  GROUP BY vendedor";
+$rs=$linkPDO->query($sql);
 $totVendedores=0;
+//echo "<br>$sql";
 while($row=$rs->fetch())
 {
 $nomVende=nomTrim($row["vendedor"]);
 $tcont=money3(round($total_vendedores[$nomVende][2]));
 $tcontBsF=money3(round($total_vendedores[$nomVende][22]));
 $tcre=money3(round($total_vendedores[$nomVende][3]));
+$Sistecre=money3(round($total_vendedores[$nomVende][33]));
 $tventa=money3(round($total_vendedores[$nomVende][1]));
 $tAbon=money3($total_vendedores[$nomVende][4]);
 $tEfectivo=money3($total_vendedores[$nomVende][2]+$total_vendedores[$nomVende][4]-$total_vendedores[$nomVende][5]);
@@ -64,6 +69,7 @@ if($total_vendedores[$nomVende]>0){
 		  <td><b>$totalTarjetas</b></td>
 		  <td><b>$totalTransferencias</b></td>
 		  <td>$tcre</td>
+		  <td>$Sistecre</td>
 		  <td>$tAbon</td>
 		  <td>$tGastos</td>";
 }
