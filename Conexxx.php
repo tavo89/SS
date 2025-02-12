@@ -7595,9 +7595,100 @@ $all_query_ok=true;
 $sql="DELETE FROM art_fac_com WHERE num_fac_com='1122334455-IMP'";
 $linkPDO->exec($sql);
 
-
-$sql="INSERT IGNORE INTO `fac_com` (`nom_pro`, `nit_pro`, `ciudad`, `dir`, `tel`, `fax`, `mail`, `num_fac_com`, `fecha`, `cod_su`, `subtot`, `descuento`, `flete`, `iva`, `tot`, `val_letras`, `fecha_mod`, `fecha_crea`, `serial_fac_com`, `tipo_fac`, `estado`, `dcto2`, `pago`, `fecha_pago`, `id_banco`, `id_cuenta`, `kardex`, `r_fte`, `r_ica`, `r_iva`, `feVen`, `sede_origen`, `sede_destino`, `serial_tras`, `calc_dcto`, `perflete`) VALUES ('IMPORTACION BD', 'R-66Y', '$munSuc', '', '', '', '', '1122334455-IMP', '$hoy', '$codSuc', '0.00', '0.00', '0.00', '0.00', '0.00', '', '$hoy', '$hoy', 1000000, 'Importar BD', 'ABIERTA', '0.00', 'PENDIENTE', '0000-00-00', 0, 0, 1, '0.00', '0.00', '0.00', '2016-03-29', 1, 0, 0, '', '0.00');";
-$linkPDO->exec($sql);
+if($colSet=="A"){
+	$sql="INSERT IGNORE INTO `fac_com` (`nom_pro`, 
+	 									`nit_pro`, 
+										`ciudad`, 
+										`dir`, 
+										`tel`, 
+										`fax`, 
+										`mail`, 
+										`num_fac_com`, 
+										`fecha`, 
+										`cod_su`, 
+										`subtot`, 
+										`descuento`, 
+										`flete`, 
+										`iva`, 
+										`tot`, 
+										`val_letras`, 
+										`fecha_mod`, 
+										`fecha_crea`, 
+										`serial_fac_com`, 
+										`tipo_fac`, 
+										`estado`, 
+										`dcto2`, 
+										`pago`, 
+										`fecha_pago`, 
+										`id_banco`, 
+										`id_cuenta`, 
+										`kardex`, 
+										`r_fte`, 
+										`r_ica`, 
+										`r_iva`, 
+										`feVen`, 
+										`sede_origen`, 
+										`sede_destino`, 
+										`serial_tras`, 
+										`calc_dcto`, 
+										`perflete`) 
+							    VALUES ('Inventario Inicial', 
+								        'R-66Y', 
+										'$munSuc', 
+										'', '', '', '', 
+										'INV-00001', 
+										'$hoy', '$codSuc', '0.00', '0.00', '0.00', '0.00', '0.00', '', 
+										'$hoy', '$hoy', NULL, 'Inventario Inicial', 'ABIERTA', '0.00', 'PENDIENTE', 
+										'0000-00-00', 0, 0, 1, '0.00', '0.00', '0.00', '$hoy', 1, 0, 0, '', '0.00');";
+	$linkPDO->exec($sql);
+}
+else {
+	$sql="INSERT IGNORE INTO `fac_com` (`nom_pro`, 
+	 									`nit_pro`, 
+										`ciudad`, 
+										`dir`, 
+										`tel`, 
+										`fax`, 
+										`mail`, 
+										`num_fac_com`, 
+										`fecha`, 
+										`cod_su`, 
+										`subtot`, 
+										`descuento`, 
+										`flete`, 
+										`iva`, 
+										`tot`, 
+										`val_letras`, 
+										`fecha_mod`, 
+										`fecha_crea`, 
+										`serial_fac_com`, 
+										`tipo_fac`, 
+										`estado`, 
+										`dcto2`, 
+										`pago`, 
+										`fecha_pago`, 
+										`id_banco`, 
+										`id_cuenta`, 
+										`kardex`, 
+										`r_fte`, 
+										`r_ica`, 
+										`r_iva`, 
+										`feVen`, 
+										`sede_origen`, 
+										`sede_destino`, 
+										`serial_tras`, 
+										`calc_dcto`, 
+										`perflete`) 
+							    VALUES ('IMPORTACION BD', 
+								        'R-66Y', 
+										'$munSuc', 
+										'', '', '', '', 
+										'1122334455-IMP', 
+										'$hoy', '$codSuc', '0.00', '0.00', '0.00', '0.00', '0.00', '', 
+										'$hoy', '$hoy', 1000000, 'Importar BD', 'ABIERTA', '0.00', 'PENDIENTE', 
+										'0000-00-00', 0, 0, 1, '0.00', '0.00', '0.00', '2016-03-29', 1, 0, 0, '', '0.00');";
+	$linkPDO->exec($sql);
+}
 
 //echo "OPT: $colSet <br>";
 
