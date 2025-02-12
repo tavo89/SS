@@ -7596,6 +7596,7 @@ $sql="DELETE FROM art_fac_com WHERE num_fac_com='1122334455-IMP'";
 $linkPDO->exec($sql);
 
 if($colSet=="A"){
+	$serialFactura = serial_fac_com("");
 	$sql="INSERT IGNORE INTO `fac_com` (`nom_pro`, 
 	 									`nit_pro`, 
 										`ciudad`, 
@@ -7613,8 +7614,7 @@ if($colSet=="A"){
 										`tot`, 
 										`val_letras`, 
 										`fecha_mod`, 
-										`fecha_crea`, 
-										`serial_fac_com`, 
+										`fecha_crea`,
 										`tipo_fac`, 
 										`estado`, 
 										`dcto2`, 
@@ -7631,15 +7631,17 @@ if($colSet=="A"){
 										`sede_destino`, 
 										`serial_tras`, 
 										`calc_dcto`, 
-										`perflete`) 
+										`perflete`,
+										`serial_fac_com`) 
 							    VALUES ('Inventario Inicial', 
 								        'R-66Y', 
 										'$munSuc', 
 										'', '', '', '', 
-										'INV-00001', 
+										'1122334455-IMP', 
 										'$hoy', '$codSuc', '0.00', '0.00', '0.00', '0.00', '0.00', '', 
-										'$hoy', '$hoy', NULL, 'Inventario Inicial', 'ABIERTA', '0.00', 'PENDIENTE', 
-										'0000-00-00', 0, 0, 1, '0.00', '0.00', '0.00', '$hoy', 1, 0, 0, '', '0.00');";
+										'$hoy', '$hoy', 'Inventario Inicial', 'ABIERTA', '0.00', 'PENDIENTE', 
+										'0000-00-00', 0, 0, 1, '0.00', '0.00', '0.00', '$hoy', 1, 0, 0, '', '0.00','$serialFactura');";
+										//echo "<br><br><br><br><br>$sql";
 	$linkPDO->exec($sql);
 }
 else {

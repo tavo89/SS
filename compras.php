@@ -570,7 +570,7 @@ $ii++;
 
 <?php 
 if($rolLv==$Adminlvl || val_secc($id_Usu,"compras_mod")){
-	if($tipo_fac=='Importar BD'){
+	if($tipo_fac=='Importar BD' || $cod_fac=='1122334455-IMP'){
 ?>
 <li>
 <a href="<?php echo $url."?opc=Elimina Listado&numFac=$cod_fac&nit_fac=$nit_pro" ?>" class="uk-button-danger" >
