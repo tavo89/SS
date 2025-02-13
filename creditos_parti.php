@@ -645,7 +645,7 @@ if ($fac_servicios_mensuales==1)
 	$conceptoCobro ="Facturación Electrónica Noviembre y Diciembre 2024";
 	$numCelular =limpianum($tel);
 	
-	$fechaPagoCobro = "20-01-2025";
+	$fechaPagoCobro = "20-02-2025";
 	$mensajeCobro = urlencode("Hola $nom, tu servicio de $conceptoCobro es de $saldoCreditoCliente, por favor pagar antes de $fechaPagoCobro");
 	if(!empty($tel) ){
 		echo <<<EOS
