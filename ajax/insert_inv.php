@@ -61,6 +61,7 @@ if(isset($_REQUEST['tallaB']))$tallaB= limpiarcampo($_REQUEST['tallaB']);
 
 
 $des= rm('des');
+$aplica_vehi= rm('aplica_vehi');
 $fra=limpianum(r('frac'));
 if($fra==0)$fra=1;
 $fab= limpiarcampo($_REQUEST['fab']);
@@ -211,7 +212,8 @@ $sql="INSERT IGNORE INTO  `inv_inter` (`id_pro` ,
 									   `envase`,
 									   `pvp_credito`,
 									   `pvp_may`,
-									   impuesto_saludable) 
+									   impuesto_saludable,
+									   aplica_vehi) 
 							   VALUES ('$idPro',  
 							            $codSuc,  
 									   '$idInter',  
@@ -231,7 +233,8 @@ $sql="INSERT IGNORE INTO  `inv_inter` (`id_pro` ,
 									   '$Envase',
 									   '$pvpCre',
 									   '$pvpMay',
-									   '$impSaludable')";
+									   '$impSaludable',
+									   '$aplica_vehi')";
 $check=1;
 //echo "$sql";
 $linkPDO->exec($sql);
@@ -262,7 +265,8 @@ $sql="INSERT IGNORE INTO  `inv_inter` (`id_pro` ,
 									   `pvp_credito`,
 									   `pvp_may`,
 									   tipo_producto,
-									   impuesto_saludable) 
+									   impuesto_saludable,
+									   aplica_vehi) 
 							   VALUES ('$id_pro',  
 							            $codSuc,  
 									   '$id_inter',  
@@ -283,7 +287,8 @@ $sql="INSERT IGNORE INTO  `inv_inter` (`id_pro` ,
 									   '$pvpCre',
 									   '$pvpMay',
 									   '$tipoProducto',
-									   '$impSaludable')";
+									   '$impSaludable',
+									   '$aplica_vehi')";
 $check=1;
 $linkPDO->exec($sql);
 }

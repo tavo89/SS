@@ -454,8 +454,8 @@ if($usar_fecha_vencimiento==1){
 if($MODULES["APLICA_VEHI"]==1){
 ?>
 <tr>
-<td>Aplicaci&oacute;n Veh&iacute;culos: </td>
-<td colspan="2"><input name="aplica_vehi" value="<?php echo $row['aplica_vehi'] ?>" type="text"  id="aplica_vehi" /></td>
+<td>Aplicaci&oacute;n: </td>
+<td colspan="4"><input style="width: 300px;" name="aplica_vehi" value="<?php echo $row['aplica_vehi'] ?>" type="text"  id="aplica_vehi" /></td>
 </tr>
 <?php 
 }

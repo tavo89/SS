@@ -61,15 +61,28 @@ $serial=$hostName=="elarauco.nanimosoft.com"? serial_id_pro():'';
                 <tr>
                   <td><textarea name="des" id="des" rows="4"  placeholder="Descripci&oacute;n del producto" ></textarea></td>
                 </tr>
+<?php 
+if($MODULES["APLICA_VEHI"]==1){
+?>
+                <tr>
+                  <td><label>Aplicaci&oacute;n:</label></td>
+                </tr>
+                <tr>
+<td colspan="4"><input style="width: 300px;" name="aplica_vehi" value="" type="text"  id="aplica_vehi" placeholder="Nombre del producto"  /></td>
+</tr>
+
+<?php 
+}
+?>
 <tr>
  <td><label>Fabricante / Marca:</label></td>
  </tr>
 <tr>
-<td><input name="fab" id="fab" type="text" placeholder="Fabricante" value="" onBlur="$('#ganancia').focus()" /></td>
+<td><input name="fab" id="fab" type="text" placeholder="Fabricante" value="" onBlur="$('#claseA').focus()" /></td>
  </tr>
    
 <tr>
-<td><label >Clase:</label><BR><input name="claseA" id="claseA" type="text" placeholder="Clase" value="<?php echo $clase;?>" onBlur="$('#ganancia').focus()" onfocus="$(this).select();"/></td>
+<td><label >Clase:</label><BR><input name="claseA" id="claseA" type="text" placeholder="Clase" value="<?php echo $clase;?>" onBlur="$('#costo').focus()" onfocus="$(this).select();"/></td>
 </tr>
 <!-- 
 <tr>

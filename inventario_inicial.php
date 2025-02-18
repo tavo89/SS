@@ -235,7 +235,7 @@ $colTalla
 <th width=\"200\">Sub Clase</th>
 -->";
 
-if($MODULES["APLICA_VEHI"]==1){$cols.="<th width=\"200\">Aplica Veh&iacute;culo</th>";	}
+if($MODULES["APLICA_VEHI"]==1){$cols.="<th width=\"200\">Aplica</th>";	}
 
 if($usar_fecha_vencimiento==1)
 {
