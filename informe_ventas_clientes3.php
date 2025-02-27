@@ -3,7 +3,7 @@ include_once("Conexxx.php");
 
 $url=thisURL();
 $boton=r("boton");
-if($boton=="MS EXCEL"){excel("Cartera Clientes");}
+if($boton=="MS EXCEL"){excel("Ventas");}
 
 $fechaI="";
 $fechaF="";
@@ -222,7 +222,7 @@ if(isset($_SESSION['fe_crea'])&&!empty($_SESSION['fe_crea'])&&$_SESSION['fe_crea
 //echo $res
 ?>
 <hr align="center" width="100%">
-<table align="center"  frame="box" rules="cols" cellspacing="0" cellpadding="0"  class="uk-table uk-table-striped" style="font-size:10px;">
+<table align="center"  frame="box" rules="cols" cellspacing="0" cellpadding="0"  class="uk-table uk-table-striped" style="font-size:10px;" width="70%">
 
 <thead>
 <?php
@@ -235,7 +235,8 @@ if($tipoInf!=1){
 <th width="120" align="left">Cliente</th>
 <!--<th width="60"> </th>-->
 
-<!--<th>Tot. Sdcto</th>-->
+<th align="right">CostoIVA</th>
+<th align="right">Costo sin IVA</th>
 <th align="right">SUB T.</th>
 <th>IVA</th>
 <th>TOTAL</th>
@@ -288,7 +289,8 @@ $TOT_SUB=0;
 
 	//$sql="SELECT b.iva,b.nit, b.id_cli,b.nom_cli,SUM(a.sub_tot) as tot,b.fecha,SUM(b.descuento) descuento,b.vendedor FROM art_fac_ven a INNER JOIN  fac_venta b  ON a.num_fac_ven=b.num_fac_ven WHERE a.prefijo=b.prefijo AND a.nit=b.nit AND b.nit=$codSuc AND b.".VALIDACION_VENTA_VALIDA." $A $C $E GROUP BY id_cli $ORDER_BY";
 	
-$sql="SELECT num_fac_ven,prefijo,nota,anulado,tot,fecha,id_cli,nom_cli,iva,descuento,sub_tot  FROM  fac_venta b  WHERE b.nit=$codSuc AND b.".VALIDACION_VENTA_VALIDA." $A $C $E $B $filtroFormaPago $filtroNota $ORDER_BY";
+$sql="SELECT num_fac_ven,prefijo,nota,anulado,tot,fecha,id_cli,nom_cli,iva,descuento,sub_tot  
+FROM  fac_venta b  WHERE b.nit=$codSuc AND b.".VALIDACION_VENTA_VALIDA." $A $C $E $B $filtroFormaPago $filtroNota $ORDER_BY";
 
 //echo $sql;
 	$rs=$linkPDO->query($sql);
@@ -349,17 +351,19 @@ $sql="SELECT num_fac_ven,prefijo,nota,anulado,tot,fecha,id_cli,nom_cli,iva,descu
 if($tipoInf!=1){		
 		?> 
 <tr>
-<td colspan="" align="left"><?php echo "$pre $num_fac" ?></td>
-<td colspan="" align="left"><?php echo $idCli ?></td>
+<td colspan="" align="left"><?php echo "$num_fac $pre" ?></td>
+<td colspan="" align="left" style="font-size: 9px;"><?php echo $idCli ?></td>
 <td colspan="" align="left"><?php echo $nomCli ?></td>
-<td align="right"><?php echo money2($subF) ?></td>
-<td align="right"><?php echo money2($ivaF) ?></td>
-<td align="right"><?php  echo money2($totF)?></td>
+<td align="right"><?php echo ($TOT_COSTO_IVA[$num_fac][$pre]) ?></td>
+<td align="right"><?php echo round($TOT_COSTO_SIN[$num_fac][$pre]) ?></td>
+<td align="right"><?php echo round($subF) ?></td>
+<td align="right"><?php echo round($ivaF) ?></td>
+<td align="right"><?php  echo round($totF)?></td>
 <?php 
 if($rolLv==$Adminlvl && $codSuc>0){
 ?>
 <td align="right"><?php echo util_tot( $tot_saldo,$TOT_COSTO_IVA[$num_fac][$pre],"per" ); ?></td>
-<td align="right"><?php  echo money2(util_tot($tot_saldo,$TOT_COSTO_IVA[$num_fac][$pre],"tot"))?></td>
+<td align="right"><?php  echo round(util_tot($tot_saldo,$TOT_COSTO_IVA[$num_fac][$pre],"tot"))?></td>
 <?php 
 }
 ?>
@@ -405,6 +409,7 @@ else {
 <th width="100" colspan=""></th>
 
 <!--<th width="60"> </th>-->
+<th width="100">Costo IVA</th>
 <th width="100">SUB T.</th>
 <th width="100">IVA</th>
 <!--<th>Tot. Sdcto</th>-->
@@ -421,6 +426,7 @@ if($rolLv==$Adminlvl && $codSuc>0){
 </thead>
 <tr style="font-size:12px; font-weight:bold;font-family: 'Arial Black', Gadget, sans-serif;">
 <tH colspan=""><b>TOTAL VENTAS</b></th>
+<td align="center"><?php echo money3($TOT_VENTAS_COSTO_IVA) ?></td>
 <td align="center"><?php echo money3($TOT_SUB) ?></td>
 <td align="center"><?php echo money3($TOT_IVA) ?></td>
 <!--<td><?php  echo money3($tot_venta_sin)?></td>-->
