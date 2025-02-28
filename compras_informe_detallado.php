@@ -213,12 +213,12 @@ while($row=$rs->fetch())
 	$SUB19=round($row['sub19']);
 	$IVA19=round(($row['sub19'])*0.19);
 	
-	$SUB10=round($row['sub10']);
+	$SUB10=round($row['sub10'] ||0);
 	$IVA10=round(($row['sub10'])*0.10);
 	
-	$SUB16=round($row['sub16']);
+	$SUB16=round($row['sub16']||0);
 	$IVA16=round(($row['sub16'])*0.16);
-	$SUB05=round($row['sub05']);
+	$SUB05=round($row['sub05']||0);
 	$IVA05=round(($row['sub05'])*0.05);
 	
 	$FOOT_SUB0+=$excento;

@@ -180,8 +180,6 @@ $sub10_art="(select SUM(sub_tot/1.10) from art_fac_ven where art_fac_ven.num_fac
 $sub19_art="(select SUM(sub_tot/1.19) from art_fac_ven where art_fac_ven.num_fac_ven=fac_venta.num_fac_ven and iva=19 and art_fac_ven.nit=fac_venta.nit AND art_fac_ven.prefijo=fac_venta.prefijo )";
 
 
-//$cols="tipo_venta,prefijo as pre,nom_cli,anulado, num_fac_ven, sub_tot, iva,IFNULL(($excento_art+$excento_serv),0) as excento,tot,vendedor, TIME(fecha) as hora, DATE(fecha) as fe, tipo_venta,tipo_cli,($sub16_art+$sub16_serv) as sub16,($sub05_art+$sub05_serv) as sub05";
-
 $cols=" tipo_cli,
         anticipo_bono,
         id_cli,

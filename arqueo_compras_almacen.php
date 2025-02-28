@@ -24,7 +24,10 @@ $TOT_OTROSS=0;
 $IVA_OTROS=0;
 $BRUTO_OTROS=0;
 
-$sql="SELECT nom_pro,nit_pro,SUM(iva) IVA,SUM(tot) TOT,SUM(descuento) AS dcto  FROM `fac_com` WHERE $MainCondition AND fecha>='$fechaI' AND fecha<='$fechaF' GROUP BY nom_pro ORDER BY 1 ASC";
+$sql="SELECT nom_pro,nit_pro,SUM(iva) IVA,SUM(tot) TOT,SUM(descuento) AS dcto  
+	  FROM `fac_com` 
+	  WHERE $MainCondition AND fecha>='$fechaI' AND fecha<='$fechaF' GROUP BY nom_pro ORDER BY 1 ASC";
+
 $rs=$linkPDO->query($sql);
 while($row=$rs->fetch()){
 	
@@ -58,7 +61,8 @@ else
 
 
 
-$sql="SELECT nom_pro,descuento,nit_pro,serial_fac_com, num_fac_com,fecha,iva,tot  FROM `fac_com` WHERE $MainCondition AND (fecha>='$fechaI' AND fecha<='$fechaF') order by nom_pro,fecha";
+$sql="SELECT nom_pro,descuento,nit_pro,serial_fac_com, num_fac_com,fecha,iva,tot  
+FROM `fac_com` WHERE $MainCondition AND (fecha>='$fechaI' AND fecha<='$fechaF') order by nom_pro,fecha";
 $rsFanalca=$linkPDO->query($sql );
 
 ?>
@@ -124,7 +128,9 @@ Desde: <?PHP echo $_SESSION['fechaI'] ?>
 <tr>
 <td>Proveedor</td>
 <!--<td align="center">Cod. </td>-->
-<td align="center"> Factura</td><td align="center">Fecha</td><td align="right">IVA</td>
+<td align="center"> Factura</td>
+<td align="center">Fecha</td>
+<td align="right">IVA</td>
   <!--<td align="center">Total Sdcto</td>-->
   <td align="right">Total</td>
 </tr>
@@ -156,7 +162,11 @@ $totSdcto=$row['tot']+$row['descuento'];
 
 if($proveedor!=$nomFlag && $first==1){
 
-echo "<tr style='font-size:14px;' valign='top' class=\"uk-block-primary\"><td colspan='4' height='30px'><B>TOTAL COMPRAS [$nomFlag]</B></td><!--<td align='right'>".money2($SUM_TOTS[$nomFlag])."</td>--><td align='right' style='font-size:21px;'>".money2($SUM_TOT[$nomFlag])."</td></tr>";	
+echo "<tr style='font-size:14px;' valign='top' class=\"uk-block-primary\">
+      <td colspan='4' height='30px'><B>TOTAL COMPRAS [$nomFlag]</B></td>
+	  <!--<td align='right'>".money2($SUM_TOTS[$nomFlag])."</td>-->
+	  <td align='right' style='font-size:21px;'>".money2($SUM_TOT[$nomFlag])."</td>
+	  </tr>";	
 
 ?>
 </tbody>
