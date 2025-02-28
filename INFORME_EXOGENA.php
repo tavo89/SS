@@ -139,7 +139,7 @@ Desde: <?PHP echo $_SESSION['fechaI'] ?>
 <th width="120px" colspan="">Direcci&oacute;n</th>
 <th>TipoCliente</th>
 <th>Forma pago</th>
-
+<th>Costo sin IVA</th>
 <th>SUB 19%</th><th>IVA 19%</th>
 <?php if($fechaI<"2017-01-31"){?>
 <th>SUB 16%</th><th>IVA 16%</th>
@@ -150,7 +150,10 @@ Desde: <?PHP echo $_SESSION['fechaI'] ?>
 <!--
 <th>Vendedor</th>
 -->
-<th width="60">Fecha</th><th>Estado</th>
+<th width="60">Fecha</th>
+<!--
+<th>Estado</th>
+-->
 
 </tr>
 </thead>
@@ -158,6 +161,11 @@ Desde: <?PHP echo $_SESSION['fechaI'] ?>
 
 <?php
 $filtroCerradas=" AND anulado='CERRADA'";
+$factor="((unidades_fraccion/fraccion)+cant)";
+$costo_art="(select SUM(costo*$factor) from art_fac_ven 
+            where art_fac_ven.num_fac_ven=fac_venta.num_fac_ven 
+            and art_fac_ven.nit=fac_venta.nit 
+            AND art_fac_ven.prefijo=fac_venta.prefijo  )";
 
 $excento_art="(select SUM(sub_tot) from art_fac_ven where art_fac_ven.num_fac_ven=fac_venta.num_fac_ven and iva=0 and art_fac_ven.nit=fac_venta.nit AND art_fac_ven.prefijo=fac_venta.prefijo  )";
 
@@ -174,7 +182,28 @@ $sub19_art="(select SUM(sub_tot/1.19) from art_fac_ven where art_fac_ven.num_fac
 
 //$cols="tipo_venta,prefijo as pre,nom_cli,anulado, num_fac_ven, sub_tot, iva,IFNULL(($excento_art+$excento_serv),0) as excento,tot,vendedor, TIME(fecha) as hora, DATE(fecha) as fe, tipo_venta,tipo_cli,($sub16_art+$sub16_serv) as sub16,($sub05_art+$sub05_serv) as sub05";
 
-$cols="tipo_cli,anticipo_bono,id_cli,tipo_venta,prefijo as pre,nom_cli,snombr,apelli,anulado, num_fac_ven, SUM(sub_tot) sub_tot, iva,SUM(IFNULL(($excento_art),0)) as excento,SUM(tot) tot,vendedor, TIME(fecha) as hora, DATE(fecha) as fe, tipo_venta,tipo_cli,SUM($sub16_art) as sub16,SUM($sub05_art) as sub05,SUM($sub10_art) as sub10,SUM($sub19_art) as sub19, COUNT(*) AS nf,dir";
+$cols=" tipo_cli,
+        anticipo_bono,
+        id_cli,
+        tipo_venta,
+        prefijo as pre,
+        nom_cli,snombr,
+        apelli,anulado, 
+        num_fac_ven, 
+        SUM(sub_tot) sub_tot, 
+        iva,
+        SUM(IFNULL(($excento_art),0)) as excento,
+        SUM(tot) tot,vendedor, 
+        TIME(fecha) as hora, 
+        DATE(fecha) as fe, 
+        tipo_venta,tipo_cli,
+        SUM($costo_art) as costo,
+        SUM($sub16_art) as sub16,
+        SUM($sub05_art) as sub05,
+        SUM($sub10_art) as sub10,
+        SUM($sub19_art) as sub19, 
+        COUNT(*) AS nf,
+        dir";
 
 
 
@@ -192,6 +221,7 @@ $tot_contado=0;
 $tot_Credito=0;
 $tot_tarjetaCre=0;
 $tot_cheque=0;
+$totalCostoVentas=0;
 while($row=$rs->fetch())
 {
 	$pre=$row['pre'];
@@ -199,7 +229,7 @@ while($row=$rs->fetch())
 	$subTot=$row['sub_tot'];
 	$IVA=$row['iva'];
 	$excento=$row['excento'];
-	$total=$row['tot'];
+	$total=round($row['tot']);
 	$vendedor=$row["vendedor"] ;
 	$HORA=$row['hora'];
 	$fecha=$row['fe'];
@@ -218,8 +248,8 @@ while($row=$rs->fetch())
 
 
 	$SERV=serv_0_05_16($num_fac,$pre);
-
-	$TOTAL+=$row['tot'];
+    $totalCostoVentas = round($row['costo']);
+	$TOTAL+=round($row['tot']);
 
 	$SUB19=round($row['sub19']+$SERV[19]);
 	$IVA19=round(($row['sub19']+$SERV[19])*0.19);
@@ -248,16 +278,17 @@ while($row=$rs->fetch())
 
     <td><?php echo " $num_fac"; /*$pre*/ ?></td>
     <td colspan=""><?php echo $nomCli ?></td>
-        <td colspan=""><?php echo $idCli ?></td>
-        <td colspan=""><?php echo $direccion ?></td>
-				<td colspan=""><?php echo $tipoCli ?></td>
-        <td><?php echo $tipo_venta.$printAnticipo ?></td>
-        <td><?php echo ($SUB19) ?></td>
+    <td colspan=""><?php echo $idCli ?></td>
+    <td colspan=""><?php echo $direccion ?></td>
+	<td colspan=""><?php echo $tipoCli ?></td>
+    <td><?php echo $tipo_venta.$printAnticipo ?></td>
+    <td><?php echo ($totalCostoVentas) ?></td>
+    <td><?php echo ($SUB19) ?></td>
     <td><?php echo ($IVA19) ?></td>
-     <?php if($fechaI<"2017-01-31"){?>
+    <?php if($fechaI<"2017-01-31"){?>
     <td><?php echo ($SUB16) ?></td>
     <td><?php echo ($IVA16) ?></td>
-   <?php }?>
+    <?php }?>
     <td><?php echo ($SUB05) ?></td>
     <td><?php echo ($IVA05) ?></td>
 
@@ -267,7 +298,7 @@ while($row=$rs->fetch())
     <td><?php echo $vendedor ?></td>
  -->
     <td><?php echo $fecha ?></td>
-    <td><?php echo $row['anulado'] ?></td>
+    <!-- <td><?php echo $row['anulado'] ?></td>-->
     </tr>
 
     <?php
@@ -280,7 +311,7 @@ while($row=$rs->fetch())
 <tfoot>
 <td></td><td></td><td></td><td></td><td></td><td></td>
 <?php if($fechaI<"2017-01-31"){?><td></td><td></td><?php }?>
-<td></td><td></td><td></td><td><?php echo money3( $TOTAL);?></td><td></td><td></td>
+<td></td><td></td><td></td><td></td><td></td><td></td><td><?php echo money3( $TOTAL);?></td><td></td>
 </tfoot>
 </tbody>
     <?php
