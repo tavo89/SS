@@ -255,7 +255,7 @@ while($row=$rs->fetch())
     <td><?php echo ($IVA05) ?></td>
    
     <td><?php echo ($excento) ?></td>
-    <td><?php echo ($total) ?></td>
+    <td><?php echo round($total) ?></td>
  
     
 <!--    <td><?php echo $row['estado'] ?></td>-->
