@@ -13,8 +13,8 @@ $NIT_DIAN_FAC="900872272";
 $REGIMEN=varSesionSistema('REGIMEN');
 $actividadPrincipal =varSesionSistema('actividadPrincipal');
 $TEXT_REGIMEN="";
-if($REGIMEN=="COMUN"){$TEXT_REGIMEN="RESPONSABLE DE IVA ";}
-else {$TEXT_REGIMEN="NO Responsable de IVA <br>No Responsable de FActuracion Electronica";}
+if($REGIMEN=="COMUN"){$TEXT_REGIMEN="<br>RESPONSABLE DE IVA ";}
+else {$TEXT_REGIMEN="<br>NO Responsable de IVA <br>No Responsable de FActuracion Electronica";}
 //No Responsable del Impuesto a las Ventas
 
 $muestraActividad ='';
@@ -65,7 +65,7 @@ if(empty($NIT_NEGOCIO)){$showNIT="";}
 if(empty($tel1Su)){$showTEL="";}
 if(empty($NOM_REPRESENTANTE_LEGAL)){$showRepresentante="";}
 
-$showNIT.="<BR />$TEXT_REGIMEN<BR />";
+
 
 $usar_remision=varSesionSistema('usar_remision');
 
@@ -75,6 +75,7 @@ $PUBLICIDAD="
 <p align=\"center\" style=\"font-size:10px;\" class=\"imp_pos\">
 <B>$NOM_NEGOCIO</B>
 $showRepresentante
+$TEXT_REGIMEN
 $muestraActividad
 <BR />
 $dirSuc
@@ -88,6 +89,7 @@ $PUBLICIDAD2="
 <p align=\"left\" style=\"font-size:10px\" class=\"imp_pos\">
 <span style=\" \"><B>$NOM_NEGOCIO</B>
 $showRepresentante
+$TEXT_REGIMEN
 </span>
 </p>
 ";
@@ -95,6 +97,7 @@ $PUBLICIDAD_TXT="
 	$NOM_NEGOCIO
 	$showRepresentante
 	NIT: $NIT_NEGOCIO
+	$TEXT_REGIMEN
 	$dirSuc
 	TELEFONO: $tel1Su
 	$munSuc- $depSuc
@@ -105,6 +108,7 @@ $PUBLICIDAD="
 <p align=\"center\" style=\"font-size:10px;\" class=\"imp_pos\">
 <B>$NOM_NEGOCIO</B>
 $showRepresentante
+$TEXT_REGIMEN
 $muestraActividad
 <BR />
 $showNIT
@@ -119,6 +123,7 @@ $PUBLICIDAD2="
 <p align=\"left\" style=\"font-size:10px\" class=\"imp_pos\">
 <span style=\" \"><B>$NOM_NEGOCIO</B>
 $showRepresentante
+$TEXT_REGIMEN
 $muestraActividad
 </span>
 <BR />
@@ -129,6 +134,7 @@ $showNIT
 $PUBLICIDAD_TXT="
 	$NOM_NEGOCIO
 	$showRepresentante
+	$TEXT_REGIMEN
 	NIT: $NIT_NEGOCIO
 	$dirSuc
 	TELEFONO: $tel1Su
