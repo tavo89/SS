@@ -57,7 +57,7 @@ $Y=varSesionSistema('Y');
 
 
 
-$showNIT="NIT: $NIT_NEGOCIO";
+$showNIT="<br>NIT: $NIT_NEGOCIO";
 $showTEL="TEL&Eacute;FONO: $tel1Su <br />";
 $showRepresentante="<BR>$NOM_REPRESENTANTE_LEGAL";
 
@@ -74,6 +74,7 @@ if($usar_remision==1){
 $PUBLICIDAD="
 <p align=\"center\" style=\"font-size:10px;\" class=\"imp_pos\">
 <B>$NOM_NEGOCIO</B>
+$showNIT
 $showRepresentante
 $TEXT_REGIMEN
 $muestraActividad
@@ -88,6 +89,7 @@ $munSuc- $depSuc
 $PUBLICIDAD2="
 <p align=\"left\" style=\"font-size:10px\" class=\"imp_pos\">
 <span style=\" \"><B>$NOM_NEGOCIO</B>
+$showNIT
 $showRepresentante
 $TEXT_REGIMEN
 </span>
@@ -95,9 +97,10 @@ $TEXT_REGIMEN
 ";
 $PUBLICIDAD_TXT="
 	$NOM_NEGOCIO
+	$showNIT
 	$showRepresentante
-	NIT: $NIT_NEGOCIO
 	$TEXT_REGIMEN
+	<BR />
 	$dirSuc
 	TELEFONO: $tel1Su
 	$munSuc- $depSuc
@@ -107,11 +110,11 @@ else{
 $PUBLICIDAD="
 <p align=\"center\" style=\"font-size:10px;\" class=\"imp_pos\">
 <B>$NOM_NEGOCIO</B>
+$showNIT
 $showRepresentante
 $TEXT_REGIMEN
 $muestraActividad
 <BR />
-$showNIT
 $dirSuc
 <br>
 $showTEL
@@ -122,20 +125,20 @@ $munSuc- $depSuc
 $PUBLICIDAD2="
 <p align=\"left\" style=\"font-size:10px\" class=\"imp_pos\">
 <span style=\" \"><B>$NOM_NEGOCIO</B>
+$showNIT
 $showRepresentante
 $TEXT_REGIMEN
 $muestraActividad
 </span>
-<BR />
-$showNIT
  
 </p>
 ";
 $PUBLICIDAD_TXT="
 	$NOM_NEGOCIO
+	$showNIT
 	$showRepresentante
 	$TEXT_REGIMEN
-	NIT: $NIT_NEGOCIO
+	<BR />
 	$dirSuc
 	TELEFONO: $tel1Su
 	$munSuc- $depSuc
