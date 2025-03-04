@@ -835,7 +835,7 @@ if($MODULES['FACTURACION_ELECTRONICA']==1 && $tipoFactura==7){
 	$QR= getQRcode("$linkQR");
 ?>
 <td  align="center"  class="uk-hiddens" width="50" colspan="2">
-<img src="<?php echo ("$QR") ?>" width="50" height="50" alt="" style="left: 0%;>
+<img src="<?php echo ("$QR") ?>" width="50" height="50" alt="" style="left: 0%;">
 </td>
 </tr>
 <tr>
@@ -907,7 +907,7 @@ if($MODULES["mesas_pedidos"]==1 && $estado=="CERRADA"){
 echo "Propina sugeria: por disposicion de la superintendencia de industria y comercio se informa que en este establecimiento la propina es sugerida al consumidor y corresonde al 10% sobre el valor total de la cuenta, el cual podra ser aceptado, rechazado o modificado por usted de aceurdo a la valorizacion del servicio prestado. Si no desea cancelar dicho valor haga caso omiso del mismo, si desea cancelar un valor diferente indiquelo asi para hacer el ajuste correspondiente: $ __________<br>En este establecimiento publico el dinero recogido por concepto de propinas se reparte en un 100% entre los trabajadores de las diferentes areas de trabajo. Cualquier inconveiente cobn el cobro de la propina comuniquese a la linea 3143678727";
 }
 else{
-    echo "Conserve la factura para reclamos<br />Gracias por su compra";
+    echo "Conserve este recibo para reclamos<br />Gracias por su compra";
 
 }
 ?>

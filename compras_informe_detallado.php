@@ -1,4 +1,4 @@
-  <?php
+<?php
 require_once("Conexxx.php");
 $fechaI=$_SESSION['fechaI'];
 $fechaF=$_SESSION['fechaF'];
@@ -107,16 +107,17 @@ Desde: <?PHP echo $_SESSION['fechaI'] ?>
 <th>#Fac.</th>
 <th width="120px" colspan="">Cliente</th>
 <th>C.C/NIT</th>
-<th>SUB 19%</th><th>IVA 19%</th>
+<th>SUB 19%</th>
+<th>IVA 19%</th>
 <?php if($fechaI<"2017-01-31"){?> 
-<th>SUB 16%</th><th>IVA 16%</th>
+<th>SUB 16%</th>
+<th>IVA 16%</th>
 <?php } ?> 
-<th>SUB 5%</th><th>IVA 5%</th>
-
-<th>Exento</th><th>Total</th>
+<th>SUB 5%</th>
+<th>IVA 5%</th>
+<th>Exento</th>
+<th>Total</th>
  
-
-<!--<th>Estado</th>-->
 
 </tr>
 </thead>
@@ -144,7 +145,11 @@ $excento_art="(select $TOT from art_fac_com where art_fac_com.num_fac_com=fac_co
 $sub16_art="(select $TOT from art_fac_com where art_fac_com.num_fac_com=fac_com.num_fac_com and iva=16 and art_fac_com.cod_su=fac_com.cod_su AND art_fac_com.nit_pro=fac_com.nit_pro )";
 
 
-$sub05_art="(select $TOT from art_fac_com where art_fac_com.num_fac_com=fac_com.num_fac_com and iva=5 and art_fac_com.cod_su=fac_com.cod_su AND art_fac_com.nit_pro=fac_com.nit_pro )";
+$sub05_art="(select $TOT from art_fac_com 
+             where art_fac_com.num_fac_com=fac_com.num_fac_com 
+             and iva=5 
+             and art_fac_com.cod_su=fac_com.cod_su 
+             AND art_fac_com.nit_pro=fac_com.nit_pro )";
 
 $sub10_art="(select $TOT from art_fac_com where art_fac_com.num_fac_com=fac_com.num_fac_com and iva=10 and art_fac_com.cod_su=fac_com.cod_su AND art_fac_com.nit_pro=fac_com.nit_pro )";
 
@@ -153,12 +158,27 @@ $sub19_art="(select $TOT from art_fac_com where art_fac_com.num_fac_com=fac_com.
 
 
 
-$cols="nit_pro,nit_pro as pre,nom_pro,estado, num_fac_com, SUM(subtot) subtot, iva,SUM(IFNULL(($excento_art),0)) as excento,SUM(tot) tot, TIME(fecha) as hora, DATE(fecha) as fe,SUM($sub16_art) as sub16,SUM($sub05_art) as sub05,SUM($sub10_art) as sub10,SUM($sub19_art) as sub19, COUNT(*) AS nf";
+$cols="nit_pro,
+nit_pro as pre,
+nom_pro,estado, 
+num_fac_com,
+SUM(subtot) subtot,
+iva,SUM(IFNULL(($excento_art),0)) as excento,
+SUM(tot) tot, 
+TIME(fecha) as hora, DATE(fecha) as fe,
+SUM($sub16_art) as sub16,
+SUM($sub05_art) as sub05,
+SUM($sub10_art) as sub10,
+SUM($sub19_art) as sub19, 
+COUNT(*) AS nf";
 
  
 
 
-$sql="SELECT $cols FROM fac_com, sucursal WHERE sucursal.cod_su =$codSuc AND fac_com.cod_su = sucursal.cod_su  AND DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroCerradas GROUP BY  num_fac_com   ORDER BY fecha";
+$sql="SELECT $cols FROM fac_com, sucursal 
+      WHERE sucursal.cod_su =$codSuc 
+      AND fac_com.cod_su = sucursal.cod_su  
+      AND DATE(fecha)>='$fechaI' AND DATE(fecha)<='$fechaF' $filtroCerradas GROUP BY  num_fac_com   ORDER BY fecha";
 //echo "$sql";
 $rs=$linkPDO->query($sql);
 $tot_mostrador=0;
@@ -213,12 +233,12 @@ while($row=$rs->fetch())
 	$SUB19=round($row['sub19']);
 	$IVA19=round(($row['sub19'])*0.19);
 	
-	$SUB10=round($row['sub10'] ||0);
+	$SUB10=round($row['sub10'] );
 	$IVA10=round(($row['sub10'])*0.10);
 	
-	$SUB16=round($row['sub16']||0);
+	$SUB16=round($row['sub16']);
 	$IVA16=round(($row['sub16'])*0.16);
-	$SUB05=round($row['sub05']||0);
+	$SUB05=round($row['sub05']);
 	$IVA05=round(($row['sub05'])*0.05);
 	
 	$FOOT_SUB0+=$excento;
@@ -258,7 +278,6 @@ while($row=$rs->fetch())
     <td><?php echo round($total) ?></td>
  
     
-<!--    <td><?php echo $row['estado'] ?></td>-->
     </tr>
     
     <?php

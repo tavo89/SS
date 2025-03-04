@@ -14,7 +14,7 @@ $REGIMEN=varSesionSistema('REGIMEN');
 $actividadPrincipal =varSesionSistema('actividadPrincipal');
 $TEXT_REGIMEN="";
 if($REGIMEN=="COMUN"){$TEXT_REGIMEN="RESPONSABLE DE IVA ";}
-else {$TEXT_REGIMEN="Regimen Simplificado ";}
+else {$TEXT_REGIMEN="NO Responsable de IVA <br>No Responsable de FActuracion Electronica";}
 //No Responsable del Impuesto a las Ventas
 
 $muestraActividad ='';
@@ -57,13 +57,15 @@ $Y=varSesionSistema('Y');
 
 
 
-$showNIT="NIT: $NIT_NEGOCIO <BR />$TEXT_REGIMEN<BR />";
+$showNIT="NIT: $NIT_NEGOCIO";
 $showTEL="TEL&Eacute;FONO: $tel1Su <br />";
 $showRepresentante="<BR>$NOM_REPRESENTANTE_LEGAL";
 
 if(empty($NIT_NEGOCIO)){$showNIT="";}
 if(empty($tel1Su)){$showTEL="";}
 if(empty($NOM_REPRESENTANTE_LEGAL)){$showRepresentante="";}
+
+$showNIT.="<BR />$TEXT_REGIMEN<BR />";
 
 $usar_remision=varSesionSistema('usar_remision');
 
