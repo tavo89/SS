@@ -1,20 +1,20 @@
 <?php
 include_once("../Conexxx.php");
-	$cliente=r('cli');
+	$cliente=rm('cli');
 	$ced=r('ced');
 	$cuidad=r('city');
-	$dir=r('dir');
+	$dir=rm('dir');
 	$tel=r('tel');
 	$nit=$_SESSION['cod_su'];
 	$mail=r('mail');
 	$sim="";//limpiarcampo($_REQUEST['sim']);
 if(!empty($_REQUEST['ced'])&&!empty($_REQUEST['cli'])){
 	
-	$cliente=r('cli');
+	$cliente=rm('cli');
 	$ced=r('ced');
 	$cuidad=r('city');
 	$tipoD="";
-	$dir=r('dir');
+	$dir=rm('dir');
 	$tel=r('tel');
 	$nit=$_SESSION['cod_su'];
 	$mail=r('mail');
