@@ -2,10 +2,10 @@
 require_once("../Conexxx.php");
 	$nombre=limpiarcampo(mb_strtoupper($_REQUEST['cli'],"$CHAR_SET"));
 	$ced=limpiarcampo($_REQUEST['ced']);
-	$usu=limpiarcampo($_REQUEST['usu']);
+	$usu=rl('usu');
 	$cla=limpiarcampo($_REQUEST['cla']);
 	$tipoUsu=limpiarcampo($_REQUEST['tipo_usu']);
-	$mail=limpiarcampo($_REQUEST['mail']);
+	$mail=rl('mail');
 	$lv=0;
 	if($tipoUsu=="adm")$lv=10;
 	else $lv=1;
@@ -16,7 +16,7 @@ if(!empty($_REQUEST['ced'])&&!empty($_REQUEST['cli'])&&!empty($_REQUEST['usu'])&
 	$usu=limpiarcampo($_REQUEST['usu']);
 	$cla=limpiarcampo($_REQUEST['cla']);
 	$tipoUsu=limpiarcampo($_REQUEST['tipo_usu']);
-	$mail=limpiarcampo($_REQUEST['mail']);
+	$mail=rl('mail');
 	$cursoMejoramiento=r("curso");
 	$lv=0;
 	if($tipoUsu=="adm")$lv=10;
@@ -70,7 +70,6 @@ echo "1";
 else{echo "500";}
 
 }catch (Exception $e) {
-  $linkPDO->rollBack();
   echo "Failed: " . $e->getMessage();
 }
 
