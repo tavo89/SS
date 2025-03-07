@@ -2633,7 +2633,10 @@ function rl($REQUEST_VARIABLE)
 {
 	global $CHAR_SET;
 	$resp="";
-	if(isset($_REQUEST[$REQUEST_VARIABLE]))$resp=limpiarcampo(trim(mb_strtolower($_REQUEST[$REQUEST_VARIABLE],"$CHAR_SET")));
+	if(isset($_REQUEST[$REQUEST_VARIABLE])){
+		$resp=limpiarcampo(trim(mb_strtolower($_REQUEST[$REQUEST_VARIABLE],"$CHAR_SET")));
+	}
+	
 	$resp = str_replace("|","", $resp);
 	return $resp;
 };

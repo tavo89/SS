@@ -7,7 +7,7 @@ include_once("../Conexxx.php");
 	$dir=limpiarcampo(strtoupper($_REQUEST['dir']));
 	$tel=limpiarcampo($_REQUEST['tel']);
 	$nit=limpiarcampo($_SESSION['cod_su']);
-	$mail=limpiarcampo($_REQUEST['mail']);
+	$mail=limpiarcampo(strtolower($_REQUEST['mail']));
 	$sim="";//limpiarcampo($_REQUEST['sim']);
 	
 	$COD_CAJA=r("cod_caja");
@@ -230,7 +230,6 @@ echo "1";
 else{echo "0";}
 
 }catch (Exception $e) {
-  $linkPDO->rollBack();
   echo "Failed: " . $e->getMessage();
 }
 
