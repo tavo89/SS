@@ -2629,6 +2629,15 @@ function rm($REQUEST_VARIABLE)
 	return $resp;
 };
 
+function rl($REQUEST_VARIABLE)
+{
+	global $CHAR_SET;
+	$resp="";
+	if(isset($_REQUEST[$REQUEST_VARIABLE]))$resp=limpiarcampo(trim(mb_strtolower($_REQUEST[$REQUEST_VARIABLE],"$CHAR_SET")));
+	$resp = str_replace("|","", $resp);
+	return $resp;
+};
+
 function s($SESSION_VARIABLE)
 {
 	$resp="";

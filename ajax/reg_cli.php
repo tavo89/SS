@@ -6,7 +6,7 @@ include_once("../Conexxx.php");
 	$dir=rm('dir');
 	$tel=r('tel');
 	$nit=$_SESSION['cod_su'];
-	$mail=r('mail');
+	$mail=rl('mail');
 	$sim="";//limpiarcampo($_REQUEST['sim']);
 if(!empty($_REQUEST['ced'])&&!empty($_REQUEST['cli'])){
 	
@@ -17,7 +17,7 @@ if(!empty($_REQUEST['ced'])&&!empty($_REQUEST['cli'])){
 	$dir=rm('dir');
 	$tel=r('tel');
 	$nit=$_SESSION['cod_su'];
-	$mail=r('mail');
+	$mail=rl('mail');
 	$sim="";//limpiarcampo($_REQUEST['sim']);
 	
 	$topCre= quitacom(r("top_cre"));
@@ -94,7 +94,6 @@ echo "1";
 else{echo "500";}
 
 }catch (Exception $e) {
-  $linkPDO->rollBack();
   echo "Failed: " . $e->getMessage();
 }
 
