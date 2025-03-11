@@ -206,7 +206,7 @@ var FPEgresoOpt='<?php echo egresoOpt($FP_egresos);?>';
 		<!-- Lado izquierdo del Nav -->
 		<nav class="uk-navbar">
 
-		<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+		<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 
 			<!-- Centro del Navbar -->
 

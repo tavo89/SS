@@ -305,7 +305,7 @@ $rs=$linkPDO->query($sql_busq );
 
 <!-- Lado Izquierdo del Navbar -->
 
-<nav class="uk-navbar" > <a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+<nav class="uk-navbar" > <a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 <!-- Centro del Navbar -->
 <ul class="uk-navbar-nav " style=" ">  <!--  !!!!!!!    AUMENTAR ANCHO AL AGREGAR NUEVOS ELEMENTOS AL CENTRO, ES NECESARIO PARA QUE CENTRE ADECUADAMENTE !!!!!!!!! -->
 		

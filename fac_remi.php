@@ -249,12 +249,21 @@ $idCli=$NIT_PUBLICO_GENERAL;
 					?>
                     <!--<option value="Empleados">Empleados</option>-->
                   </select></td>
-                <td colspan="2" align="left">Vendedor:<br>
+                <td colspan="2" align="left">Tecnico:<br>
                   <select name="vendedor" id="vendedor"  style="width:150px">
                     <option value="<?PHP echo $nomUsu ?>" selected><?PHP echo $nomUsu ?></option>
                     <?php
-		  
-		  $rs=$linkPDO->query("SELECT nombre FROM usuarios a INNER JOIN (SELECT a.estado,b.id_usu,b.des FROM usu_login a INNER JOIN tipo_usu b ON a.id_usu=b.id_usu WHERE (des='Vendedor' OR des='Caja' OR des='Inventarios' OR des='Administrador' OR des='Conductor') AND a.estado!='SUSPENDIDO') b ON b.id_usu=a.id_usu   ORDER BY nombre");
+		  $filtroUsuarios="";
+      if($MODULES["APLICA_VEHI"]==1){
+        $filtroUsuarios="  (des='Tecnico' OR des='Mecanico')";
+      } else {
+        $filtroUsuarios="  (des='Vendedor' OR des='Caja' OR des='Inventarios' OR des='Administrador')";
+      }
+
+		  $rs=$linkPDO->query("SELECT nombre FROM usuarios a 
+      INNER JOIN (SELECT a.estado,b.id_usu,b.des FROM usu_login a 
+      INNER JOIN tipo_usu b ON a.id_usu=b.id_usu WHERE $filtroUsuarios 
+      AND a.estado!='SUSPENDIDO') b ON b.id_usu=a.id_usu   ORDER BY nombre");
 		  while($row=$rs->fetch()){
 			  
 			  $vendedor= $row["nombre"];

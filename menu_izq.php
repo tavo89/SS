@@ -13,7 +13,7 @@
 		<ul class="uk-nav uk-nav-offcanvas uk-nav-parent-icon" data-uk-nav>
 		
 							<!-- Nivel de los Desplegables -->   
-							<li><a style="background:#405060; text-align:left; padding-left:15px;" href="centro.php"><img style="margin-right:10px; margin-left:20px;" src="Imagenes/logoICO.ico" class="icono_ss">Smart Selling</a></li>
+							<li><a style="background:#405060; text-align:left; padding-left:15px;" href="centro.php"><img style="margin-right:10px; margin-left:20px;" src="Imagenes/favSmart.png" class="icono_ss">Smart Selling</a></li>
 
 							<li class="uk-parent"> <!--  Operaciones Administrativas -->
 							

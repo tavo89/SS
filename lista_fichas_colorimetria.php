@@ -249,7 +249,7 @@ $rs=$linkPDO->query($sql_busq );
 
 
 
-<nav class="uk-navbar"> <a class="uk-navbar-brand" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+<nav class="uk-navbar"> <a class="uk-navbar-brand" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 
 		<ul class="uk-navbar-nav uk-navbar-center" style="width:850px;">
                     <li class="ss-navbar-center"><a href="ficha_colorimetria.php"><i class="uk-icon-sticky-note-o <?php echo $uikitIconSize ?>"></i>&nbsp;Nueva Ficha</a></li>

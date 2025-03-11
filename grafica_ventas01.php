@@ -140,7 +140,7 @@ for($i=1;$i<=12;$i++)
 
 <div class="uk-width-9-10 uk-container-center">
 <nav class="uk-navbar">
-<a class="uk-navbar-brand uk-visible-large" href="#"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a>
+<a class="uk-navbar-brand uk-visible-large" href="#"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a>
 <div class="uk-navbar-content uk-text-large"><i class="uk-icon-navicon"></i>&nbsp;<a href="#filtros" data-uk-modal>Egresos</a>.</div>
 </nav>
 

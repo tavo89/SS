@@ -1,6 +1,6 @@
 <!-- Lado izquierdo del Nav -->
 <nav class="uk-navbar">
-<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 <!-- Centro del Navbar  if(!empty($cod_origen)){echo "traslados_salen.php";}else-->
 <ul class="uk-navbar-nav uk-navbar-center" style="width:100%; font-size:9px;">   <!-- !!!!!!!!!! AJUSTAR ANCHO PARA AGREGAR NUEVOS ELMENTOS !!!!!!!! -->
 <li ><a style="font-size:10px;" href="<?php  if ($COTIZACION==1){echo "COTIZACIONES.php";}else if($tipoFAC=="remi"){echo "remisiones2.php";} else{ echo "remisiones.php";} ?>" >

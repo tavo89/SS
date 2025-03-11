@@ -1,6 +1,6 @@
 <title>Smart Selling 4.9.5</title>
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" charset="UTF-8"/>
-<link rel="shortcut icon" href="Imagenes/logoICO.ico" />
+<link rel="shortcut icon" href="Imagenes/favSmart.png" />
 <link rel="stylesheet" type="text/css" href="css/uikit-2.24.2/css/uikit.gradient.min.css?<?php  echo "?$LAST_VER"; ?>" />
 
 

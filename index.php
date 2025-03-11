@@ -275,7 +275,7 @@ else eco_alert("Usuario no encontrado...");
 <!DOCTYPE html  >
 <html  >
 <head>
-<link rel="shortcut icon" href="Imagenes/logoICO.ico" />
+<link rel="shortcut icon" href="Imagenes/favSmart.png" />
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Smart Selling 4.9.5</title>

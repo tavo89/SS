@@ -8,7 +8,7 @@ $url="FIX_INV3.php";
 <meta name="viewport" content="width=device-width,initial-scale=1,minimum-scale=1,maximum-scale=1" charset="UTF-8"/>
 <link rel="stylesheet" type="text/css" href="css/fonts.css" />
 
-<link rel="shortcut icon" href="Imagenes/logoICO.ico" />
+<link rel="shortcut icon" href="Imagenes/favSmart.png" />
 <link rel="stylesheet" type="text/css" href="css/uikit-2.24.2/css/components/tooltip.gradient.min.css">
 <link rel="stylesheet" type="text/css" href="css/uikit-2.24.2/css/components/datepicker.min.css" />
 <link rel="stylesheet" type="text/css" href="css/uikit-2.24.2/css/components/progress.gradient.min.css">

@@ -125,7 +125,7 @@ table td, table th {
 			<!-- Lado izquierdo del Nav -->
 		<nav class="uk-navbar uk-width-9-10 uk-container-center">
 
-		<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+		<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 
 			<!-- Centro del Navbar -->
 

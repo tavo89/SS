@@ -266,7 +266,7 @@ transform-origin: top left;
     <?php //include_once("boton_menu.php"); ?>
     <div class="uk-width-9-10 uk-container-center">
 
-      <nav class="uk-navbar"> <a class="uk-navbar-brand uk-visible-large" href="#"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a>
+      <nav class="uk-navbar"> <a class="uk-navbar-brand uk-visible-large" href="#"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a>
       <ul class="uk-navbar-nav uk-navbar-center" style="">
        <li class="ss-navbar-center"><a href="#filtro_repetidos" data-uk-modal><i class="uk-icon-filter <?php echo $uikitIconSize ?>"></i>&nbsp;Filtros</a></li>
        <li class="ss-navbar-center"><a href="ReporteExcelCompra.php"  ><i class="uk-icon-list <?php echo $uikitIconSize ?>"></i>&nbsp;Listado Productos</a></li>

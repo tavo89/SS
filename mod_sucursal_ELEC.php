@@ -66,7 +66,7 @@ else{eco_alert("ERROR! Intente nuevamente");}
 
 <!-- Lado izquierdo del Nav -->
 <nav class="uk-navbar">
-<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+<a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 
 <!-- Centro del Navbar -->
 <ul class="uk-navbar-nav uk-navbar-center" style="width:830px;">   <!-- !!!!!!!!!! AJUSTAR ANCHO PARA AGREGAR NUEVOS ELMENTOS !!!!!!!! -->

@@ -258,7 +258,7 @@ $rs=$linkPDO->query($sql_busq );
 
 
 
-<nav class="uk-navbar"> <a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/logoICO.ico" class="icono_ss"> &nbsp;SmartSelling</a> 
+<nav class="uk-navbar"> <a class="uk-navbar-brand uk-visible-large" href="centro.php"><img src="Imagenes/favSmart.png" class="icono_ss"> &nbsp;SmartSelling</a> 
 
 <ul class="uk-navbar-nav uk-navbar-center" style="width:850px;">
 <?php if($MODULES["CARTERA_MASS"]==1){?>		
