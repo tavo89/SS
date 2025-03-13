@@ -424,24 +424,18 @@ function save_form($form,ajaxURL,backURL)
 			//$('<p>'+text+'</p>').appendTo('#salida');
 			if(c==1)
 			{
-			open_pop('Guardado','Ha sido Registrado con &Eacute;xito','');	
-			$('#popupDialog').bind({
-  			 popupafterclose: function() { location.assign(backURL); }
-									});	
+			open_pop('Guardado','Ha sido Registrado con &Eacute;xito','');
+			waitAndReload();
 			}
 			else if(c==0)
 			{
 				open_pop('ERROR','Ha ingresado datos no v&aacute;lidos','Por Favor Intentelo de nuevo');
-				$('#popupDialog').bind({
-  			 popupafterclose: function() { $(this).remove(); }
-									});
+				waitAndReload();
 			}
 			else if(c==2)
 			{
 				open_pop('ERROR','Faltan Datos','Por Favor Llene todos los campos');
-				$('#popupDialog').bind({
-  			 popupafterclose: function() { $(this).remove(); }
-									});
+				waitAndReload();
 			};
 			//else alert('Actualizado');
 		}

@@ -67,7 +67,7 @@ var usar_decimales_exactos= '<?php echo $usar_decimales_exactos; ?>';
 var mod_ivas_facs= '<?php echo $mod_ivas_facs; ?>';
 
 // variables Dian
-var resolPosElectronica= '<?php echo $resolPosElectronica; ?>';
+var autoSendFE= '<?php echo $autoSendFE; ?>';
 var impuesto_consumo='<?php echo $impuesto_consumo; ?>'*1;
 var impuestos_consumo= '<?php echo $impuestos_consumo; ?>';
 var impuesto_bolsas=<?php echo $impuesto_bolsas; ?>;

@@ -25,7 +25,7 @@ $mesActual=gmdate("m",hora_local(-5));
 $yearActual=gmdate("Y",hora_local(-5));
 
 $LAST_VER=$FechaHoy;
-$LAST_VER='13.221227-3'; // version del sistema, renueva cache de cliente si se cambia.
+$LAST_VER='13.11032025-1'; // version del sistema, renueva cache de cliente si se cambia.
 $LAST_VER=$hoy;
 
 $fechaVenciInterval="days";

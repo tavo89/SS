@@ -26,6 +26,7 @@ $PUBLICO_GENERAL='CONSUMIDOR FINAL';
 $NIT_PUBLICO_GENERAL='222222222222';
 
 $resolPosElectronica = varSesionSistema('resolPosElectronica');
+$autoSendFE = varSesionSistema('autoSendFE');
 
 
 $INFO_IMPRESORA_POS="<b>Facturas POS </b>IMPRESORA: BIXOLON MODELO: SRP-350 S/N: IMPCHKA10110096";
@@ -457,7 +458,7 @@ $modoPruebas = varSesionSistema('modoPruebas');
 $habilitaCorteInventario = varSesionSistema('habilitaCorteInventario');
 
 
-$LABEL_REMISION="Ord. Compra";
+$LABEL_REMISION="Ord. Servicio";
 if($usar_datos_motos==1){$LABEL_REMISION="Apartados";}
 if($MODULES["modulo_planes_internet"]==1){$LABEL_REMISION="SEG. EQUIPOS";}
 

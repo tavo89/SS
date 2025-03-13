@@ -5291,7 +5291,7 @@ function save_fac_ven()
 		success:function(response){
 
 				if(response.successCode==1){
-					if(resolPosElectronica==1000 && tipoResol=='POS') {
+					if(autoSendFE==1) {
 						SEND_facElec(response.numFactura,response.prefijoFac,'',response.codSuc,response.serialFac,response.mailTo,response.idCliente);
 						//waitAndReload();
 					}

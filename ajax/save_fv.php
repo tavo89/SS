@@ -341,7 +341,6 @@ $linkPDO= null;
 }
 else{echo "ERROR";}
 }catch (Exception $e) {
-  $linkPDO->rollBack();
   echo "Failed: " . $e->getMessage();
 }
 ?>
